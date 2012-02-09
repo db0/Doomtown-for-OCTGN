@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Target="/cards/back.jpg" Id="r01" Type="http://schemas.octgn.org/picture" />
+  <Relationship Target="/cards/front.jpg" Id="r02" Type="http://schemas.octgn.org/picture" />
+  <Relationship Target="/counters/influence.png" Id="r03" Type="http://schemas.octgn.org/picture" />
+  <Relationship Target="/counters/control.png" Id="r04" Type="http://schemas.octgn.org/picture" />
+  <Relationship Target="/counters/ghostrock.png" Id="r05" Type="http://schemas.octgn.org/picture" />
+  <Relationship Target="/counters/victory.png" Id="r06" Type="http://schemas.octgn.org/picture" />
+  <Relationship Target="/counters/fear.png" Id="r07" Type="http://schemas.octgn.org/picture" />
+  <Relationship Target="/groups/deck.png" Id="r08" Type="http://schemas.octgn.org/picture" />
+  <Relationship Target="/groups/boothill.png" Id="r09" Type="http://schemas.octgn.org/picture" />
+  <Relationship Target="/groups/removed.png" Id="r10" Type="http://schemas.octgn.org/picture" />
+  <Relationship Target="/groups/drawhand.png" Id="r11" Type="http://schemas.octgn.org/picture" />
+  <Relationship Target="/groups/playhand.png" Id="r12" Type="http://schemas.octgn.org/picture" />
+  <Relationship Target="/groups/discard.png" Id="r13" Type="http://schemas.octgn.org/picture" />
+  <Relationship Target="/background/background.jpg" Id="r14" Type="http://schemas.octgn.org/picture" />
+  <Relationship Target="/scripts/actions.py" Id="r20" Type="http://schemas.octgn.org/script" />  
+  <Relationship Target="/counters/coin.png" Id="r15" Type="http://schemas.octgn.org/picture" />
+  <Relationship Target="/counters/phases.png" Id="r16" Type="http://schemas.octgn.org/picture" />  
+</Relationships>

@@ -1,0 +1,107 @@
+[b]== Changelog ==[/b]
+
+=== 0.2.12 ===
+
+[list]
+[*] When revealing a lowball hand, it will now announce if you have any event and highlight it differently. If you have more than one event, it will pick one at random for you.
+[*] Implemented the "Ace all events from discard pile" function[/list]
+
+
+=== 0.2.11 ===
+
+Found a bug that was invisible until one tried to install the game for the first time. Then the sets wouldn't install. This should work now.
+
+=== 0.2.10 ===
+
+[list]
+[*] [b]Poker Hand evaluation is finally here. W00t![/b] After a hard weekened of work, I've finally figured how to evaluate all the hands when you reveal them on the table. Not only that, but the hand will take into account any jokers you have to make a better rank [i]but will ignore the jokers during lowball hands[/i]! It will also tell you if you are a Cheatin' sonnova.
+[*] Acing and Discarding Revealed Draw Hands (from shootout and Lowball) from the table will not longer affect your influence and CPs
+[*] Fixed bunch of other bugs that I've forgotten by now[/list]
+
+=== 0.2.9 ===
+
+[list]
+[*] Standarized the shortcuts
+[*] Implemented the Re-Calculate action. Now if ever you think you have the wrong totals, just hit Ctrl+C and you'll get updated verbosely.
+[*] Now acing and discarding cards reduces your Influence and CP totals according to the amount on the cards that just left play.
+[*] Added some warning when acing wanted and harrowed dudes to make sure you didn't forget the bounty or the pull.
+[*] Minor spelling changes.[/list]
+
+
+=== 0.2.8 ===
+
+[list]
+[*] Added [i]Mad Comments[/i] everywhere. Now most functions are explained exquisitively.
+[*] Added phase option to return to the pre-game setup phase. [b]Use this with caution[/b] as it will reset all global variables (eg which side you're one, how many building your have and so on). Once you are back on the pre-game setup phase, you can then use the the "Setup Starting cards & Hand" function. In general, you should only ever go back to this phase once you've reset the game.
+[*] the "Setup Starting cards & Hand" function has been restricted to only when you are in the pre-game setup phase to avoid nasty accidents.
+[*] Moved Plus/Minus Control/Influence/Production markers, plus High Noon and Shootout ability markers and "Add new marker" into their own subgroup of table card actions.
+[*] Adding plus Influence/Control markers on cards now increases your totals. Adding minus Influence/Control markers on cards reduced your totals but only if the card has any to begin with.
+[*] The "Mark as Jailbroken" now adds a -Control marker, so it synergizes better in case the deed had a +control marker already or gets one in the future.
+[*] Fixed the "Run Away" and "Refuse Call out" actions to now move you left /right instead of top/bottom[/list]
+
+=== 0.2.7 ===
+
+[list]
+[*] Fixed variable production deeds breaking upkeep
+[*] Added some extra markers to mark production increase /decrease. Use these to set the production of your variable production deeds [b](Remember to update you markers file!)[/b]
+[*] Upkeep now takes into account production markers and even the jailbroken marker.
+[*] Playing the starting cards will now wipe your GR, CP, and Influence and play pretty much all cards from your hand so make sure you don't use this action by mistake in the middle of the game! This change was done to allow factions which start with cards other than dudes, like the Sweetrock, to automatically play those too.
+[*] Created an unimplemented option to recalculate your total influence and Control Points. When implemented, this will count the number of influence and control you have on cards you control (including their any markers) and update your counters to be accurate. Should be useful in keeping track without mistakes.[/list]
+
+=== 0.2.6 ===
+
+After personal experimentation, I've changed the default layout as set by card setup and card play, to be left-right instead of top-bottom. Doomtown on OCTGN, without a way to have your own cards in front of you actually benefits tremendously from this setup. By having one player on the left and another on the right, no player is forced to use to very unintuitive and uncomfortable top position. Furthermore, by having your street setup vertically, you can actually setup your dudes much better, by placing them in a row behind each deed and with their items under each. The only thing I'm not liking a lot is the automatic placement of the out-of-town deeds. At the moment they default about 3 cards distance behind your home, starting from the top and being placed downwards. If anyone can figure out a better default placement, please let me know.
+
+=== 0.2.5 ===
+
+[list]
+[*] Nightfall now refreshes your hand to your hand size. A new command has been added to set you hand size (For having the max inlfuence, or modified by cards like Eureka!)
+[*] Setting up your starting cards now also shuffles your deck, gives you your initial hand of 5 and increases your initial Influence by your starting Dude's influence
+[*] When playing cards from your hand with the "Play Card" command, their cost will be subtracted from your bank and their influence and CP will be added to your totals automatically.
+[*] Added a new counter to the global area called "Phase" which I hope to use to track the phase for all the players simulataneously.[/list]
+
+
+=== 0.2.4 ===
+
+[list]
+[*] Implemented automated Upkeep/Production. Selecting this option in the table will automatically fill your bank with the production of any GR producing cards you control in play and will bill you for any cards costing upkeep. It will also react appropriately if you don't have enough money to pay all your upkeep costs.
+[*] Updated the "Setup Starting Cards" option to setup your starting GR as well and to also announce your outfit, starting dudes and starting GR.
+[*] Behind the scenes, quite a lot of groundwork to enable me to manipulate your counters as you play and use card. More automation will come from this :)[/list]
+
+=== 0.2.3 ===
+
+[list]
+[*] Added an Option to Inspect cards. This will provide a confirm pop-up window with the text of the card which should help with reading the low quality cards available. Once better, Higher Quality scans are available for most cards, this will be removed to unclutter the interface
+[*] Improved the "Play Card" function. Now notification customized per card type. Deeds will be moved to appropriate locations. In town deeds will even be placed left or right of your home after a confirm option. Dudes will be played at your home. In future versions this will also pay the costs automatically or prevent you from playing the card if you don't have enough money.
+[*] Added the Draw Hand function to setup your starting cards. Will place your home in your area and your starting dudes behind it. This will coordinate for 2 players. In the future I will try to implement a way for up to 4 players to be orientated.
+[*] Orientated the reveal of Draw and Shootout Hands to be placed in each player's area.
+[*] Implemented Posse creation actions that highlight defenders and attackers.
+[*] The Shootout Phase will now clear Posse card highlights when it ends, so don't forget to use it with F10![/list]
+
+=== 0.2.2 ===
+
+[list]
+[*] Most actions except the more complex now have been imlemented.
+[*] Added some extra markers for +/-1 control and +/-1 influence [b]so make sure you download the Markers package as well[/b]
+[*] Playing a card from hand works at a basic level atm but it's going to be significantly improved in the future.
+[*] Added some extra actions such as trading items. Now you can select a whole dude and all his items and select "trade items" and it will show an appropriate info.[/list]
+
+
+=== 0.2.1 ===
+
+[list]
+[*] Fixed discarding a card from hand
+[*] Various small text changes
+[*] Added an unimplemented action to ace all events in the discard pile.[/list]
+
+=== 0.2.0 ===
+
+[list]
+[*] Created the action list I'm going to implement in the future. 
+[*] Separated Core set and markers.
+[*] Updated the python functions with some new options.
+[*] [list][*]Now possible to jump to specific phase[/list][/list]
+
+=== 0.1.4 ===
+
+[list][*]First version uploaded. Doomtown core functionality available (Pull cards, draw hand + reveal, table setup etc). Game playable but almost no 
