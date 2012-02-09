@@ -5,12 +5,15 @@ This is the code repository for the game definition. Downloading and installing 
 **Screenshots**
 
 Shootout at High Noon
+
 ![Shootout at High Noon](http://i.imgur.com/JRwLhl.jpg)
 
 A late-game with 3 players
+
 ![](http://i.imgur.com/Er572l.jpg)
 
 A two player game in process
+
 ![](http://img.imgur.com/ZqsJel.jpg)
 
 **About the Game**
