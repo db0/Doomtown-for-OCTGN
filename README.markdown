@@ -22,7 +22,8 @@ A two player game in process
 
 [![](http://img.imgur.com/ZqsJel.jpg)](http://i.imgur.com/ZqsJe.jpg)
 
-**About the Game**
+About the Game
+--------------
 
 First of all, lets start with an introduction [From Wikipedia](http://en.wikipedia.org/wiki/Doomtown)
 
@@ -38,7 +39,8 @@ Quite sad indeed. Doomtown is for me one of the most brilliant card games ever d
 
 One of the great things about Doomtown was indeed how story driven it was and how good the actual storyline was. I wholly suggest that you read [The Big Setup](http://gamesmeister.com/doomtown/viewtopic.php?t=106), which will introduce you to some of the main players in Gommorah and get you in the right mood for the game and if you crave for more, I can't recomment enough the excellent official fiction surrounding the events of the game. [Use this link](http://gamesmeister.com/doomtown/viewtopic.php?p=2554) to read it in the correct chronological order
 
-**Linkage**
+Linkage
+-------
 
 There's [one surviving doomtown forum](http://gamesmeister.com/doomtown/) left, run by Gerry Crowe. Not very active, but there's a few people still interested in the game hanging around there.
 
