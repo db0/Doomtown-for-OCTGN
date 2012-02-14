@@ -58,7 +58,9 @@ Jumping Cheezus! A version that does not start with 0! What is the world coming 
 
 I've finally got the opportunity to mark the definition with a better working number, now that OCTGN 3 is out. I always wanted to move to a "full version" but it would break compatibility with all existing sets, and I couldn't be bothered. Now however that OCTGN 3 is out, I got the opportunity I wanted to.
 
-So starting from this update on, we're on version 3 as well! All sets have also been upgraded in this way which means they break compatibility with the old OCTGN. To avoid you having to redownload all of them, I've created a patch file which you can find in the downloads section. Just download it and if you already have the sets installed, patch them in the game, or if not, put them in a directory and patch that (there's an option during the patching procedure) and then install the sets (Otherwise they will complain about not being a compatible version with the definition)
+So starting from this update on, we're on version 3 as well! All sets have also been upgraded in this way which means they break compatibility with the old OCTGN. To avoid you having to redownload all of them, I've created a patch file which you can find in the downloads section. Just download it and if you already have the sets installed, patch them in the game, or if not, put them in a directory and patch that (there's an option during the patching procedure) and then install the sets (Otherwise they will complain about not being a compatible version with the definition). Unfortunately I couldn't make the markers set patchable, so if it gives you an error during patching, just remove and reinstall it (new version also available in the downloads section)
+
+I'm also leaving Doomtown 0.2.23 available, in case someone really wants to use OCTGN2.
 
 Finally, I've made some changes in the code (which make the game incompatible with OCTGN 2), some reorganizing and also some presentation improvements.
 
