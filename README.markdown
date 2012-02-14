@@ -52,6 +52,21 @@ You should also check and "Like" the [Deadlands Facebook page](http://www.facebo
 Changelog
 ---------
 
+### 3.0.0
+
+Jumping Cheezus! A version that does not start with 0! What is the world coming to?
+
+I've finally got the opportunity to mark the definition with a better working number, now that OCTGN 3 is out. I always wanted to move to a "full version" but it would break compatibility with all existing sets, and I couldn't be bothered. Now however that OCTGN 3 is out, I got the opportunity I wanted to.
+
+So starting from this update on, we're on version 3 as well! All sets have also been upgraded in this way which means they break compatibility with the old OCTGN. To avoid you having to redownload all of them, I've created a patch file which you can find in the downloads section. Just download it and if you already have the sets installed, patch them in the game, or if not, put them in a directory and patch that (there's an option during the patching procedure) and then install the sets (Otherwise they will complain about not being a compatible version with the definition)
+
+Finally, I've made some changes in the code (which make the game incompatible with OCTGN 2), some reorganizing and also some presentation improvements.
+
+* Game will now use the player's color to mark deeds that have been "Taken over"
+* Game will now ask the player to confirm before bringing in a card they cannot pay for.
+* Changed the draw hand group icon. Now it shows a Dead Man's Hand instead of 3 M:TG cards.
+* Card now have a front-side showing an empty Action card with a question mark as an image.
+* Game will warn the players if they've started a game with a two-sided table and advise them to start again using a normal one.
 
 ### 0.2.23
 
