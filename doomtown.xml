@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<game xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Doomtown CCG" id="9afa6473-fd81-41b9-955f-8f67c7d3f423" octgnVersion="3.0.0.8" version="3.0.0" markersize="16">
+<game xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Doomtown CCG" id="9afa6473-fd81-41b9-955f-8f67c7d3f423" octgnVersion="3.0.0.8" version="3.0.1" markersize="16">
 	<card back="r01" front="r02" width="90" height="126" cornerRadius="3">
 		<property name="Rank" type="String" hidden="false" ignoreText="False" />
 		<property name="Suit" type="String" hidden="false" ignoreText="False" />

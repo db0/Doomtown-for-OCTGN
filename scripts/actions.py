@@ -877,8 +877,10 @@ def payCost(count = 1, notification = silent): # Same as above for Ghost Rock. H
    count = num(count)
    if me.GhostRock < count: # If we don't have enough Ghost Rock in the bank, we assume card effects or mistake and notify the player that they need to do things manually.
       if notification == 'loud' and count > 0: 
-         if not confirm("You do not seem to have enough Ghost Rock in your bank to play this card. Are you sure you want to proceed? (If you do, no GR will be taken from your bank. Remove any cost manually)"): return 'ABORT'
-         notify("{} was supposed to pay {} Ghost Rock but only has {} in their bank. Assuming card effect used.".format(me, count, me.GhostRock))   
+         if not confirm("You do not seem to have enough Ghost Rock in your bank to play this card. Are you sure you want to proceed? \
+         \n(If you do, your GR will go to the negative. You will need to increase it manually as required.)"): return 'ABORT'
+         notify("{} was supposed to pay {} Ghost Rock but only has {} in their bank. They'll need to reduce the cost by {} with card effects.".format(me, count, me.GhostRock, count - me.GhostRock))   
+         me.GhostRock -= num(count)
    else: # Otherwise, just take the money out and inform that we did if we're "loud".
       me.GhostRock -= num(count)
       if notification == 'loud' and count > 0: notify("{} has paid {} Ghost Rock. {} is left their bank".format(me, count, me.GhostRock))  
@@ -954,6 +956,7 @@ def playcard(card):
          else: # if they're not on the table, they're in someone's boothill
             notify ("{} wanted to bring {} in play but it currently RIP in {}'s Boot Hill".format(me,card,chkcard.owner))
          return
+   if payCost(card.Cost, loud) == 'ABORT' : return # Check if the player can pay the cost. If not, abort.
    if card.type == "Dude" : 
       placeCard(card,'HireDude')
       notify("{} has hired {}.".format(me, card)) # Inform of the new hire      
@@ -973,7 +976,6 @@ def playcard(card):
    else: 
       card.moveToTable(0,0) # For anything else, just say they play it.
       notify("{} plays {} from their hand.".format(me, card))
-   payCost(card.Cost, loud) # Take cost out of the bank, if there is any.
    cardMemoryRemember(card) # Remember the card's memory.
    if num(card.Control) + card.markers[ControlPlusMarker] - card.markers[ControlMinusMarker] > 0:
       # Increase control, if the new card provides is any.
