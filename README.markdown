@@ -51,6 +51,9 @@ You should also check and "Like" the [Deadlands Facebook page](http://www.facebo
 
 Changelog
 ---------
+### 3.0.2
+
+ * I've implemented the functions which allow goods to be automatically placed in the right location on their parents. This also works robustly when trading goods between characters, as long as the "Receive Goods" and "Trade goods away" have been used correctly. I.e. first mark the dude with Receive and then Mark all the card you need to move *as well as the dude that is holding them* and select the Trade action.
 
 ### 3.0.1
 
