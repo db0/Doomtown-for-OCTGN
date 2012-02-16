@@ -72,13 +72,13 @@ negSideCount = 0 # Same as above
 handsize = 5 # Used when automatically refilling your hand
 playerOutfit = None # Variable to keep track of the player's outfit.
 PlayerColor = "#" # Variable with the player's unique colour.
-
+AttachingCard = None # Holds the card about to have other card attached. This needs to become a shared OCTGN variable when available.
 
 wantedDudes = {} # A dictionaty to store which dude is wanted.
 harrowedDudes = {} # Which dudes are harrowed
 jailbrokenDeeds = {} # Which deeds are jailbroken
 ValueMemory = {} # Which cards have amodified value
-AttachedCards = {} # Not used atm
+AttachedCards = {} # A dictionary which holds a coutner for each card, numbering how many attached cards each card has.
 InfluenceRAM = {} # Which cards have extra influence
 ControlRAM = {} # Which cards have extra cp
 
@@ -790,24 +790,39 @@ def moveBoot(card, x = 0, y = 0): # Notifies that this dude is moving by booting
          card.orientation = Rot90
 
 def goods(card, x = 0, y = 0): # Notifies that this dude is about to receive some goods, either by trading or by playing from your hand
-                               # In the future, I want to make this function provide a "lock" for incoming goods, and then once you select the goods
-                               # ...or play them from hand, they will be automatically moved below the dude with their title showing.
-   global AttachingCard
+                               # This function provides a "lock" for incoming goods, and then once you select the goods
+                               # ...or play them from hand, they will are automatically moved below the dude with their title showing.
+   global AttachingCard, AttachedCards
    mute()
    if card.type == "Dude":
       notify("{} is receiving some goods.".format(card))
       if card.orientation == Rot90: notify("(Remember that you need a card effect to receive goods while booted)".format(card))         
-      AttachingCard = card
-      
+      AttachingCard = card # This variable stores the card that is about to receive the goods. Once the goods are received, it is cleared.
+      if AttachingCard not in AttachedCards: 
+         AttachedCards[AttachingCard] = 1 # We set the dictionary AttachedCards to store an entry for the card which is about to receive goods, so as not to crash our scripts later on.
+
 def tradeGoods(cards, x = 0, y = 0): # Notified that this dude is giving away some goods. 
                                      # Allows one to target dude and goods at the same time for quick use.
+   global AttachingCard, AttachedCards
    mute()
-   for card in cards:	
-      if card.type == "Dude":
+   for card in cards: # If the player has selected the dude when trading goods, then we store the card in order to reduce the counter with how many items they have attached.
+      if card.type == "Dude": 
+         holdingDude = card
+   for card in cards: 
+      if card.type == "Dude": # If dudes are selected, we just mention their name.
          notify("{} is trading away some of their goods.".format(card))
-      if card.type == "Goods":
-         notify("{} is being traded.".format(card))
-
+      if card.type == "Goods": 
+         if AttachingCard == None: notify("{} is being traded.".format(card)) # If no designated target is selected, then we simply mention the act.
+         else: # The a goods is selected, it's automatically moved, if there is a designated target.
+            xp, yp = AttachingCard.position # the .position is a tuple. We need to extract the values to use them with moveToTable.
+            notify("{} is being traded to {}.".format(card, AttachingCard))
+            card.moveToTable(xp,yp - 22 * AttachedCards[AttachingCard]) 
+            AttachedCards[AttachingCard] += 1 # This counter holds how many attached cards each card has. This is used when attaching extra goods, to avoid moving cards below other cards.
+            card.sendToBack() # We send attached cards behind their "parent".
+            if holdingDude in AttachedCards: 
+               AttachedCards[holdingDude] -= 1 # We decrease the counter holding how many cards are attached to the "parent".
+               if AttachedCards[holdingDude] < 1: AttachedCards[holdingDude] = 1 # When the counter is 1, it means there are no attached cards.
+   AttachingCard = None # Once we've moved everything, we clear the variable.
 
    
 #---------------------------------------------------------------------------
@@ -935,7 +950,8 @@ def playcard(card):
             chkcard.group == table and
             (re.search('Experienced', chkcard.Text) or re.search('Experienced', card.Text)))):
          if confirm("You seem to have another version of {} in play. Do you want to replace it with the version in your hand".format(card.name)):
-            card.moveToTable(0,0) # I need to replace 0,0 with chkcard.position but it doesn't work!
+            xp, yp = chkcard.position
+            card.moveToTable(xp,yp)
             chkcard.moveTo(me.piles['Discard Pile'])
             cardRMsync(chkcard, silent)
             modInfluence(card.Influence, silent)
@@ -964,15 +980,40 @@ def playcard(card):
       placeCard(card,'BuyDeed')
       notify("{} has acquired the deed to {}.".format(me, card))
    elif card.type == "Goods" : # If we're bringing in any goods, just remind the player to pull for gadgets.
-      if re.search('Gadget', card.Text): notify("{} is trying to create a {}. Don't forget to pull!".format(me, card))
-      else: notify("{} has purchased {}.".format(me, card))
-      card.moveToTable(0,0)
+      if AttachingCard == None:
+         if re.search('Gadget', card.Text): notify("{} is trying to create a {}. Don't forget to pull!".format(me, card))
+         else: notify("{} has purchased {}.".format(me, card))
+         card.moveToTable(0,0)
+      else:
+         xp, yp = AttachingCard.position        
+         if re.search('Gadget', card.Text): notify("{} is trying to create a {}. Don't forget to pull!".format(AttachingCard, card))
+         else: notify("{} has purchased {}.".format(AttachingCard, card))
+         card.moveToTable(xp,yp - 22 * AttachedCards[AttachingCard])
+         AttachedCards[AttachingCard] += 1
+         card.sendToBack()
+         AttachingCard = None
    elif card.type == "Spell" : # For spells, just change the notification text.
-      card.moveToTable(0,0)
-      notify("One of {}'s dudes has learned {}.".format(me, card))      
+      if AttachingCard == None:
+         card.moveToTable(0,0)
+         notify("One of {}'s dudes has learned {}.".format(me, card))      
+      else:
+         xp, yp = AttachingCard.position        
+         notify("{} has learned {}.".format(AttachingCard, card))      
+         card.moveToTable(xp,yp - 22 * AttachedCards[AttachingCard])
+         AttachedCards[AttachingCard] += 1
+         card.sendToBack()
+         AttachingCard = None
    elif card.type == "Improvement" : # For improvements, just change the notification text.
-      card.moveToTable(0,0)
-      notify("{} is improving one of their Deeds with {}.".format(me, card))      
+      if AttachingCard == None:
+         card.moveToTable(0,0)
+         notify("{} is improving one of their Deeds with {}.".format(me, card))      
+      else:
+         xp, yp = AttachingCard.position        
+         notify("{} is improving {} with {}.".format(me, AttachingCard, card))      
+         card.moveToTable(xp,yp - 22 * AttachedCards[AttachingCard])
+         AttachedCards[AttachingCard] += 1
+         card.sendToBack()
+         AttachingCard = None
    else: 
       card.moveToTable(0,0) # For anything else, just say they play it.
       notify("{} plays {} from their hand.".format(me, card))

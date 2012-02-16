@@ -52,6 +52,10 @@ You should also check and "Like" the [Deadlands Facebook page](http://www.facebo
 Changelog
 ---------
 
+### 3.0.1
+
+* If you bring a card in that you cannot pay for, your Ghost Rock counter will go to the negative.
+
 ### 3.0.0
 
 Jumping Cheezus! A version that does not start with 0! What is the world coming to?
