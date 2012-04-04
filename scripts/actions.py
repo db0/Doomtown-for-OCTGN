@@ -890,15 +890,17 @@ def modControl(count = 1, notification = silent): # Same as above but for Contro
 
 def payCost(count = 1, notification = silent): # Same as above for Ghost Rock. However we also check if the cost can actually be paid.
    count = num(count)
+   if count == 0 : return # If the card has 0 cost, there's nothing to do.
    if me.GhostRock < count: # If we don't have enough Ghost Rock in the bank, we assume card effects or mistake and notify the player that they need to do things manually.
-      if notification == 'loud' and count > 0: 
+      if notification == loud: 
          if not confirm("You do not seem to have enough Ghost Rock in your bank to play this card. Are you sure you want to proceed? \
          \n(If you do, your GR will go to the negative. You will need to increase it manually as required.)"): return 'ABORT'
          notify("{} was supposed to pay {} Ghost Rock but only has {} in their bank. They'll need to reduce the cost by {} with card effects.".format(me, count, me.GhostRock, count - me.GhostRock))   
          me.GhostRock -= num(count)
+      else: me.GhostRock -= num(count) 
    else: # Otherwise, just take the money out and inform that we did if we're "loud".
       me.GhostRock -= num(count)
-      if notification == 'loud' and count > 0: notify("{} has paid {} Ghost Rock. {} is left their bank".format(me, count, me.GhostRock))  
+      if notification == 'loud': notify("{} has paid {} Ghost Rock. {} is left their bank".format(me, count, me.GhostRock))  
 
 def cardRMsync(card, notification = loud): # a function which removes influence and CP when a card which had them leaves play.
    if card.type != 'Dude' and card.type != 'Deed': return
@@ -981,14 +983,14 @@ def playcard(card):
       notify("{} has acquired the deed to {}.".format(me, card))
    elif card.type == "Goods" : # If we're bringing in any goods, just remind the player to pull for gadgets.
       if AttachingCard == None:
+         card.moveToTable(0,0)
          if re.search('Gadget', card.Text): notify("{} is trying to create a {}. Don't forget to pull!".format(me, card))
          else: notify("{} has purchased {}.".format(me, card))
-         card.moveToTable(0,0)
       else:
          xp, yp = AttachingCard.position        
+         card.moveToTable(xp,yp - 22 * AttachedCards[AttachingCard])
          if re.search('Gadget', card.Text): notify("{} is trying to create a {}. Don't forget to pull!".format(AttachingCard, card))
          else: notify("{} has purchased {}.".format(AttachingCard, card))
-         card.moveToTable(xp,yp - 22 * AttachedCards[AttachingCard])
          AttachedCards[AttachingCard] += 1
          card.sendToBack()
          AttachingCard = None
