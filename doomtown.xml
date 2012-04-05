@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<game xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Doomtown CCG" id="9afa6473-fd81-41b9-955f-8f67c7d3f423" octgnVersion="3.0.0.8" version="3.0.3" markersize="16">
+<game xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Doomtown CCG" id="9afa6473-fd81-41b9-955f-8f67c7d3f423" octgnVersion="3.0.0.8" version="3.0.4" markersize="16">
 	<card back="r01" front="r02" width="90" height="126" cornerRadius="3">
 		<property name="Rank" type="String" hidden="false" ignoreText="False" />
 		<property name="Suit" type="String" hidden="false" ignoreText="False" />
@@ -65,6 +65,8 @@
 			<cardaction menu="Decrease Control by 1." default="false" shortcut="Alt+Shift+C" execute="minusControl" />
 			<cardaction menu="Increase Production by 1." default="false" shortcut="Alt+P" execute="plusProd" />
 			<cardaction menu="Decrease Production by 1." default="false" shortcut="Alt+Shift+P" execute="minusProd" />
+			<cardaction menu="Increase Bullets by 1." default="false" shortcut="Alt+B" execute="plusBullet" />
+			<cardaction menu="Decrease Bullets by 1." default="false" shortcut="Alt+Shift+B" execute="minusBullet" />
 			<cardaction menu="Increase Value." default="false" shortcut="Alt+V" execute="plusValue" />
 			<cardaction menu="Decrease Value." default="false" shortcut="Alt+Shift+V" execute="minusValue" />
 			<cardaction menu="Set Value." default="false" shortcut="Alt+Ctrl+V" execute="setValue" />

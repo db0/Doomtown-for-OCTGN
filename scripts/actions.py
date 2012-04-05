@@ -47,6 +47,8 @@ ProdPlusMarker = ("+1 Production", "ddba0f0a-0c34-48b5-b7ea-ad1e1ab07c12")
 ProdMinusMarker = ("-1 Production", "869eebe2-f503-4d9f-8fa3-af708c7ad70c")
 ValuePlusMarker = ("+1 Value", "baff5422-3654-4f74-86fa-782805082fab")
 ValueMinusMarker = ("-1 Value", "7fa426df-689e-41f5-91b8-5d06cbc46463")
+BulletPlusMarker = ("+1 Bullet", "5f740820-4c72-4042-b6eb-dcedc77c82ed")
+BulletMinusMarker = ("-1 Bullet", "093166b4-fddb-4e67-b6e4-86277faedc91")
 JailbreakMarker = ("jailbroken", "692a1ab1-9aa9-49da-aff5-114644da921f")
 WinnerMarker = ("Winner", "eeb5f447-f9fc-46b4-846a-a9a40e575cbc")
 
@@ -276,6 +278,11 @@ def goToSetup(group, x = 0, y = 0):  # Go back to the Pre-Game Setup phase.
    negSideCount = 0
    handsize = 5
    shared.Phase = 0
+   me.GhostRock = 0 # Wipe the counters
+   me.Influence = 0
+   me.Control = 0
+   me.VictoryPoints = 0
+   me.HandRank = 0
    playerOutfit = None
    wantedDudes.clear() # Clear the dictionaries so that you don't remember card memory from the previous games
    harrowedDudes.clear()
@@ -311,7 +318,7 @@ def ace(cards, x = 0, y = 0): # Ace a card. I.e. kill it and send it to the boot
    for card in cards:	# This function can be used at more than one card as the same time. Useful for sending dudes and attached cards to the boot hill quickly.
       cardowner = card.owner # We need to save the card onwer for later
       if card.highlight != DrawHandColor: # We don't want to do anything else except move cards when they're not really in play.
-         if (card.markers[HarrowedMarker] == 1 or re.search(r'\bHarrowed.\b', card.text)) and card.Type == 'Dude': 
+         if (card.markers[HarrowedMarker] == 1 or re.search(r'\bHarrowed\b\.', card.Text)) and card.Type == 'Dude': 
             if not confirm("{} was harrowed! Did you remember to do a harrowed pull?".format(card.name)): continue
             # if the dude is harrowed, remind the player about the harrowed pull. If they haven't done it, leave the dude in play.
             # In the future, I'll modify the option to perform the harrowed pull automatically.
@@ -442,8 +449,8 @@ def HandRankGuide(group, x = 0, y = 0): # Put the Hand Rank guide onto the table
    HRG = table.create("851b726b-3b0c-43df-bbd7-710b5a0ffbf6", x, y, 1)   
     
 def inspectCard(card, x = 0, y = 0): # This function shows the player the card text, to allow for easy reading until High Quality scans are procured.
-   confirm("{}".format(card.text)) 
-   
+   confirm("{}".format(card.Text))
+
 def reCalculate(group = table, x = 0, y = 0, notification = 'loud'): 
 # This function will calculate the amount of influence and Control you have on the table and update your counters. 
    mute()
@@ -484,7 +491,7 @@ def reCalculate(group = table, x = 0, y = 0, notification = 'loud'):
 
 def setWinner(winner):
    outfits = (card for card in table
-              if card.type == 'Outfit')
+              if card.Type == 'Outfit')
    for outfit in outfits:
       if outfit.owner == winner: outfit.markers[WinnerMarker] = 1
       else: outfit.markers[WinnerMarker] = 0
@@ -570,8 +577,24 @@ def minusProd(card, x = 0, y = 0):
    else:
       card.markers[ProdMinusMarker] += 1  
 
+def plusBullet(card, x = 0, y = 0): # Very much like plus Value
+   mute()
+   notify("{} marks that {}'s bullets have increased by 1.".format(me, card))
+   if BulletMinusMarker in card.markers:
+      card.markers[BulletMinusMarker] -= 1
+   else:
+      card.markers[BulletPlusMarker] += 1
+
+def minusBullet(card, x = 0, y = 0):
+   mute()
+   notify("{} marks that {}'s bullets have decreased by 1.".format(me, card))
+   if BulletPlusMarker in card.markers:
+      card.markers[BulletPlusMarker] -= 1
+   else:
+      card.markers[BulletMinusMarker] += 1
+
 def calcValue(card, type = 'poker'):
-   numvalue = numrank(card.rank) + card.markers[ValuePlusMarker] - card.markers[ValueMinusMarker]
+   numvalue = numrank(card.Rank) + card.markers[ValuePlusMarker] - card.markers[ValueMinusMarker]
    if type == 'raw': return numvalue
    if numvalue > 12 and type == 'numeral': return 13
    if numvalue > 12: return 'K'
@@ -685,7 +708,7 @@ def cardMemoryRemember(card): # Checks if the card that just came into play has 
          card.markers[WantedMarker] += 1
    except KeyError: pass # If we don't have a value stored, an exception will be returned, which we we use to pass.
    try: # Same as wanted, but in this case we also make sure that we didn't bring an experienced version that's already harrowed
-      if harrowedDudes[card.name] == 1 and not re.search(r'\bHarrowed\b', card.text):
+      if harrowedDudes[card.name] == 1 and not re.search(r'\bHarrowed\b\.', card.Text):
          card.markers[HarrowedMarker] += 1
    except KeyError: pass    
    try: # Similar to the above, but a Deed can have more than one jailbreak marker.
@@ -720,12 +743,12 @@ def cardMemoryRemember(card): # Checks if the card that just came into play has 
 # Deed actions
 #---------------------------------------------------------------------------
       
-def takeOver(card, x = 0, y = 0): 
+def takeOver(card, x = 0, y = 0):
 # Set a deed as taken over. This is marked via a card highlight. 
 # Same process as doesNotUnboot but only for deeds.
 # Taken over deeds are deeds who's ownership has been taken by another player. Since you cannot change owners naturally, we work around that.
    mute()
-   if card.type == "Deed":
+   if card.Type == "Deed":
       card.highlight = me.color
       notify("Ownership of {} has passed to {}".format(card, me))
          
@@ -735,7 +758,7 @@ def locationTarget(card, x = 0, y = 0): # A function to let others know where yo
                                         # At the future I'd like to automatically read the locations coordinates and move dudes to an appropriate.
                                         # location, but this requires that one can init actions on cards they do not control.
    mute()
-   if card.type == "Deed" or card.type == "Outfit":    
+   if card.Type == "Deed" or card.Type == "Outfit":
       notify("{} announces {} as the location.".format(me, card))
       card.target
         
@@ -744,7 +767,7 @@ def addJailbreakMarker(card, x = 0, y = 0):
 # It also reduces CP and production. For the reduction of CP we use the minusControl function silently, so that it works better with any +CP markers
 # But for the reduced production, we simply take care of it during upkeep.
    mute()
-   if card.type == "Deed":
+   if card.Type == "Deed":
       notify("{} has been severely damaged.".format(card))
       card.markers[JailbreakMarker] += 1
       minusControl(card, x, y, silent)
@@ -754,7 +777,7 @@ def addJailbreakMarker(card, x = 0, y = 0):
 
 def modWantedMarker(card, x = 0, y = 0): # Similar to the doesNotUnboot function but with markers. Adds or removes the wanted marker from a dude.
    mute()
-   if card.type == "Dude":
+   if card.Type == "Dude":
       if card.markers[WantedMarker] == 0:
          notify("{} is now wanted by the law.".format(card))
          card.markers[WantedMarker] += 1
@@ -764,8 +787,8 @@ def modWantedMarker(card, x = 0, y = 0): # Similar to the doesNotUnboot function
          
 def addHarrowedMarker(card, x = 0, y = 0): # Same as the modWantedMarker but you cannot remove it. You get a notification instead.
    mute()
-   if card.type == "Dude":
-      if card.markers[HarrowedMarker] == 1 or re.search(r'\bHarrowed.\b', card.text):
+   if card.Type == "Dude":
+      if card.markers[HarrowedMarker] == 1 or re.search(r'\bHarrowed\b\.', card.Text):
          notify("{} is already harrowed! There's only space for one manitou in thar.".format(card))
       else:
          notify("{} has come back from the grave as one of the Harrowed.".format(card))
@@ -773,19 +796,19 @@ def addHarrowedMarker(card, x = 0, y = 0): # Same as the modWantedMarker but you
 
 def callout(card, x = 0, y = 0): # Notifies that this dude is calling someone out.
    mute()
-   if card.type == "Dude":
+   if card.Type == "Dude":
       notify("{} is calling someone out.".format(card))
       if card.orientation == Rot90: notify("(Remember that you need a card effect to call out someone while booted)".format(card))
 
 def move(card, x = 0, y = 0): # Notifies that this dude is moving without booting
    mute()
-   if card.type == "Dude":
+   if card.Type == "Dude":
       notify("{} is moving without booting.".format(card))
       if card.orientation == Rot90: notify("(Remember that you need a card effect to move while booted)".format(card))
       
 def moveBoot(card, x = 0, y = 0): # Notifies that this dude is moving by booting
    mute()
-   if card.orientation == Rot0 and card.type == "Dude":
+   if card.orientation == Rot0 and card.Type == "Dude":
          notify("{} is booting to move.".format(card))
          card.orientation = Rot90
 
@@ -794,7 +817,7 @@ def goods(card, x = 0, y = 0): # Notifies that this dude is about to receive som
                                # ...or play them from hand, they will are automatically moved below the dude with their title showing.
    global AttachingCard, AttachedCards
    mute()
-   if card.type == "Dude":
+   if card.Type == "Dude":
       notify("{} is receiving some goods.".format(card))
       if card.orientation == Rot90: notify("(Remember that you need a card effect to receive goods while booted)".format(card))         
       AttachingCard = card # This variable stores the card that is about to receive the goods. Once the goods are received, it is cleared.
@@ -806,12 +829,12 @@ def tradeGoods(cards, x = 0, y = 0): # Notified that this dude is giving away so
    global AttachingCard, AttachedCards
    mute()
    for card in cards: # If the player has selected the dude when trading goods, then we store the card in order to reduce the counter with how many items they have attached.
-      if card.type == "Dude": 
+      if card.Type == "Dude":
          holdingDude = card
    for card in cards: 
-      if card.type == "Dude": # If dudes are selected, we just mention their name.
+      if card.Type == "Dude": # If dudes are selected, we just mention their name.
          notify("{} is trading away some of their goods.".format(card))
-      if card.type == "Goods": 
+      if card.Type == "Goods":
          if AttachingCard == None: notify("{} is being traded.".format(card)) # If no designated target is selected, then we simply mention the act.
          else: # The a goods is selected, it's automatically moved, if there is a designated target.
             xp, yp = AttachingCard.position # the .position is a tuple. We need to extract the values to use them with moveToTable.
@@ -831,25 +854,25 @@ def tradeGoods(cards, x = 0, y = 0): # Notified that this dude is giving away so
 
 def joinAttack(card, x = 0, y = 0): # Informs that this dude joins an attack posse and highlights him accordingly. 
                                     # This is to help track who is shooting it out. The highlights are cleared by the goToShootout function.
-   if card.type == "Dude" : # This is something only dudes can do
+   if card.Type == "Dude" : # This is something only dudes can do
        mute () 
        notify("{} is joining the attacking posse.".format(card))
        card.highlight = AttackColor
 
 def joinDefence(card, x = 0, y = 0): # Same as above, but about defensive posse.
-   if card.type == "Dude" : 
+   if card.Type == "Dude" : 
       mute ()
       notify("{} is joining the defending posse.".format(card))
       card.highlight = DefendColor   
 
 def acceptCallout(card, x = 0, y = 0): # Same as the defending posse but with diferent notification.
-   if card.type == "Dude" : 
+   if card.Type == "Dude" : 
       mute ()
       notify("{} has accepted the call out.".format(card))
       card.highlight = DefendColor   
 
 def refuseCallout(card, x = 0, y = 0): # Boots the dude and moves him to your home or informs you if they cannot refuse.
-   if card.type == "Dude" : 
+   if card.Type == "Dude" : 
       chooseSide()
       mute ()
       if card.orientation == Rot90: # If the dude is booted, they cannot refuse without a card effect
@@ -861,7 +884,7 @@ def refuseCallout(card, x = 0, y = 0): # Boots the dude and moves him to your ho
          elif playeraxis == Yaxis: card.moveToTable(0,homeDistance(card) + (playerside * cheight(card,-4)))
 
 def runAway(card, x = 0, y = 0): # Same as above pretty much but also clears the shootout highlights.
-   if card.type == "Dude" : 
+   if card.Type == "Dude" : 
       chooseSide()
       mute ()
       notify("{} is running away from the shootout.".format(card))
@@ -903,7 +926,7 @@ def payCost(count = 1, notification = silent): # Same as above for Ghost Rock. H
       if notification == 'loud': notify("{} has paid {} Ghost Rock. {} is left their bank".format(me, count, me.GhostRock))  
 
 def cardRMsync(card, notification = loud): # a function which removes influence and CP when a card which had them leaves play.
-   if card.type != 'Dude' and card.type != 'Deed': return
+   if card.Type != 'Dude' and card.Type != 'Deed': return
    influence = 0
    control = 0
    count = num(card.Influence) + card.markers[InfluencePlusMarker] - card.markers[InfluenceMinusMarker]
@@ -928,23 +951,23 @@ def playcard(card):
    chkcards = [] # Create an empty list to fill later with cards to check
    uniquecards = (tablecard for tablecard in table # Lets gather all the cards from the table that may prevent us from playing our card
                   if tablecard.name == card.name # First the card need to be the same as ours
-                  and (tablecard.type == 'Dude'  # But only dude or deeds...
-                        or tablecard.type == 'Deed' 
+                  and (tablecard.Type == 'Dude'  # But only dude or deeds...
+                        or tablecard.Type == 'Deed' 
                         or (re.search('Unique.', tablecard.Text) # ...or cards with an explicit "Unique" in the text that are Goods, Improvements or Spells.
-                           and (tablecard.type == 'Goods'        # Because otherwise those types can be up to 4 per player.
-                              or tablecard.type == 'Improvement' 
-                              or tablecard.type == 'Spell')))) 
+                           and (tablecard.Type == 'Goods'        # Because otherwise those types can be up to 4 per player.
+                              or tablecard.Type == 'Improvement' 
+                              or tablecard.Type == 'Spell')))) 
    for c in uniquecards: # Append the cards from the table and the cards from the boot hill into one list we can go through.
       chkcards.append(c)
    for player in players:
       acedcards = (acedcard for acedcard in player.piles['Boot Hill'] # Go through each player's Boot Hill looking for matches 
                      if acedcard.name == card.name
-                     and (acedcard.type == 'Dude' 
-                           or acedcard.type == 'Deed' 
+                     and (acedcard.Type == 'Dude' 
+                           or acedcard.Type == 'Deed' 
                            or (re.search('Unique.', acedcard.Text) 
-                              and (acedcard.type == 'Goods' 
-                                 or acedcard.type == 'Improvement' 
-                                 or acedcard.type == 'Spell')))) 
+                              and (acedcard.Type == 'Goods' 
+                                 or acedcard.Type == 'Improvement' 
+                                 or acedcard.Type == 'Spell')))) 
       for c in acedcards:
          chkcards.append(c)
    for chkcard in chkcards: # Now we check the combined list to see if anything will block us from playing our card from the hand.
@@ -975,13 +998,13 @@ def playcard(card):
             notify ("{} wanted to bring {} in play but it currently RIP in {}'s Boot Hill".format(me,card,chkcard.owner))
          return
    if payCost(card.Cost, loud) == 'ABORT' : return # Check if the player can pay the cost. If not, abort.
-   if card.type == "Dude" : 
+   if card.Type == "Dude" : 
       placeCard(card,'HireDude')
       notify("{} has hired {}.".format(me, card)) # Inform of the new hire      
-   elif card.type == "Deed" :   
+   elif card.Type == "Deed" :   
       placeCard(card,'BuyDeed')
       notify("{} has acquired the deed to {}.".format(me, card))
-   elif card.type == "Goods" : # If we're bringing in any goods, just remind the player to pull for gadgets.
+   elif card.Type == "Goods" : # If we're bringing in any goods, just remind the player to pull for gadgets.
       if AttachingCard == None:
          card.moveToTable(0,0)
          if re.search('Gadget', card.Text): notify("{} is trying to create a {}. Don't forget to pull!".format(me, card))
@@ -994,7 +1017,7 @@ def playcard(card):
          AttachedCards[AttachingCard] += 1
          card.sendToBack()
          AttachingCard = None
-   elif card.type == "Spell" : # For spells, just change the notification text.
+   elif card.Type == "Spell" : # For spells, just change the notification text.
       if AttachingCard == None:
          card.moveToTable(0,0)
          notify("One of {}'s dudes has learned {}.".format(me, card))      
@@ -1005,7 +1028,7 @@ def playcard(card):
          AttachedCards[AttachingCard] += 1
          card.sendToBack()
          AttachingCard = None
-   elif card.type == "Improvement" : # For improvements, just change the notification text.
+   elif card.Type == "Improvement" : # For improvements, just change the notification text.
       if AttachingCard == None:
          card.moveToTable(0,0)
          notify("{} is improving one of their Deeds with {}.".format(me, card))      
@@ -1052,12 +1075,12 @@ def setup(group):
          TSR = table.create("72f6c0a9-e4f6-4b17-9777-185f88187ad7", 0, 0, 1, True) # Create a Right Town Square card in the middle of the table.
          TSR.moveToTable(-1,0) 
       for card in group: # For every card in the player's hand... (which should be an outfit and a bunch of dudes usually)
-         if card.type == "Outfit" :  # If it's the outfit...
+         if card.Type == "Outfit" :  # If it's the outfit...
             placeCard(card,'SetupHome')
             me.GhostRock += num(card.properties['Ghost Rock']) # Then we add its starting Ghost Rock to the bank
             playerOutfit = card.Outfit # We make a note of the outfit the player is playing today (used later for upkeep)
             concat_home += card.name # And we save the name.
-         elif card.type == "Dude" : # If it's a dude...
+         elif card.Type == "Dude" : # If it's a dude...
             placeCard(card,'SetupDude',dudecount)
             dudecount += 1 # This counter increments per dude, ad we use it to move each other dude further back.
             payCost(card.Cost) # Pay the cost of the dude
@@ -1108,8 +1131,8 @@ def Pull(group = me.Deck, x = 0, y = 0): # Draws one card from the deck into the
       random = rnd(100, 10000) # Bug workaround. We wait a bit so that we are sure the cards are there.
    Deck.top().moveTo(me.piles['Discard Pile']) # Move the top card from the deck into the discard pile
    random = rnd(100, 10000) # Wait a bit more, as in multiplayer games, things are slower.
-   rank = fullrank(me.piles['Discard Pile'].top().rank) # Save the card's rank
-   suit = fullsuit(me.piles['Discard Pile'].top().suit) # Save the card's suit
+   rank = fullrank(me.piles['Discard Pile'].top().Rank) # Save the card's rank
+   suit = fullsuit(me.piles['Discard Pile'].top().Suit) # Save the card's suit
    notify("{} Pulled a {} {}.".format(me, rank, suit))  # Announce them nicely to everyone.
 
 def drawMany(group, count = None, notification = loud): # This function draws a variable number cards into the player's hand.
@@ -1201,9 +1224,11 @@ def revealHand(group = me.piles['Draw Hand'], type = lowball, event = None):
          else: card.moveToTable(i * (cwidth(card) / 4) - cwidth(card), 0)
          if foundjoker == 'yes': random = rnd(100, 10000)
       card.highlight = DrawHandColor # Highlight them
-      if type == lowball and card == event: card.highlight = EventColor # If this is the selected event, highlight it differently
-      rank[i] = card.rank # save their rank into the table
-      suit[i] = card.suit # save their suit into the table
+      if type == lowball and card == event: 
+         card.highlight = EventColor # If this is the selected event, highlight it differently
+         notify("{} reveals an event this turn: {}".format(me,card)) 
+      rank[i] = card.Rank # save their rank into the table
+      suit[i] = card.Suit # save their suit into the table
       i += 1 # prepare for the next card.
    if type == 'shootout': # Finally, inform the players on what the hand is.
       notify("{}'s Shootout hand is {}{} ({} {}, {} {}, {} {}, {} {}, {} {}). ".format(me, PokerHand(rank,suit,type), cheatinchk(rank,suit), fullrank(rank[0]), fullsuit(suit[0]), fullrank(rank[1]), fullsuit(suit[1]), fullrank(rank[2]), fullsuit(suit[2]), fullrank(rank[3]), fullsuit(suit[3]), fullrank(rank[4]), fullsuit(suit[4])))
@@ -1233,15 +1258,13 @@ def revealLowballHand(group = me.piles['Draw Hand'], type = 'normal'):
    evCount = 0
    foundEvents = ['','','','',''] # We need to declare the list because it will not work if it doesn't exist.
    for card in group:
-      if card.type == 'Event': # Check if the card is an event and save it's name.
+      if card.Type == 'Event': # Check if the card is an event and save it's name.
          foundEvents[evCount] = card
          evCount += 1 # Count how many events we have in the hand
-   if evCount > 1: # If we have more than one, select one at random and announce it
+   if evCount > 1: # If we have more than one, select one at random
       eventPointer = rnd(0,evCount-1)
-      notify("{} Reveals {} events this turn. The one selected at random to be active is {}".format(me,evCount,foundEvents[eventPointer]))
-      revealHand(group, lowball,foundEvents[eventPointer]) # Then pass its name to the next function so that it can be highlighted.
-   elif evCount == 1: # If there's only one event, then just pass it's name on the revealHand function so that it can be highlighted.
-      notify("{} reveals an event this turn: {}".format(me,foundEvents[0]))
+      revealHand(group, lowball,foundEvents[eventPointer]) # Then pass its name to the next function so that it can be highlighted and announced.
+   elif evCount == 1: # If there's only one event, then just pass it's name on the revealHand function so that it can be highlighted and announced.
       revealHand(group, lowball,foundEvents[0])      
    else: revealHand(group, lowball)
    winner = lowballWinner()
@@ -1277,7 +1300,7 @@ def lowballWinner():
                   handtie = 'no' # If the tie is higher than the current player, then there's no more a tie.
                   winner = players[i]
             else: winner = players[i] # Else record the current player as the winner
-         elif players[i].HandRank > players[j].Handrank: # If the primary player (players[i])has lost a hand comparison, 
+         elif players[i].HandRank > players[j].HandRank: # If the primary player (players[i])has lost a hand comparison, 
                                                          # then we take him completely off the comparison and move to the next one.
             if handtie == 'yes': # but if there is a tie...
                if players[j].HandRank >= tied[0].HandRank: pass # ...and if the winning player is not lower/equal than the tie. Then do nothing
@@ -1336,18 +1359,18 @@ def aceevents(group = me.piles['Discard Pile']): # Goes through your discard pil
    mute()
    notify("{} is going through their discard pile and acing all events".format(me))
    for card in group:
-      if card.type == 'Event': 
+      if card.Type == 'Event': 
          card.moveTo(me.piles['Boot Hill'])
          notify("{} has aced {}".format(me,card))
 
 def harrow(card):  # Returns the top dude card from boot hill, into the table with a harrowed marker.
    mute()
-   if card.type == 'Dude': 
+   if card.Type == 'Dude': 
       card.moveToTable(playerside * 200, 0)
-      if not re.search(r'\bHarrowed\b', card.text): 
+      if not re.search(r'\bHarrowed\b\.', card.Text): 
          card.markers[HarrowedMarker] += 1
          notify("{} has brought {} back from the dead as one of the Harrowed".format(me,card))
-      else: notify("{} has once again dug themselves out of a shallow grave.".format(card))
+      else: notify("{} has once again crawled out of a shallow grave.".format(card))
       modInfluence(card.Influence, loud)
 
 def permRemove(card): # Takes a card from the boot hill and moves it to the shared "removed from play" pile.
