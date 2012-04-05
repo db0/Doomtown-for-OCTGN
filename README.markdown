@@ -52,6 +52,14 @@ You should also check and "Like" the [Deadlands Facebook page](http://www.facebo
 Changelog
 ---------
 
+### 3.0.4
+
+ * Changed some card properties capitalization to work with the new Python checking in the betas. 
+ * Modified the search for the word Harrowed to more correctly understand which dudes have Harrowed as a printed trait
+ * Moved the announcement of the event name revealed in lowball to after the card is on the table, to avoid the game announcing that the Event "Card" was revealed.
+ * Pre-Game Setup Phase will now also wipe your counters
+ * Added an "Add/Reduce Bullets" Markers action. 
+
 ### 3.0.3
 
  * (Hopefully) Fixed bug where other player's wouldn't see the name of goods being played from your hand.
