@@ -51,6 +51,7 @@ BulletPlusMarker = ("+1 Bullet", "5f740820-4c72-4042-b6eb-dcedc77c82ed")
 BulletMinusMarker = ("-1 Bullet", "093166b4-fddb-4e67-b6e4-86277faedc91")
 JailbreakMarker = ("jailbroken", "692a1ab1-9aa9-49da-aff5-114644da921f")
 WinnerMarker = ("Winner", "eeb5f447-f9fc-46b4-846a-a9a40e575cbc")
+FlightOfAngelsMarker = ("Flight of Angels", "8ba2d501-e8b7-4df0-a168-be2d16b26daf")
 
 ### Misc ###
 
@@ -738,6 +739,13 @@ def cardMemoryRemember(card): # Checks if the card that just came into play has 
    except KeyError: pass    
 
          
+def FlightOfAngels(card, x = 0, y = 0): # Add a flight of angels counter
+   mute()
+   if card.Type != 'Outfit':
+      whisper("You can only place this marker on an outfit card")
+      return
+   notify("{}'s gang is now hounded by a Flight of Angels.".format(me))
+   card.markers[FlightOfAngelsMarker] += 1
             
 #---------------------------------------------------------------------------
 # Deed actions
@@ -1205,7 +1213,7 @@ def revealHand(group = me.piles['Draw Hand'], type = lowball, event = None):
             if len(me.Deck) == 0: reshuffle()
             card = me.Deck.top() # Replace the card being processed with the top card of the player's deck.
             foundjoker = 'yes' #If we found a joker, make sure we delay the card suit/rank polling a bit.
-         if playeraxis == Xaxis: card.moveToTable(homeDistance(card) - cardDistance(card) + i * (cwidth(card) / 4), cheight(card) * 2) 
+         if playeraxis == Xaxis: card.moveToTable(homeDistance(card) - cardDistance(card) * 3 + i * (cwidth(card) / 4), cheight(card) * 2) 
          elif playeraxis == Yaxis: card.moveToTable(cwidth(card) / -2 + i * (cwidth(card) / 4), homeDistance(card) - cardDistance(card))
          else: card.moveToTable(i * (cwidth(card) / 4) - cwidth(card), 0) # If the player is not on any side, put the cards in the middle.
          # Move the card to the table, slightly to the right of any other cards from this hand
@@ -1219,7 +1227,7 @@ def revealHand(group = me.piles['Draw Hand'], type = lowball, event = None):
             if len(me.Deck) == 0: reshuffle()
             card = me.Deck.top() # Put a new card in the draw hand and process that instead.
             foundjoker = 'yes'
-         if playeraxis == Xaxis: card.moveToTable(homeDistance(card) - cardDistance(card) + i * (cwidth(card) / 4), cheight(card) * -2)
+         if playeraxis == Xaxis: card.moveToTable(homeDistance(card) - cardDistance(card) * 3 + i * (cwidth(card) / 4), cheight(card) * -2)
          elif playeraxis == Yaxis: card.moveToTable(cwidth(card) / -2 + i * (cwidth(card) / 4), homeDistance(card) - cardDistance(card))
          else: card.moveToTable(i * (cwidth(card) / 4) - cwidth(card), 0)
          if foundjoker == 'yes': random = rnd(100, 10000)
@@ -1246,7 +1254,7 @@ def revealShootoutHand(group):
          notify("The winner is {} by {} ranks and {} must ace as many of their dudes in this shootout".format(me, (me.HandRank - player.HandRank), player))
          clearHandRanks()
       elif player.HandRank > me.HandRank: 
-         notify("The winner is {} by {} ranks and {} must ace as many of their dudes in this shootout".format(player, (me.HandRank - player.HandRank), me))
+         notify("The winner is {} by {} ranks and {} must ace as many of their dudes in this shootout".format(player, (player.HandRank - me.HandRank), me))
          clearHandRanks()
       else: 
          notify ("The Shootout is a tie. Both player suffer one casualty")

@@ -52,6 +52,13 @@ You should also check and "Like" the [Deadlands Facebook page](http://www.facebo
 Changelog
 ---------
 
+### 3.0.5
+
+* Modified the placement of revealed draw hands, so that they're not so likely to fall on top of your own deeds.
+* Now shootout result announcement should be accurate when your opponent wins.
+* Added new "Flight of Angels" marker and accompanying action. The marker can only be placed on outfit cards and is just there to remind you of how many have been played against a player. You will need to download the markers set v3.0.2
+
+
 ### 3.0.4
 
  * Changed some card properties capitalization to work with the new Python checking in the betas. 

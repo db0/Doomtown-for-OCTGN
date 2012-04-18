@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<game xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Doomtown CCG" id="9afa6473-fd81-41b9-955f-8f67c7d3f423" octgnVersion="3.0.0.8" version="3.0.4" markersize="16">
+<game xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Doomtown CCG" id="9afa6473-fd81-41b9-955f-8f67c7d3f423" octgnVersion="3.0.0.8" version="3.0.5" markersize="16">
 	<card back="r01" front="r02" width="90" height="126" cornerRadius="3">
 		<property name="Rank" type="String" hidden="false" ignoreText="False" />
 		<property name="Suit" type="String" hidden="false" ignoreText="False" />
@@ -35,9 +35,6 @@
 		<groupaction menu="Spawn Token Dude." default="false" execute="spawnTokenDude" />
 		<groupaction menu="Hand Rank Guide" default="false" execute="HandRankGuide" />
 		<cardactions menu="Dude-Specific">
-			<cardaction menu="Announce move without booting." default="false" shortcut="Ctrl+M" execute="move" />
-			<cardaction menu="Announce move by booting." default="false" shortcut="Ctrl+B" execute="moveBoot" />
-			<cardaction menu="Call out another dude in this location." default="false" shortcut="Ctrl+Shift+C" execute="callout" />
 			<cardactions menu="Posse/Job/Callout reactions...">
 				<cardaction menu="Join Attacking/Job Posse." default="false" shortcut="Ctrl+Shift+J" execute="joinAttack" />
 				<cardaction menu="Accept Call out." default="false" shortcut="Ctrl+Shift+A" execute="acceptCallout" />
@@ -46,6 +43,9 @@
 				<groupaction menu="Announce Posse ready." default="false" shortcut="Ctrl+Shift+F" execute="posseReady" />
 				<cardaction menu="Run Away from the Shootout." default="false" execute="runAway" />
 			</cardactions>
+			<cardaction menu="Announce move without booting." default="false" shortcut="Ctrl+M" execute="move" />
+			<cardaction menu="Announce move by booting." default="false" shortcut="Ctrl+B" execute="moveBoot" />
+			<cardaction menu="Call out another dude in this location." default="false" shortcut="Ctrl+Shift+C" execute="callout" />
 			<cardaction menu="Receive new goods." default="false" shortcut="Ctrl+G" execute="goods" />
 			<cardaction menu="Trade Goods." default="false" batchExecute="tradeGoods" />
 			<cardaction menu="(Un)Mark as Wanted." default="false" shortcut="Alt+W" execute="modWantedMarker" />
@@ -71,6 +71,7 @@
 			<cardaction menu="Decrease Value." default="false" shortcut="Alt+Shift+V" execute="minusValue" />
 			<cardaction menu="Set Value." default="false" shortcut="Alt+Ctrl+V" execute="setValue" />
 			<cardaction menu="Add Markers" default="false" shortcut="Alt+M" batchExecute="addMarker" />
+			<cardaction menu="Flight of Angels" default="false" execute="FlightOfAngels" />
 		</cardactions>
 		<groupaction menu="Re-Calculate your total influence &amp; control" default="false" shortcut="Ctrl+C" execute="reCalculate" />
 		<groupaction menu="Nightfall Refresh (Unboot cards / Refill Hand)" default="false" shortcut="Ctrl+N" execute="NightfallUnboot" />
