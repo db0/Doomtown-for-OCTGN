@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<game xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Doomtown CCG" id="9afa6473-fd81-41b9-955f-8f67c7d3f423" octgnVersion="3.0.0.8" version="3.0.5" markersize="16">
+<game xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Doomtown CCG" id="9afa6473-fd81-41b9-955f-8f67c7d3f423" octgnVersion="3.0.0.8" version="3.0.7" markersize="16">
+   <globalvariables> 
+     <globalvariable name="fontsize" value="8"/>
+     <globalvariable name="chatsize" value="8"/>
+<!--     <globalvariable name="chatsize" value="10"/> -->
+   </globalvariables>
 	<card back="r01" front="r02" width="90" height="126" cornerRadius="3">
 		<property name="Rank" type="String" hidden="false" ignoreText="False" />
 		<property name="Suit" type="String" hidden="false" ignoreText="False" />
@@ -70,8 +75,8 @@
 			<cardaction menu="Increase Value." default="false" shortcut="Alt+V" execute="plusValue" />
 			<cardaction menu="Decrease Value." default="false" shortcut="Alt+Shift+V" execute="minusValue" />
 			<cardaction menu="Set Value." default="false" shortcut="Alt+Ctrl+V" execute="setValue" />
-			<cardaction menu="Add Markers" default="false" shortcut="Alt+M" batchExecute="addMarker" />
 			<cardaction menu="Flight of Angels" default="false" execute="FlightOfAngels" />
+			<cardaction menu="Add Markers" default="false" shortcut="Alt+M" batchExecute="addMarker" />
 		</cardactions>
 		<groupaction menu="Re-Calculate your total influence &amp; control" default="false" shortcut="Ctrl+C" execute="reCalculate" />
 		<groupaction menu="Nightfall Refresh (Unboot cards / Refill Hand)" default="false" shortcut="Ctrl+N" execute="NightfallUnboot" />
@@ -79,7 +84,7 @@
 		<cardaction menu="Ace card(s)" default="false" shortcut="Del" batchExecute="ace" />
 		<cardaction menu="Discard card(s)" default="false" shortcut="Ctrl+Del" batchExecute="discard" />
 	</table>
-	<player summary="{#GhostRock} / {#Influence} / {#Control} / {#VictoryPoints}">
+	<player summary="GR:{#GhostRock} | Inf:{#Influence} | CP:{#Control} | VP:{#VictoryPoints}">
 		<hand name="Play Hand" visibility="me" ordered="false" width="90" height="126" icon="r12">
 			<cardaction menu="Play" default="true" execute="playcard" />
 			<cardaction menu="Inspect Card" default="false" execute="inspectCard" />

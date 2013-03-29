@@ -52,6 +52,14 @@ You should also check and "Like" the [Deadlands Facebook page](http://www.facebo
 Changelog
 ---------
 
+### 3.0.7
+
+* Some better concatenation. 
+
+### 3.0.6
+
+* Added the [pixel-western fonts]9http://fav.me/d37tc80) as custom ones for chat and menu.
+
 ### 3.0.5
 
 * Modified the placement of revealed draw hands, so that they're not so likely to fall on top of your own deeds.

@@ -373,16 +373,10 @@ def upkeep(group, x = 0, y = 0): # Automatically receive production and pay upke
                  # then we increment the total production we have for this turn 
                  # and add the name of the card to our concatenated string of all the cards that produced this turn
          prod += gr
-         concat_prod += str(gr) # This is where the concatenation happens
-         concat_prod += ' GR from '
-         concat_prod += card.name
-         concat_prod += '. '
+         concat_prod += '{} GR from {}. '.format(str(gr),card) # This is where the concatenation happens
       elif gr < 0: # Much like production, we only add the name to the string if it's having any upkeep
          upk += -gr # Add the negative gr as a positive amount to the variable, so that we can compare it later to  our remaining GR.
-         concat_upk += str(gr)
-         concat_upk += ' GR for '
-         concat_upk += card.name
-         concat_upk += '. '
+         concat_upk += '{} GR for {}. '.format(str(gr),card)
    notify("{} has produced {} ghost rock this turn: {}".format(me, prod, concat_prod)) # Inform the players how much they produced and from where.
    me.GhostRock += prod # Then add the money to their Ghost Rock counter.
                         # Note that you can only modify counters with a single-string name due to bug 372
@@ -468,17 +462,13 @@ def reCalculate(group = table, x = 0, y = 0, notification = 'loud'):
       count = num(card.Influence) + card.markers[InfluencePlusMarker] - card.markers[InfluenceMinusMarker] # Put the card's total influence on a temp marker.
       if count > 0: # We only care to do anything if the card had any influence
          if i > 0: concat_inf += ', ' # We separate with comma only after we have at least 1 card in the list
-         concat_inf += str(count) # Add the count as a string to the concatenated list before the name, e.g. "3 from Black Jack"
-         concat_inf += ' from ' 
-         concat_inf += card.name
+         concat_inf += '{} from {}'.format(str(count),card) # Add the count as a string to the concatenated list before the name, e.g. "3 from Black Jack"
          i += 1 # Once we have found at least one card with influence, we separate the rest with commas
          influence += count # We add this card's total influence to our tally.
       count = num(card.Control) + card.markers[ControlPlusMarker] - card.markers[ControlMinusMarker] # Put the card's total influence on a temp marker.
       if count > 0: # Same as influence but for control this time
          if c > 0: concat_cp += ', '
-         concat_cp += str(count)
-         concat_cp += ' from '
-         concat_cp += card.name
+         concat_cp += '{} from {}'.format(str(count),card)
          c += 1
          control += count
    concat_inf += ')' # We close our concatenated list
@@ -1081,28 +1071,25 @@ def setup(group):
          TSL = table.create("ac0b08ed-8f78-4cff-a63b-fa1010878af9", 0, 0, 1, True) # Create a Left Town Square card in the middle of the table.
          TSL.moveToTable(2 - cwidth(TSL,0) ,0) # Move the left TS part to the left
          TSR = table.create("72f6c0a9-e4f6-4b17-9777-185f88187ad7", 0, 0, 1, True) # Create a Right Town Square card in the middle of the table.
-         TSR.moveToTable(-1,0) 
+         TSR.moveToTable(-1,0)
       for card in group: # For every card in the player's hand... (which should be an outfit and a bunch of dudes usually)
          if card.Type == "Outfit" :  # If it's the outfit...
             placeCard(card,'SetupHome')
             me.GhostRock += num(card.properties['Ghost Rock']) # Then we add its starting Ghost Rock to the bank
             playerOutfit = card.Outfit # We make a note of the outfit the player is playing today (used later for upkeep)
-            concat_home += card.name # And we save the name.
+            concat_home += '{}'.format(card) # And we save the name.
          elif card.Type == "Dude" : # If it's a dude...
             placeCard(card,'SetupDude',dudecount)
             dudecount += 1 # This counter increments per dude, ad we use it to move each other dude further back.
             payCost(card.Cost) # Pay the cost of the dude
             modInfluence(card.Influence, silent) # Add their influence to the total
-            concat_dudes += card.name # And prepare a concatenated string with all the names.
-            concat_dudes += '. '
+            concat_dudes += '{}. '.format(card) # And prepare a concatenated string with all the names.
          else: # If it's any other card...
             placeCard(card,'SetupOther')
             payCost(card.Cost) # We pay the cost 
             modControl(card.Control) # Add any control to the total
             modInfluence(card.Influence) # Add any influence to the total
-            concat_other = ', brings ' # And we create a special concat string to use later for the notification.
-            concat_other += card.name # 
-            concat_other += ' into play'   
+            concat_other = ', brings {} into play'.format(card) # And we create a special concat string to use later for the notification.
       if dudecount == 0: concat_dudes = 'and has no starting dudes. ' # In case the player has no starting dudes, we change the notification a bit.
       refill() # We fill the player's play hand to their hand size (usually 5)
       notify("{} is playing {} {} {}Starting Ghost Rock is {} and starting influence is {}.".format(me, concat_home, concat_other, concat_dudes, me.GhostRock, me.Influence))  
