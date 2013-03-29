@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<set xmlns:noNamespaceSchemaLocation="CardSet.xsd" 
+     name="The Champions Project" 
+     id="3727fea2-98d9-49cb-b2aa-d30a090433e4" 
+     gameId="9afa6473-fd81-41b9-955f-8f67c7d3f423" 
+     gameVersion="3.0.0" 
+     version="1.0.0">
+	<cards>
+		<card id="2e89540e-27fb-4740-820c-1c50a8727660" name="Deputy Carter Richardson">
+			<property name="Rank" value="J" />
+			<property name="Suit" value="S" />
+			<property name="Type" value="Dude" />
+			<property name="Cost" value="7" />
+			<property name="Upkeep" value="2" />
+			<property name="Production" value="" />
+			<property name="Bullets" value="3" />
+			<property name="Bullet Bonus" value="" />
+			<property name="Draw Type" value="Stud" />
+			<property name="Influence" value="1" />
+			<property name="Control" value="" />
+			<property name="Outfit" value="Drifter" />
+			<property name="Rarity" value="FR" />
+			<property name="Ghost Rock" value="" />
+			<property name="Text" value="Experiened. Noon: Move Carter to a location containing a Wanted dude, ignoring movement restrictions. Carter Calls that dude out. That dude's controller may pay you Ghost Rock equal to twice the Influence on the Wanted dude. If they do, cancel the call out and the dude becomes unwanted." />
+		</card>
+		<card id="06e9d0e7-1329-4e90-8969-ed0ecbb2d94a" name="Deputy Carter Richardson">
+			<property name="Rank" value="J" />
+			<property name="Suit" value="S" />
+			<property name="Type" value="Dude" />
+			<property name="Cost" value="5" />
+			<property name="Upkeep" value="1" />
+			<property name="Production" value="" />
+			<property name="Bullets" value="2" />
+			<property name="Bullet Bonus" value="" />
+			<property name="Draw Type" value="Stud" />
+			<property name="Influence" value="1" />
+			<property name="Control" value="" />
+			<property name="Outfit" value="Drifter" />
+			<property name="Rarity" value="FR" />
+			<property name="Ghost Rock" value="" />
+			<property name="Text" value="Wanted dudes must pay 2 ghost rock to Deputy Carter Richardson's controller to refuse call outs issued by this dude. Shootout Reaction: Gain 1 Ghost Rock for every Wanted dude aced in the opposing posse. Reaction: After a shootout in which a &quot;Bounty Hunter&quot; token dude survives, bring Carter Richardson into play at your home, without cost." />
+		</card>
+		<card id="c52c41b5-6fc2-4055-9554-a85fe8860a5f" name="&quot;Jackalope&quot; Jay">
+			<property name="Rank" value="8" />
+			<property name="Suit" value="S" />
+			<property name="Type" value="Dude" />
+			<property name="Cost" value="4" />
+			<property name="Upkeep" value="1" />
+			<property name="Production" value="" />
+			<property name="Bullets" value="1" />
+			<property name="Bullet Bonus" value="" />
+			<property name="Draw Type" value="Draw" />
+			<property name="Influence" value="1" />
+			<property name="Control" value="" />
+			<property name="Outfit" value="Sioux Union" />
+			<property name="Rarity" value="FR" />
+			<property name="Ghost Rock" value="" />
+			<property name="Text" value="Reaction: When you play a Cheatin' card, you may ace it to have Jackalope Jay copy the effect of that Cheatin' card. If Jackalope Jay has copied a Cheatin' card, the next player to reveal a Cheatin' hand (you included) has that effect played as if it were a Cheatin' card." />
+		</card>
+		<card id="7f77f196-5b37-4db2-b937-263d190e5d62" name="Lost Angels">
+			<property name="Rank" value="" />
+			<property name="Suit" value="" />
+			<property name="Type" value="Outfit" />
+			<property name="Cost" value="" />
+			<property name="Upkeep" value="" />
+			<property name="Production" value="2" />
+			<property name="Bullets" value="" />
+			<property name="Bullet Bonus" value="" />
+			<property name="Draw Type" value="" />
+			<property name="Influence" value="" />
+			<property name="Control" value="" />
+			<property name="Outfit" value="Lost Angels" />
+			<property name="Rarity" value="FR" />
+			<property name="Ghost Rock" value="19" />
+			<property name="Text" value="When you play a Cheatin' card, your Blessed dudes have +1 Influence and +3 Value until after nightfall. Reaction: Boot one of your Lost Angels dudes when your opponent reveals an illegal draw hand to play a Cheatin' card from your discard pile. Ace that Cheatin' card after draw hands are discarded." />
+		</card>
+		<card id="9c404a35-d37e-484b-abfe-8d5e17de5397" name="&quot;TLC&quot; John">
+			<property name="Rank" value="A" />
+			<property name="Suit" value="S" />
+			<property name="Type" value="Dude" />
+			<property name="Cost" value="5" />
+			<property name="Upkeep" value="1" />
+			<property name="Production" value="" />
+			<property name="Bullets" value="3" />
+			<property name="Bullet Bonus" value="" />
+			<property name="Draw Type" value="Draw" />
+			<property name="Influence" value="0" />
+			<property name="Control" value="" />
+			<property name="Outfit" value="Texas Rangers" />
+			<property name="Rarity" value="FR" />
+			<property name="Ghost Rock" value="" />
+			<property name="Text" value="Harrowed. &quot;TLC&quot; John does not count against your starting dude limit. John is a Stud and has +2 Influence and a King Value when in the same location as Katie Karl." />
+		</card>
+		<card id="2f085faa-2c9a-49d9-a1bd-7171a645b042" name="Wanted Poster">
+			<property name="Rank" value="5" />
+			<property name="Suit" value="H" />
+			<property name="Type" value="Goods" />
+			<property name="Cost" value="4" />
+			<property name="Upkeep" value="" />
+			<property name="Production" value="" />
+			<property name="Bullets" value="" />
+			<property name="Bullet Bonus" value="" />
+			<property name="Draw Type" value="" />
+			<property name="Influence" value="" />
+			<property name="Control" value="" />
+			<property name="Outfit" value="" />
+			<property name="Rarity" value="FR" />
+			<property name="Ghost Rock" value="" />
+			<property name="Text" value="The Wanted Poster attachés to Deputy Carter Richardson for two less Ghost Rock. When the Wanted Poster comes into play, name a Wanted dude. That dude cannot become unwanted by any means. Noon Job: Boot this dude to start a job to ace the Wanted dude targeted by the Wanted Poster. Your Law Dogs dudes and Bounty Hunter dudes do not become Wanted, even if this job takes place at a private location. If the dude is aced as a result of this job, gain Ghost Rock equal to the dude's influence" />
+		</card>
+	</cards>
+</set>
