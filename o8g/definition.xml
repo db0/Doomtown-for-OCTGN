@@ -134,7 +134,7 @@
 		<counter name="Influence" default="0" reset="False" icon="Counters/influence.png" />
 		<counter name="Control" default="0" reset="False" icon="Counters/control.png" />
 		<counter name="VictoryPoints" default="0" reset="False" icon="Counters/victory.png" />
-		<counter name="HandRank" default="0" reset="False" />
+		<counter name="HandRank" default="0" reset="False" icon="Counters/Hand_Size.png" />
 	</player>
 	<shared>
 		<counter name="Fear Level" default="5" reset="False" icon="Counters/fear.png" />
