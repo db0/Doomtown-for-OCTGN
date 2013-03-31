@@ -6,12 +6,12 @@
       octgnVersion="3.1.0.0" 
       version="3.0.7" 
       markersize="16"
-      tags="Doomtown"
-      description="A Western-themed CCG that graciously marries the mechanics of Poker and Chess"
-      setsurl="http://octgn.gamersjudgement.com/viewtopic.php?f=9&t=14"
-      gameurl="http://octgn.gamersjudgement.com/viewtopic.php?f=9&t=15"
+      tags="western deadlands poker maneuvering multiplayer"
+      description="One of the more unusual card games, marying poker, town building and maneuvering elegantly. Doomtown has players taking the part of gangs, called 'outfits,' trying to gain control of the California boomtown known as Gomorrah, in the same Weird West setting as the popular Deadlands RPG."
+      setsurl="http://octgn.gamersjudgement.com/viewtopic.php?f=9&amp;t=14"
+      gameurl="https://github.com/db0/Doomtown-for-OCTGN"
       authors="Db0"
-      iconurl="https://raw.github.com/db0/Doomtown-for-OCTGN/master/Doomtown_Card_Back.jpg">
+      iconurl="https://raw.github.com/db0/Doomtown-for-OCTGN/master/doomtown_logo.jpg">
 	<scripts>
 		<script src="Scripts/actions.py" />
 	</scripts>
@@ -21,22 +21,22 @@
    </fonts>   
    <globalvariables> 
    </globalvariables>
-	<card back="Card/back.jpg" front="Cards/front.jpg" width="90" height="126" cornerRadius="3">
-		<property name="Rank" type="String" hidden="False" ignoreText="False" />
-		<property name="Suit" type="String" hidden="False" ignoreText="False" />
+	<card back="Card/back.jpg" front="Card/front.jpg" width="90" height="126" cornerRadius="3">
+		<property name="Rank" type="String" hidden="False" ignoreText="False" textKind="Free"  />
+		<property name="Suit" type="String" hidden="False" ignoreText="False" textKind="Free"  />
 		<property name="Type" type="String" hidden="False" ignoreText="False" textKind="Enum" />
-		<property name="Cost" type="String" hidden="False" ignoreText="False" />
-		<property name="Upkeep" type="String" hidden="False" ignoreText="False" />
-		<property name="Production" type="String" hidden="False" ignoreText="False" />
-		<property name="Bullets" type="String" hidden="False" ignoreText="False" />
-		<property name="Bullet Bonus" type="String" hidden="False" ignoreText="False" />
+		<property name="Cost" type="String" hidden="False" ignoreText="False" textKind="Free"  />
+		<property name="Upkeep" type="String" hidden="False" ignoreText="False" textKind="Free"  />
+		<property name="Production" type="String" hidden="False" ignoreText="False" textKind="Free"  />
+		<property name="Bullets" type="String" hidden="False" ignoreText="False" textKind="Free"  />
+		<property name="Bullet Bonus" type="String" hidden="False" ignoreText="False" textKind="Free"  />
 		<property name="Draw Type" type="String" hidden="False" ignoreText="False" textKind="Enum" />
-		<property name="Influence" type="String" hidden="False" ignoreText="False" />
-		<property name="Control" type="String" hidden="False" ignoreText="False" />
+		<property name="Influence" type="String" hidden="False" ignoreText="False" textKind="Free"  />
+		<property name="Control" type="String" hidden="False" ignoreText="False" textKind="Free"  />
 		<property name="Outfit" type="String" hidden="False" ignoreText="False" textKind="Enum" />
 		<property name="Rarity" type="String" hidden="False" ignoreText="True" textKind="Enum" />
-		<property name="Ghost Rock" type="String" hidden="False" ignoreText="False" />
-		<property name="Text" type="String" hidden="False" ignoreText="False" />
+		<property name="Ghost Rock" type="String" hidden="False" ignoreText="False" textKind="Free"  />
+		<property name="Text" type="String" hidden="False" ignoreText="False" textKind="Free"  />
 	</card>
 	<table name="Table" visibility="undefined" ordered="False" width="1150" height="750" background="Background/background.jpg" backgroundStyle="uniformToFill">
 		<cardaction menu="Boot/Unboot" default="True" execute="boot" />
