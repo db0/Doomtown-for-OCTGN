@@ -16,8 +16,8 @@
 		<script src="Scripts/actions.py" />
 	</scripts>
    <fonts>
-       <font src="Fonts/Pixel-Western.ttf" size="8" target="context"/> <!--menu-->
-       <font src="Fonts/Pixel-Western.ttf" size="8" target="chat"/> <!--chat-->
+       <font src="Fonts/Pixel-Western.ttf" size="8" target="context"/>
+       <font src="Fonts/Pixel-Western.ttf" size="8" target="chat"/> 
    </fonts>   
    <globalvariables> 
    </globalvariables>
