@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <game xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
       xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-      name="Doomtown CCG" 
+      name="Doomtown" 
       id="9afa6473-fd81-41b9-955f-8f67c7d3f423" 
       octgnVersion="3.1.0.0" 
       version="3.0.7" 
       markersize="16"
       tags="western deadlands poker maneuvering multiplayer"
-      description="A western themed card game, marying poker, town building, and maneuvering.&#xD;&#xD;&#xD;Doomtown has players taking the part of gangs, called 'outfits,' trying to gain control of the California boomtown known as Gomorrah, in the same Weird West setting as the popular Deadlands RPG."
+      description="A western themed card game, marying poker, town building, and maneuvering.&#xD;&#xD;&#xD;Doomtown has players taking the part of gangs, called 'outfits,' trying to gain control of the California boomtown known as Gomorrah, in the same Weird West setting as the popular Deadlands RPG.&#xD;&#xD;This game works very well for more than 2 players."
       setsurl="http://octgn.gamersjudgement.com/viewtopic.php?f=9&amp;t=14"
       gameurl="https://github.com/db0/Doomtown-for-OCTGN"
       authors="Db0"
@@ -19,6 +19,8 @@
        <font src="Fonts/Pixel-Western.ttf" size="8" target="context"/>
        <font src="Fonts/Pixel-Western.ttf" size="8" target="chat"/> 
    </fonts>   
+   <proxygen definitionsrc="Proxy/proxydef.xml">
+   </proxygen>   
    <globalvariables> 
    </globalvariables>
 	<card back="Card/back.jpg" front="Card/front.jpg" width="90" height="126" cornerRadius="3">
