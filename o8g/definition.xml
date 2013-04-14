@@ -45,6 +45,9 @@
 		<cardaction menu="Inspect Card" default="False" execute="inspectCard" />
 		<groupaction menu="Pay Upkeep / Receive Production." default="False" shortcut="Ctrl+U" execute="upkeep" />
 		<groupaction menu="Move to Next phase." default="False" shortcut="enter" execute="nextPhase" />
+		<groupactions menu="Game...">
+			<groupaction menu="Download Sets Card Images." shortcut="Ctrl+G" default="False" execute="download_o8c" />
+		</groupactions>
 		<groupactions menu="Phases...">
 			<groupaction menu="Jump to Gamblin' Phase." default="False" shortcut="F1" execute="goToGamblin" />
 			<groupaction menu="Jump to Upkeep Phase." default="False" shortcut="F2" execute="goToUpkeep" />

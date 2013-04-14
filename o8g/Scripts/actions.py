@@ -135,7 +135,8 @@ def defPlayerColor(): # Obsolete in OCTGN 3 but leaving it here in case I find a
    RGB = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"]
    for i in range(6): PlayerColor += RGB[rnd(0,15)]
 
-
+def download_o8c(group,x=0,y=0):
+   openUrl("http://dbzer0.com/pub/Doomtown/sets/Doomtown-Sets-Bundle.o8c")
 #---------------------------------------------------------------------------
 # Card Placement functions
 #---------------------------------------------------------------------------
