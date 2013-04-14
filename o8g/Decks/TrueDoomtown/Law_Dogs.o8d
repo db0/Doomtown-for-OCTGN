@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<deck game="9afa6473-fd81-41b9-955f-8f67c7d3f423">
+  <section name="Outfit">
+    <card qty="1" id="e6e39a40-f2c2-43cc-bc1c-7712c6b2ba13">Law Dogs: Mob Justice</card>
+  </section>
+  <section name="Starting Cards">
+    <card qty="1" id="9d3899a4-c5c6-4dd0-982f-23502e5ce674">Jesse Radcliffe</card>
+    <card qty="1" id="accfc226-def0-42e8-9a4f-bfe5baa10d65">Jenny Cooper</card>
+    <card qty="1" id="2fbcea9f-d710-430a-a78a-243b12039b0b">Deputy Milo Powell</card>
+    <card qty="1" id="a44fdc9c-e20b-4ac3-9095-850d5bfe7ef4">Deputy Dave Montreal</card>
+  </section>
+  <section name="Deck">
+    <card qty="1" id="9924ba17-27ee-4f51-990f-81fbbad19f3b">Gomorra Gazette</card>
+    <card qty="1" id="404ac94a-6409-4da9-b10c-f0dfbeeefdd3">Shootin' Range</card>
+    <card qty="1" id="020863aa-2a51-4dbf-a68c-0c0169578193">The Intelligence Shop</card>
+    <card qty="1" id="cb261cbe-1edc-4764-a4f0-d75867740a1c">LAD Saloon</card>
+    <card qty="1" id="e03e543b-f837-4335-b562-ea023e8451c0">Sam's General Store</card>
+    <card qty="1" id="9b666240-639d-4bcf-90d1-f4e1af5cebf2">Gun Shop</card>
+    <card qty="1" id="353fcc73-cc9a-4387-808e-cd17f0f88173">Sheriff's Shaft</card>
+    <card qty="1" id="08ea6f39-d661-4ffd-b96e-a8a069e86141">Fu Leng's Laundry and Tailoring</card>
+    <card qty="1" id="18c5b737-e22b-4845-bec4-81c8d2a40ec4">Rough And Tumble Saloon</card>
+    <card qty="1" id="592dd27a-b134-4ead-9682-785e0c09c16b">On the Side Strike</card>
+    <card qty="1" id="8a96a453-42de-4a1d-8b29-078833e0e6df">Ammunitionist</card>
+    <card qty="1" id="34f8e7f6-33b8-46cc-8883-f388e24171db">Only Winged 'Em</card>
+    <card qty="1" id="fb7e847b-29ba-45aa-8091-f63510082e69">A Price on His Head</card>
+    <card qty="1" id="352fb0e7-8b2e-40e5-928c-2e493f2262b1">Now, Is That on Three...?'</card>
+    <card qty="1" id="34c7f1b4-c2bf-4fab-804d-95e598c8fda5">...or After Three?'</card>
+    <card qty="1" id="650eaf9c-d0ec-420c-97ae-c912664a1119">Warrant</card>
+    <card qty="1" id="0ff738fa-5530-4f91-a02c-abc70e69d2d2">Nowhere to Run</card>
+    <card qty="1" id="d27c8dba-d63a-45c6-bbfa-f86c28090c60">Attitude</card>
+    <card qty="1" id="51e4a45a-2fb3-4bc5-924c-628a5fc6050e">Sheriff's Watchin'</card>
+    <card qty="1" id="1244e5c2-db81-48b3-8c17-07a1033c9a21">No Funny Stuff</card>
+    <card qty="1" id="9e30440d-18fb-45d6-a17d-d98d31c2cccf">Cover Fire</card>
+    <card qty="1" id="266061fe-527b-414b-ba02-755ee1f064a9">Rumors</card>
+    <card qty="1" id="19cec15a-3f35-4b2c-9d5f-4ef35863ebae">First to Fall</card>
+    <card qty="1" id="afad7193-866a-435d-8513-1c707627f9ce">Honor</card>
+    <card qty="1" id="d85a3095-d01f-46b5-8951-028ea51b19b5">Kenny</card>
+    <card qty="1" id="9b84f1aa-880f-4971-84a3-9486a77a63e9">Martyr's Cross</card>
+    <card qty="1" id="a4a8fc54-88ef-4ec8-b604-77309253958b">New Hat</card>
+    <card qty="1" id="74db2620-323b-4b01-9e5e-9d65297d2448">Lemat Pistol</card>
+    <card qty="1" id="a8196a19-3e18-414b-86cc-781f7ae41e1d">Shotgun</card>
+    <card qty="1" id="8ae6faa1-98d0-4fb0-9d86-4f7b9c6ab24e">Home Is Where Nothin' Ever Happens</card>
+    <card qty="1" id="2fa9ebca-f811-427c-9744-fd1ba5e19a9c">Roll O' Dimes</card>
+    <card qty="1" id="8c1ee342-253b-46f5-8403-0dc148cd1987">Ammo Belt</card>
+    <card qty="1" id="5c4da658-1d7f-4ca4-90c6-edbd0afa3825">Magnum Bullets</card>
+    <card qty="1" id="f48c5e8f-7d76-4123-b2ce-4fa21c60b6a4">Flashfire Bullets</card>
+    <card qty="1" id="70718dbe-95c0-41f1-bfc4-a5b558835ae6">Double-barreled Shotgun</card>
+    <card qty="1" id="10351f90-d6e0-462e-8d6b-2ba2a940087a">A Coach Comes to Town</card>
+    <card qty="1" id="88fd8efe-c124-42da-b61f-f6d016c19a02">Hand Cart</card>
+    <card qty="1" id="584f787a-8082-4dbc-92d9-963316cd40f0">The Snitch</card>
+    <card qty="1" id="85ae2005-3f66-4b16-8098-74fb0c9ee030">William Olson</card>
+    <card qty="1" id="bba26500-f8cd-4926-a710-e78c29d5864b">Xiong 'Wendy' Cheng</card>
+    <card qty="1" id="e68e0e0a-e576-40ba-9baa-8ee2aeba5710">Deputy John Templeton</card>
+    <card qty="1" id="568845bf-04de-4e42-9b8b-3397dd390a3b">Judge Henry Warwick</card>
+    <card qty="1" id="69447b38-dfdd-462f-8643-37ad02575ae7">Hangin' Judge</card>
+    <card qty="1" id="0988a645-2961-4974-9bab-eaf7b017f25b">Eye Doctor</card>
+    <card qty="1" id="0c2090b1-7e76-4e1e-8e01-1dc64593fb7b">Whiskey Nick's Joint</card>
+    <card qty="1" id="cb40fd39-ed95-4e23-ade2-655f4f584b20">Jenny Cooper</card>
+    <card qty="1" id="da983e69-42b7-40ab-b881-7f9f5e2dcccb">The Drifter</card>
+    <card qty="1" id="85538786-77be-428a-a1b3-94a85bc6a469">Nate Hunter</card>
+  </section>
+</deck>

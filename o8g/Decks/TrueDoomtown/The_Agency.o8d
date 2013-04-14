@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<deck game="9afa6473-fd81-41b9-955f-8f67c7d3f423">
+  <section name="Outfit">
+    <card qty="1" id="9f3dd026-3692-4d91-9432-0652b7b32961">The Agency - Union Blue</card>
+  </section>
+  <section name="Starting Cards">
+    <card qty="1" id="c85b139b-8768-4d59-b1cc-d0b170cd8604">Elizabeth Goldstein</card>
+    <card qty="1" id="08219450-49ef-4497-a38c-c1995ebb6b27">Sister Mary Jebediah</card>
+    <card qty="1" id="86b1f573-2e77-4a6f-b96e-aecb50eaaaf3">Timmy Derrick</card>
+    <card qty="1" id="66503b1f-e933-4833-a519-27db23316f46">Tomb Guardian</card>
+  </section>
+  <section name="Deck">
+    <card qty="1" id="7d8f1338-3475-429b-939f-650fca78f8c0">Balcony</card>
+    <card qty="1" id="9a2eaaef-c24e-489a-9f41-680d54e18efa">Red Hill Hotel</card>
+    <card qty="1" id="7710ee07-cae8-4ce7-963a-2e3842a4b2ae">Channel Fort</card>
+    <card qty="1" id="dc616821-c50d-4e6b-b5ce-73a21c3f1114">Gatling Emplacement</card>
+    <card qty="1" id="49cfe4c0-63d8-4314-8e6d-d9cf179e32d4">Harvesting Plots</card>
+    <card qty="1" id="4bda6771-c207-4ba1-af48-0c19eab26371">Recruiter</card>
+    <card qty="1" id="af2ecaaa-873b-46e0-bca1-6ccc0f8e8f31">Storage Shed</card>
+    <card qty="1" id="7fdf104e-e5e1-4c20-af1c-9b346d8487b3">Power Plant</card>
+    <card qty="1" id="10cbb4f2-9b40-4b14-84e8-a16b0cc34856">Bob's Fix-It Shop</card>
+    <card qty="1" id="5c91feb5-705a-492d-9938-3b33e06b83f3">Fountain</card>
+    <card qty="1" id="42b57a25-262a-4151-ac04-229b8f26d082">Lumberyard</card>
+    <card qty="1" id="6904a72c-6a78-4ad2-b08b-e759efcd040e">The Tree</card>
+    <card qty="1" id="3008ecd5-4387-4b0f-a91a-7260e5d3835b">Leather and Saddle Shop</card>
+    <card qty="1" id="bfb39ce9-5120-422d-ac06-b06f4de4758e">Insult to Injury</card>
+    <card qty="1" id="7f3fbf9d-d26b-443c-81f1-a701757a5a71">Throw Your Weight Around</card>
+    <card qty="1" id="40c145e5-9d55-4c54-a775-258c08be54df">Waylaid!</card>
+    <card qty="1" id="dd8bfcfa-1af2-4400-9f67-7078ea33e131">Ace in the Hole</card>
+    <card qty="1" id="2827347d-4457-452d-b7ad-8bc5057946b2">Horse Thief</card>
+    <card qty="1" id="08ab142f-acf0-45dd-9638-2294c98bca22">Bounty Hunter</card>
+    <card qty="1" id="fd21cd2f-aaf2-4e6a-815d-93bc9a65751e">You're Not Fast Enough...</card>
+    <card qty="1" id="bcb0f98f-17c6-49fb-ae5b-398acb6e363f">What This Town Needs Is...'</card>
+    <card qty="1" id="22059829-49a6-41b7-a43f-56625c2f1295">Oops...'</card>
+    <card qty="1" id="42edc597-d880-4ac4-b15a-396003e65f2f">Reserves</card>
+    <card qty="1" id="a6b05a49-49e9-452a-bfcc-a100e03a2911">Phantoms</card>
+    <card qty="1" id="67c77456-4ce4-472a-a60c-801774a34219">Raid</card>
+    <card qty="1" id="15af70cf-1289-438d-b1d3-66f1d25b2f6f">Rooftop Sniper</card>
+    <card qty="1" id="4b0cc93a-47a5-49c1-bf69-52bc6178a997">Desmond Quentin</card>
+    <card qty="1" id="d6d67cc9-adcb-4566-b230-3bf927249042">Delilah Darby-Scorne</card>
+    <card qty="1" id="6be3f637-144d-43c4-aa2a-246954f437e2">Melissa Thomas</card>
+    <card qty="1" id="6769b452-7c92-46ca-83da-a7d1f887b1db">Raymond Armstrong</card>
+    <card qty="1" id="0c7917d3-e65a-4f30-94cb-b9faa1c066ab">Nelson Roberts</card>
+    <card qty="1" id="e6134ddf-6fb3-4e98-bed4-693fe57db942">Cort Williams</card>
+    <card qty="1" id="1973a74c-820e-4d00-ad81-69794eb65dbe">Mr. Slate</card>
+    <card qty="1" id="4a41f52e-7120-4c20-8201-ef5f7f698911">The Ghost</card>
+    <card qty="1" id="7345dfa0-e14f-449b-8606-4873479f61fd">R.H. II</card>
+    <card qty="1" id="acfb24c5-6de4-40ef-926a-1ee8a1dd155e">Earthquake</card>
+    <card qty="1" id="1aee880c-35cd-489b-8fc3-5cbdd250eb4a">Findley's Quill Pen</card>
+    <card qty="1" id="e7394e86-484a-43e7-a801-2fa1dba0cb28">Founder's Day</card>
+    <card qty="1" id="aada925c-e855-4a77-879e-a5bf4d22bcdb">Gatling Gun</card>
+    <card qty="1" id="60fc5930-b950-4fb8-8027-06810a3c763f">Investment Machine</card>
+    <card qty="1" id="6e28f0d1-e788-426c-aa38-6eb3b6a60dbe">Ghostrock Cannon</card>
+    <card qty="1" id="d0aa095a-e21e-4de3-9ae7-ccd1aa7e0f13">Mechanical Horse</card>
+    <card qty="1" id="a86faa4b-e3f5-4a8a-8fc6-f43cba56e011">The Claw</card>
+    <card qty="1" id="ce8ef43a-256a-4ced-88ce-c0fca4de719f">Prof. Parnhams's Miracle Elixir</card>
+    <card qty="1" id="4118d567-4faf-43db-a091-da328ba1709d">Walkin' Stick</card>
+    <card qty="1" id="b94961d8-0a52-4796-9e4f-f965cd26310b">Sister Mary's Shotgun</card>
+    <card qty="1" id="0a26cdce-6534-40d6-8ecd-62abe1e2d8ad">Chrono Accelerator</card>
+    <card qty="1" id="10f15d70-b641-4a79-bd06-1cb3b4ae0182">Windows Derek</card>
+  </section>
+</deck>

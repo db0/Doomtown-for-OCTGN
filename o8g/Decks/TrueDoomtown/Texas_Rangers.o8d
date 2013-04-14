@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<deck game="9afa6473-fd81-41b9-955f-8f67c7d3f423">
+  <section name="Outfit">
+    <card qty="1" id="498d84be-3bf0-4164-9d32-5bd9b2c8162b">Texas Rangers, Dixie Rails</card>
+  </section>
+  <section name="Starting Cards">
+    <card qty="1" id="c1a0c21e-7864-41d2-a405-a652a06a3642">Tombstone Frank</card>
+    <card qty="1" id="1fc3b2f9-1139-442d-be5d-20dcac80327a">Camille Sinclair</card>
+    <card qty="1" id="6990afe9-051b-4ce7-a4a3-783f93c0188a">Barthalomew Prospectus</card>
+  </section>
+  <section name="Deck">
+    <card qty="1" id="3d5482bd-657a-465d-a4e2-22048e69282b">Army of the Dead</card>
+    <card qty="1" id="0ab4f555-5902-4bcd-9250-d99879899c5e">Sergeant Sean Slade</card>
+    <card qty="1" id="eaa152a4-eef1-4cc8-9a6b-ac4edab1bf3d">J.P. Coleman</card>
+    <card qty="1" id="01849cb8-20fc-4c91-a776-b3f422d626a5">Ezzie</card>
+    <card qty="1" id="dfc0168a-0752-4a12-a0fb-60fda60662d4">Zeke Beauchamp</card>
+    <card qty="1" id="fc9c6b36-50e5-4e83-9249-9e7dbf09a778">Rex Handlen</card>
+    <card qty="1" id="d155d3eb-81a8-49cf-9e8c-a68e1460daa8">Katie Karl</card>
+    <card qty="1" id="776371d0-8690-4901-b6a6-cc2a88ad8a1e">Brigadier-General Patterson</card>
+    <card qty="1" id="cdd51a59-b49e-4c84-9929-782061103f6e">Samhain</card>
+    <card qty="1" id="f46309a5-cf21-4040-b282-12024f020ac2">All Harroweds' Eve</card>
+    <card qty="1" id="01c84e76-5119-4e6b-9ad2-cc6a2f909dec">Eureka?!?</card>
+    <card qty="1" id="761ca057-d5fa-4109-8856-d12bafd81c8d">Reckoner's Bullet</card>
+    <card qty="1" id="7f74ad24-88bd-4db2-a314-eb88b1c1ce7b">Pair of Six-Shooters</card>
+    <card qty="1" id="75fb5e35-c4e3-46d5-95d0-5e15c3176d37">Katie Karl's Calibrated Pistols</card>
+    <card qty="1" id="d39a527d-3bd7-417b-8703-e4c178f74d2f">Three-Piece Suit</card>
+    <card qty="1" id="97903137-0f46-484a-97f2-a6b68c46c457">Dustin Halloway</card>
+    <card qty="1" id="b6c3a0cb-553d-470b-9369-ebb0907f8501">Maurice Foster</card>
+    <card qty="1" id="16319206-9415-497e-98e7-23bc2b1fd747">Hang Glider</card>
+    <card qty="1" id="09bde229-4d33-4fc8-9d54-e1d4d9b12c3b">Air Gun</card>
+    <card qty="1" id="35d581d7-bf93-4fa6-968d-b308ff272849">Chip'</card>
+    <card qty="1" id="fdb8b66a-a821-4527-946a-e6b860576776">Holy Wheel Gun</card>
+    <card qty="1" id="1ad4235c-5d28-424d-a357-b8202665e4cc">Choking Gas</card>
+    <card qty="1" id="41d1e0ef-d3d2-4ae2-b8ec-7c2710533883">Whateley Family Bible</card>
+    <card qty="1" id="b49df10f-0d00-470c-982b-fee7603ca52c">Howlin' Hollow</card>
+    <card qty="1" id="1ac3e13e-03bd-4510-b99a-e3fe25efa720">Freak Show</card>
+    <card qty="1" id="c870400f-f1db-4879-a836-7246cc86790b">Smiling Lizard Lode</card>
+    <card qty="1" id="ecac765b-6431-4622-af92-dbd1c89d2eee">The C.S.A. Ourobouros</card>
+    <card qty="1" id="8327a658-e3af-4dda-9b85-727d35aeb7dd">Bloodsport Arena</card>
+    <card qty="1" id="3b883316-279e-4f5f-920c-684396c905d1">Hardinger-One</card>
+    <card qty="1" id="60c11480-850f-40ad-8d3a-00b8247695db">Nick's and Nack's</card>
+    <card qty="1" id="0324ddfd-6f22-43ed-b71e-0f59970786f9">Pony Express</card>
+    <card qty="1" id="0ea192d1-4a68-45c6-b4e2-f818e2213843">Derailed Cafe</card>
+    <card qty="1" id="41abd9fe-6259-423c-b4ec-a3efacaa9fae">Deep in the Earth Shaft</card>
+    <card qty="1" id="73a13473-624b-4168-b01a-1103ca92ab04">Runnin' Water</card>
+    <card qty="1" id="f7234bad-19a0-41bf-a330-fbe02eaa9326">Stitchin'</card>
+    <card qty="1" id="c2037533-57da-495a-9735-bb94c9722383">Mimic</card>
+    <card qty="1" id="112ac1e1-7d8b-4ac5-b19e-90851440e29c">Overawe</card>
+    <card qty="1" id="988d97f3-96ff-468a-a766-d73ce51ce95e">Supernatural Smarts</card>
+    <card qty="1" id="30aba55f-b52c-4824-b738-70891f8de249">Arcane Protection</card>
+    <card qty="1" id="b458dbca-3def-46c5-a257-29107fb11f4e">Nightmare</card>
+    <card qty="1" id="41ee17ef-9e8f-44df-b867-8e26ac31b3ac">Speakin' With The Dead</card>
+    <card qty="1" id="1f0cfe3d-ce81-4cc5-ad9e-2f2d4dfe6083">Sewing Circle</card>
+    <card qty="1" id="30abf144-b3ad-4101-ad5c-2e68ac3d78de">Blaze of Glory</card>
+    <card qty="1" id="68aa0418-e467-412e-a758-424a62075915">Gettin' Outta Hand</card>
+    <card qty="1" id="e4a391e7-3d37-4d3f-a11c-d5ed103a404c">Intimidation</card>
+    <card qty="1" id="84bb6864-ba95-4d30-9dd9-87c42e7f6bea">Relic</card>
+    <card qty="1" id="d8375005-de3c-4a04-ac0a-4be99b3399b9">Ferryman's Fee</card>
+    <card qty="1" id="71c97cf0-6225-40aa-bc9f-a4f0e6a71108">One Eyed Ike's Weapons Locker</card>
+    <card qty="1" id="f8ea649e-b0fb-46f7-8213-e2e21be2d090">The Labyrinth Mine</card>
+  </section>
+</deck>

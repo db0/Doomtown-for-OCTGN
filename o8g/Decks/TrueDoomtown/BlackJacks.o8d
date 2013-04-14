@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<deck game="9afa6473-fd81-41b9-955f-8f67c7d3f423">
+  <section name="Outfit">
+    <card qty="1" id="45dd5152-3caa-4808-ac19-2b9edbf15628">Blackjacks</card>
+  </section>
+  <section name="Starting Cards">
+    <card qty="1" id="3e9d65e3-0b97-4a28-abde-4a7ad6f0040f">Lawrence Goodman</card>
+    <card qty="1" id="7c9c6ff6-a535-4a65-96bb-bec41eb4a131">William Rose</card>
+    <card qty="1" id="31d60fa6-b225-4ddd-a6f0-9da8c106296a">Andrew Garret</card>
+    <card qty="1" id="3a2d77c8-ca05-4abd-bfb8-3219babe24e6">Andra Miles</card>
+  </section>
+  <section name="Deck">
+    <card qty="1" id="185c5df2-57d2-4fd0-b430-5075f97284b0">The Perch</card>
+    <card qty="1" id="4ce64743-94b7-42e8-92d3-8deebda44733">Leaning Rock Strike</card>
+    <card qty="1" id="5dca1acf-0bda-4ca4-af8c-00dc974e75d5">Homeless Joe</card>
+    <card qty="1" id="fd9ef5e1-c91a-4df4-a953-6e903d9605d5">The Side Pocket Billiard Hall</card>
+    <card qty="1" id="e24aaef2-bb56-4adb-a28b-5e6497f3e205">Lonesome Willow Strike</card>
+    <card qty="1" id="dc54d8a6-015e-49b0-b6a3-44acd833b2d8">Nolan's Smithy</card>
+    <card qty="1" id="0456afa5-4ebd-4bee-88fa-297865958d0a">The Horse Doctor</card>
+    <card qty="1" id="6d5bbed8-8e9e-443f-9e6f-4b853454ae0a">Circle K Ranch</card>
+    <card qty="1" id="0de7e5ea-b729-4871-9465-c0357a2afbe8">The Barber's Shop</card>
+    <card qty="1" id="4fc15cc6-b672-4f6a-b894-e9c562e58d7c">Road House</card>
+    <card qty="1" id="dc472846-dd66-4c43-a6a7-26dceca57311">Town Well</card>
+    <card qty="1" id="cb8da26c-48d3-4764-95ff-555c4b338d36">The Clock Tower</card>
+    <card qty="1" id="2bff834c-7f68-4234-9f88-ba12ba59e831">Human Shield</card>
+    <card qty="1" id="8f152f4d-7db7-4cf3-9b94-ea46d582d687">Sun in Yer Eyes</card>
+    <card qty="1" id="8f4defe2-66b9-4d3e-bce8-dfc7e04378f3">Massacre at High Noon</card>
+    <card qty="1" id="06ef20f4-cf3f-45a5-81e0-de576146be4b">Jailbreak</card>
+    <card qty="1" id="229582bc-5f05-4b12-b0f4-17f71735c1a6">Ambush</card>
+    <card qty="1" id="b1de5e3c-5825-49a5-99ad-2e06cae0fd05">Here Comes The Cavalry</card>
+    <card qty="1" id="8f5acf9b-7525-4bd8-ac07-83e6ed119db0">Hiding in the Bushes</card>
+    <card qty="1" id="75528bf7-70cc-4bd8-a792-8ff8dc9fef16">Kidnapping</card>
+    <card qty="1" id="d4cb073d-f853-48d7-a356-7a845d9969ee">Bad to the Bone</card>
+    <card qty="1" id="586a0a8f-4192-46e8-a991-96158af8c934">Caught with Yer Pants Down</card>
+    <card qty="1" id="9a43bc59-6a06-4e60-aba9-da96bca85319">Quickdraw</card>
+    <card qty="1" id="1933e292-43f8-4dc8-b816-27d4ddf837f2">Run 'em Down!</card>
+    <card qty="1" id="59381f21-786e-4bee-83f7-85ee76bcdd77">Winchester Rifle</card>
+    <card qty="1" id="be0633c8-e721-4e00-ac91-561791c404c2">Eureka!</card>
+    <card qty="1" id="4e2cf5d6-8381-455a-b633-95befe2e9062">Pinto</card>
+    <card qty="1" id="a68c1af5-304a-45cb-9eac-e2a6a72792d7">Roan</card>
+    <card qty="1" id="d163c490-104c-4466-9b89-4bb7cd0ea07e">Holdout Knife</card>
+    <card qty="1" id="43a61d6d-bc00-4aa0-a45a-87d43fcb9d0e">Stallion</card>
+    <card qty="1" id="4289d367-0d03-431b-bffb-34e401e5e51f">Mustang</card>
+    <card qty="1" id="19c43de1-cbd2-40ba-bafe-477fe5f31566">Formal Duds</card>
+    <card qty="1" id="d6862c6b-c95c-4dbe-ba15-29cadeeace9d">Blood Money</card>
+    <card qty="1" id="798a83b6-9553-4f6d-9d2b-111d977a1a9f">Spurs</card>
+    <card qty="1" id="410b878f-d3e7-4fe3-b3a1-34d4dc284a92">Quick-draw Holster</card>
+    <card qty="1" id="3a42dcbc-618a-4004-9c68-cfb7266128d0">Alfred Barkum, Jr.</card>
+    <card qty="1" id="7ee62a7c-0c23-4c6d-965d-13dbfa125bf2">Rhett Caufield</card>
+    <card qty="1" id="56e6f0fb-56ae-4271-9a56-2d676027f8e8">Juliet 'Jewel' Sumner</card>
+    <card qty="1" id="7452a8d8-1e5a-456e-a395-e803f578e3de">Ely Parker</card>
+    <card qty="1" id="a0574527-012c-4df0-b867-2d49e2ae5dde">M' Parker</card>
+    <card qty="1" id="9a80d060-9b99-4384-af5a-987c28e7e1c8">Sheila Mirabella</card>
+    <card qty="1" id="cb5812ae-99c9-4da7-b2ac-52c5772f0f47">Spike Dougan</card>
+    <card qty="1" id="3565ab88-72cf-4a86-b469-5fcb90476851">Rachel Sumner</card>
+    <card qty="1" id="59c84a3f-909e-408b-a41a-472fe87f022b">Black Jack</card>
+    <card qty="1" id="c6b0d261-bf3b-4240-bf6e-55d1bf71b3eb">A Job Well Done</card>
+    <card qty="1" id="2e1e083b-2770-4c92-aa04-4efa92aea834">Sweaty Dynamite</card>
+    <card qty="1" id="19882d71-6600-4f35-8de7-fd9f88ad1e0f">Bowie Knife</card>
+    <card qty="1" id="d3b34ac2-ccd9-41d1-b0a0-304fd536ca21">Sewer Tunnels</card>
+  </section>
+</deck>
