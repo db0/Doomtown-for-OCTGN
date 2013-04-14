@@ -7,6 +7,7 @@
             <border color="#440044" size="1" />
          </block>
       </blocks>
+<!-- TEMPLATES -->
       <template src="Proxy/Missing_Proxies_Template.png" default="True">
          <matches>
             <match name="Name" value="Whatever" />
