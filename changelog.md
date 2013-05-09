@@ -1,6 +1,10 @@
 Changelog - Doomtown CCG OCTGN Game Definition
 ===============================================
 
+### 3.1.0.x
+
+* Doomtown updated for OCTGN 3.1.x
+
 ### 3.0.7
 
 * Some better concatenation. 
