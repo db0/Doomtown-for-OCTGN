@@ -1,7 +1,7 @@
 Doomtown CCG plugin for OCTGN
 =============================
 
-The Doomtown Card Game arrives in OCTGN. A Brilliant mix of poker, collectible card games and even elements of chess-like tactics, all set in the Weird West (AKA Deadlands) in the boomtown of Gomorra, out in the pacific maze.
+A western themed card game, marying poker, town building, and maneuvering.&#xD;&#xD;&#xD;Doomtown has players taking the part of gangs, called 'outfits,' trying to gain control of the California boomtown known as Gomorrah, in the same Weird West setting as the popular Deadlands RPG. This game works very well for more than 2 players.
 
 This is a repository for the a game definition for the [Online Card and Tabletop Gaming Network (OCTGN)](http://octgn.net).
 
