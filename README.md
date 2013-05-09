@@ -13,7 +13,7 @@ Currently doomtown does not utilize OCTGN auto-generated proxies to play. You'll
 
 The link below will provide you with a download bundle you can import into OCTGN by the "add o8c" function in the game manager
 
-[Doomtown Card Images Bundle](http://dbzer0.com/pub/Doomtown/sets/Doomtown-Sets-Bundle.o8c)
+* [Doomtown Card Images Bundle](http://dbzer0.com/pub/Doomtown/sets/Doomtown-Sets-Bundle.o8c) *(Last Updated 14/04/2013)
 
 A lot of images in this bundle are still fairly low quality. In the future we'll be adding higher quality images as they are procured and will provide a download link here.
  
