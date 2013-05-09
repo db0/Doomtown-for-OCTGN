@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+   <templates>
+      <blocks>
+         <block type="text" id="default_name">
+            <location x="85" y="100" />
+            <text color="#000000" size="25" />
+            <border color="#440044" size="1" />
+         </block>
+      </blocks>
+<!-- TEMPLATES -->
+      <template src="Proxy/Missing_Proxies_Template.png" default="True">
+         <matches>
+            <match name="Name" value="Whatever" />
+         </matches>
+         <textblocks>
+            <link block="default_name" separator=" ">
+               <property name="Name"  />
+            </link>
+         </textblocks>
+      </template>
+   </templates>

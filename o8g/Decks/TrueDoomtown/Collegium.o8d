@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<deck game="9afa6473-fd81-41b9-955f-8f67c7d3f423">
+  <section name="Outfit">
+    <card qty="1" id="4bd91258-bdc5-41ee-889b-3c18ac3f2963">The Collegium: New Front</card>
+  </section>
+  <section name="Starting Cards">
+    <card qty="1" id="ee4f7981-d73d-4f8a-9b70-66499da0cc39">Alice Chamberlain</card>
+    <card qty="1" id="d06062c9-9215-4b85-b658-2b7977c41046">Gunther Hapworth</card>
+    <card qty="1" id="7d6dbcb4-d965-47b1-86fb-0ae83247fbf1">Barney Brash</card>
+    <card qty="1" id="d8b76555-6281-4618-8b0d-1ce3dd0befda">Meredeth Singleton</card>
+  </section>
+  <section name="Deck">
+    <card qty="1" id="12ed6cf1-18ca-4c4c-8b54-fafe62be85ab">Victory Springs</card>
+    <card qty="1" id="bb908dc6-4efa-4964-a4f7-349238f9978d">Western Union Offices</card>
+    <card qty="1" id="8f7f61f4-fa2d-4248-a176-a4dd2afcf808">Observatory</card>
+    <card qty="1" id="a24c1f4a-a1a2-467a-a780-1f7e664136d3">Secret Lab</card>
+    <card qty="1" id="1ddc5741-049c-4df7-826a-9c495862f6ff">The Dentist's Office</card>
+    <card qty="1" id="fec507ae-8d89-49d5-8253-cee5ef08039d">Strike Experiment #3.1</card>
+    <card qty="1" id="41ca4ffc-d4b9-4c06-885a-e44ad6d3c10c">Hunter's Moon Strike</card>
+    <card qty="1" id="c8c5edcd-99cf-45eb-b318-ac549778261c">Strike Experiment #2</card>
+    <card qty="1" id="22c7839b-ccd7-4e00-b2d6-442ad23c9dc1">The Steam Tunnel Lode</card>
+    <card qty="1" id="cf4ac0e7-b6a3-4f6b-bee0-904f0dba59a4">Strike Experiment #1</card>
+    <card qty="1" id="bee5a351-cbad-44b9-85c4-45ab1cafd904">Crack Shot</card>
+    <card qty="1" id="46335f3e-618c-4d25-8863-ea5990a60eee">I Gotta Stake In This!</card>
+    <card qty="1" id="d4d7fa9d-7788-441a-89d5-4c3e924f959e">Any One of Ya!</card>
+    <card qty="1" id="a19e45a3-756e-4940-af9e-7d433e876d52">Tinker</card>
+    <card qty="1" id="278d1257-b7c3-4dba-85ca-4a06229aea77">...Today, I Am</card>
+    <card qty="1" id="fb273b90-cdf1-42ee-8156-428d7b157de4">Hot-loaded Rounds</card>
+    <card qty="1" id="8b566825-2bb1-49c5-a7da-72287d08ac85">Shootin' from the Hip</card>
+    <card qty="1" id="e5b11672-7721-4563-9f61-10eda352a2df">Flamin' Barrels</card>
+    <card qty="1" id="53ff0fa5-94a5-454a-8380-fb574ad614ad">Cup of Joe</card>
+    <card qty="1" id="60375229-2e3d-4d91-a277-f360e54df474">Take Ya With Me</card>
+    <card qty="1" id="91281ae2-4e67-4a66-a599-c3e28720c65e">Good Stiff Drink</card>
+    <card qty="1" id="bf137554-d317-448e-bc6a-7a50fc77fca8">Reason</card>
+    <card qty="1" id="bdfdbec9-f63a-424e-8304-8b88ed547eb7">Pharmacy</card>
+    <card qty="1" id="01b15997-d978-42ab-acbe-646d8a62a587">I Gotcha Covered</card>
+    <card qty="1" id="580a40f7-e071-49c9-ab8f-dca4d0fcbeb5">Chainsaw</card>
+    <card qty="1" id="c071235d-8236-4131-a83f-9e8f1fddbc34">Bullet-Proof Vest</card>
+    <card qty="1" id="7231cca6-055b-4921-b7ac-a2bab0c84b95">Miner's Union House</card>
+    <card qty="1" id="9509c546-a4e8-4b7f-b470-ac45c09464da">Automaton Factory</card>
+    <card qty="1" id="cd0f8d20-5f31-408c-9a0e-e4adc808feb2">Dynamite Launcher</card>
+    <card qty="1" id="fc0310d2-2076-495b-80a9-d8a16e0d2f15">Flamethrower</card>
+    <card qty="1" id="ca1456cb-9657-402c-8902-504c5b96033c">Auto-Incendiary Bullets</card>
+    <card qty="1" id="34f7a237-421e-4e35-a22d-bede0022bea2">Gatling Pistol</card>
+    <card qty="1" id="3f9f2d51-974e-437d-91d1-bfa308096017">Autogyro</card>
+    <card qty="1" id="71cda4b3-341f-4075-bebb-b579d635cb35">Electrostatic Pump Gun</card>
+    <card qty="1" id="248c1b3e-8da0-4529-91d9-3325221d7640">Flamethrower</card>
+    <card qty="1" id="94ba4139-3f1c-4885-a1f8-3253307a1d76">Infrared Spectacles</card>
+    <card qty="1" id="a2f3ffce-6df6-4fe9-9b02-08cbec4ef3b1">The Ammo-Matic</card>
+    <card qty="1" id="10fabcb5-304f-4e88-af2c-70f8c748b654">Ray Gun</card>
+    <card qty="1" id="b796767e-cdd0-427b-a997-397218851a64">Zapper</card>
+    <card qty="1" id="19d28345-5529-4896-bfe2-15a0fbd6b566">Elmo Schacci</card>
+    <card qty="1" id="37e7747a-6487-4471-a48c-ef709f6e0023">Robert Holmes</card>
+    <card qty="1" id="b3caabf9-0c63-40fb-9387-ca4d6155d35b">Pierre Fontaine</card>
+    <card qty="1" id="7ead2b1c-5b46-4ad2-b596-3866885ac3ac">Fineas von Landingham</card>
+    <card qty="1" id="ae36eebd-bc1f-4bea-866d-6ec45a81fb40">Erik Zarkov</card>
+    <card qty="1" id="e8b31dce-8002-46cd-a10c-c18c8b40de74">Mad Dog Campbell</card>
+    <card qty="1" id="4c7810c6-1842-4ad3-b008-8c1dea0da431">Gerald Klippstein</card>
+    <card qty="1" id="0ecad675-fc84-4881-91fe-a0bb85b15a50">SUZY 309</card>
+    <card qty="1" id="008ec133-c0b4-4528-9f3e-366e6e1275c2">Oswald Hardinger</card>
+  </section>
+</deck>

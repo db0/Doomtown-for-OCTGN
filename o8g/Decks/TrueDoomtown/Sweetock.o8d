@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<deck game="9afa6473-fd81-41b9-955f-8f67c7d3f423">
+  <section name="Outfit">
+    <card qty="1" id="8888a8ac-6c40-4df0-b3cb-183c8a18558f">Sweetrock: Western Corporate Office</card>
+  </section>
+  <section name="Starting Cards">
+    <card qty="1" id="c0ada652-62a0-4291-baa3-85b5d4430c0d">Killer Kerry</card>
+    <card qty="1" id="310367bf-6559-4e3e-9046-515903edec8c">Sandra Harris</card>
+    <card qty="1" id="c0fcebe9-8534-4471-b37c-2ce42e4dd741">Robert Northrop</card>
+    <card qty="1" id="65a5cdd4-1112-4135-a703-6a240400fb5a">Lucky Horseshoe Lode</card>
+  </section>
+  <section name="Deck">
+    <card qty="1" id="3ffa8eb9-8ae1-4ab9-b24f-90ad241262d8">Nadia Krasnova</card>
+    <card qty="1" id="59b99f82-317b-449e-b1a0-bd8466c69edf">Mortimer Jones</card>
+    <card qty="1" id="b1e635bf-a186-4ac4-ad6c-9c033541ddd7">Arizona Jane</card>
+    <card qty="1" id="3b06650a-aa9b-4a7e-b443-5bc590447cee">Mick Caples</card>
+    <card qty="1" id="9277fddd-f65e-4166-99f2-d953e47c83d5">Byron St. James</card>
+    <card qty="1" id="a2f67d76-bcc3-4881-a9b4-631e03929576">Max Baine</card>
+    <card qty="1" id="b969d208-7d8c-4950-b178-5334d47fe89c">Bill Jefferson</card>
+    <card qty="1" id="5f8eb13a-0dc0-427c-a976-970cca180da5">Big Jake...</card>
+    <card qty="1" id="797faf4c-a56c-467c-9a4c-c44de57438c6">Nash Bilton</card>
+    <card qty="1" id="976d4914-1acd-48a6-9463-cb3f47880816">Howard Findley</card>
+    <card qty="1" id="580f6774-ae05-46bb-98a8-3875df7afdb3">Colorado Lode</card>
+    <card qty="1" id="b740d3c7-453d-4be0-9d9f-81c4ac1f003f">Smiley's Shaft</card>
+    <card qty="1" id="d633543f-10bd-4247-ada4-9a74c4f8a1ed">Mental Hospital</card>
+    <card qty="1" id="ed7f156d-9d0c-4b92-93d2-753fee6dabca">Barkum &amp; Barkum Attorneys</card>
+    <card qty="1" id="ec8429af-bcf2-4c42-b463-f05478c107f6">Bilton Protection Agency</card>
+    <card qty="1" id="411d8988-b213-4279-91f3-36372c2f9851">Dead Man's Laughter Lode</card>
+    <card qty="1" id="8a821088-d793-4d81-bae3-4e0814b4467e">Spirit of Kentucky Shaft</card>
+    <card qty="1" id="a55b88de-f4b4-4c44-a0bd-2294511d6411">Orphanage</card>
+    <card qty="1" id="cc0b1089-4921-4efc-aeda-ba93f65d4cad">Exchange Office</card>
+    <card qty="1" id="ad97322c-0908-4bac-a801-748f23e8f059">Raven's Crevase</card>
+    <card qty="1" id="55023cba-68f5-4678-aba0-07831ca242ee">Papa's Lode Strike</card>
+    <card qty="1" id="4b047fcd-fec1-4c77-8808-952c07d4d8d3">Maze Runner</card>
+    <card qty="1" id="20bfcc2c-79b9-4dc1-a29e-e980d371c07e">Bolt-Action Rifle</card>
+    <card qty="1" id="1c47f2d6-7e82-4e56-9bda-640094cd2875">Sawed-off Shotgun</card>
+    <card qty="1" id="d64699f7-7dfc-45ca-8954-650f62cbdbb9">Lucky Rabbit's Foot</card>
+    <card qty="1" id="fa4b16f7-5408-4397-81d5-1d6d081cbeb8">Whiskey Flask</card>
+    <card qty="1" id="467a3eb4-da11-4c61-a123-126485dfc819">Wild Dingos</card>
+    <card qty="1" id="681b2a39-5067-4e58-b0ad-f98bd26803b5">Pocket Watch</card>
+    <card qty="1" id="f4faf2c4-5cff-4728-a34d-3917fd4f9c7b">Penny Farthing</card>
+    <card qty="1" id="14dd41a6-ab17-470b-8e2e-027118370799">Nyctophobia</card>
+    <card qty="1" id="37e4b10d-05e7-4a5f-bf7b-4aa877ce3f4d">Dust Devil</card>
+    <card qty="1" id="2677bc0b-5145-456e-a00a-c54e994c42b2">Arson</card>
+    <card qty="1" id="3d517c35-29e1-424d-b5e1-e3c6320429dc">It's Just Coal...</card>
+    <card qty="1" id="ac4dc3c6-2969-4884-bcf8-e2f5bd9cf9fd">Turnabout's Fair Play!</card>
+    <card qty="1" id="4758b633-80f8-455e-9fbe-3630bbf13357">Luck of the Draw</card>
+    <card qty="1" id="4252f941-f834-499b-b4c0-20b23fc61182">Dead Man's Hand</card>
+    <card qty="1" id="62a8696c-2be5-469c-ae85-44b1bbf331af">Shortcut</card>
+    <card qty="1" id="2926545a-0e9c-4bed-9fd0-e6354aeda6a2">Hostile Takeover</card>
+    <card qty="1" id="a6dc2687-abf5-414e-b4bf-effb179cf831">Termite Infestation</card>
+    <card qty="1" id="0dbcbf96-a4d5-4ec8-ae6e-8522ac47522d">Double Time</card>
+    <card qty="1" id="8372b879-eab5-4b56-99e4-de8cf252229c">Haunting</card>
+    <card qty="1" id="f17cb24c-3435-4662-9ac9-07a3a6dcb92d">Pannin' for Gold</card>
+    <card qty="1" id="2e1e083b-2770-4c92-aa04-4efa92aea834">Sweaty Dynamite</card>
+    <card qty="1" id="f0d42022-5b89-4266-ae1f-af77f0898229">Bomb</card>
+    <card qty="1" id="acfb24c5-6de4-40ef-926a-1ee8a1dd155e">Earthquake</card>
+    <card qty="1" id="8fab1565-c70f-433d-b70d-582734a5aa75">Chain Gang</card>
+    <card qty="1" id="18c3f59e-46ca-49e7-a29e-fa382d5963f0">...Before the Dawn</card>
+    <card qty="1" id="c08132b1-8671-4c4a-9909-e906b05ef659">The 1st Bank is Robbed!</card>
+  </section>
+</deck>

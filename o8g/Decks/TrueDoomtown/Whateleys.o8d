@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<deck game="9afa6473-fd81-41b9-955f-8f67c7d3f423">
+  <section name="Outfit">
+    <card qty="1" id="7b8b88eb-ba83-404b-81ca-a78ff77cec78">Whateleys, Extended Family</card>
+  </section>
+  <section name="Starting Cards">
+    <card qty="1" id="ea528333-dbb4-410d-9bee-f94784e17fbe">Silas Peacock</card>
+    <card qty="1" id="bd49e901-59e9-4869-99f4-aeb5bfef13b5">Nebuchadnezzar</card>
+    <card qty="1" id="e4631ad5-ae02-4b41-8d4b-dd05bb09b810">Jebediah Whateley</card>
+    <card qty="1" id="eea5e0ae-84b9-42b3-9582-aa98af1266aa">Widow Withers</card>
+    <card qty="1" id="76db6d1e-f073-49e6-afde-1f24925f7466">Astoreth Whateley</card>
+  </section>
+  <section name="Deck">
+    <card qty="1" id="1d4dcdc8-bbe0-4120-9a0b-d247de02c6d9">Lord Grimely's Manor</card>
+    <card qty="1" id="4c77fa57-0b12-47fe-ad0a-676f5bb14ef3">Fortune-Teller's Shop</card>
+    <card qty="1" id="fbefe5ff-ed59-44a2-a943-0988aff4c056">Long Hallways</card>
+    <card qty="1" id="a41338ff-1191-4cdf-b03f-1d416477d1d8">Graveyard</card>
+    <card qty="1" id="9afc12c8-962b-4cab-b1c2-a7576a6d1bbc">O'Reilly's Five &amp; Dime</card>
+    <card qty="1" id="d68d88d8-0013-4376-b9c8-e055c934fb1f">Abandoned Mine</card>
+    <card qty="1" id="f32bf0d2-cdb2-40fb-85ff-3bfee3f17974">The Carpenter's Shop</card>
+    <card qty="1" id="892c88d0-3d1e-4b66-9222-9daf88552c05">Nick's Never Closes</card>
+    <card qty="1" id="eb9263d7-7ce6-46d6-9759-dc2e25fc45a7">Hitched Buggy Strike</card>
+    <card qty="1" id="8b3d5fb9-ac4b-4c3c-9955-f813df661d34">Vigilance Ranch</card>
+    <card qty="1" id="0236840a-b01b-47df-9b61-74578d156858">Deadland</card>
+    <card qty="1" id="5dbf5a61-6972-443b-b613-7d8b80f0405a">The Undertakers</card>
+    <card qty="1" id="4f698262-56f1-4a92-8ce4-aad16c50913d">Wishing Well</card>
+    <card qty="1" id="a4f68f7f-e49d-4076-9678-0ff9fdcf83a0">Night Haunt Attack</card>
+    <card qty="1" id="80e2ee25-0e57-4ffb-896d-90193e0e2dc2">Bottom Dealin'</card>
+    <card qty="1" id="627453b2-32ce-453c-b9ed-1b6521aa2ecb">Miss Me?</card>
+    <card qty="1" id="0dead009-fa19-4bc1-943b-569439c7496e">Lost in the Crowd</card>
+    <card qty="1" id="9cf62595-4af6-4224-9ded-7771f49c23e4">High Noon</card>
+    <card qty="1" id="f1b07186-c635-4b26-bc71-886d7ea165da">Pistol Whip</card>
+    <card qty="1" id="117c99a1-1ae6-4a39-af86-c168a59dcd17">Puny Mortals!</card>
+    <card qty="1" id="ad87b38d-849d-48bd-92a5-220a18ef3c01">Funeral Procession</card>
+    <card qty="1" id="5d418abe-57e9-49ae-9cd3-0b96762bf71f">Take Cover</card>
+    <card qty="1" id="0debdbb4-8d00-4326-af80-b9a1a2950e22">Red Tape</card>
+    <card qty="1" id="289e1a6c-50d7-4e72-b365-7afc7dc20741">Grave Robbin'</card>
+    <card qty="1" id="6899ee7a-1d9f-4563-ad84-8df759416d36">Renovations</card>
+    <card qty="1" id="5c050edc-214a-40d4-8f04-4967e8278ee5">Fear</card>
+    <card qty="1" id="5eb6eb87-b4e0-4071-9c1c-f532b737e28e">Nicodemus' Deck</card>
+    <card qty="1" id="cae3bebc-4cd9-4b63-8783-a3f3899db4e3">Spectral Visitors</card>
+    <card qty="1" id="76a8eced-a980-4d6d-8381-cc9041d2cf85">Dark Protection</card>
+    <card qty="1" id="b93cfa0a-cad2-4ea5-a6cc-ee688f56e2c7">Groom</card>
+    <card qty="1" id="43cbc2b5-0b42-421a-942f-d5555ebdc1e4">Sabtabiel's Remains</card>
+    <card qty="1" id="858605e9-d9ce-4022-bf57-c05f7385ba46">Helpin' Hand</card>
+    <card qty="1" id="58870be9-d9ad-4f62-9934-50d18b179264">Stumbling Into The Badlands</card>
+    <card qty="1" id="b58d7f98-59fd-48b4-93b2-d0272184d8f0">Blood Curse</card>
+    <card qty="1" id="6a6a69fb-6677-4289-9651-74bc5935824f">Corporeal Twist</card>
+    <card qty="1" id="71b3aed7-b86b-494e-8e76-d8cbf6f2e9b5">The Last Kingdom</card>
+    <card qty="1" id="f438b5b3-b37d-43fc-b603-d05db7a4c4b7">Saul Whateley</card>
+    <card qty="1" id="faa6990d-00df-45cf-ace9-24841cd8beac">Dread Wolf Pack</card>
+    <card qty="1" id="9efaaa01-cfa8-492a-89f9-4e439ab71059">Tabitha'</card>
+    <card qty="1" id="5bde70c5-f799-49bb-8e62-8f5f0cc1711b">Nicodemus Whateley</card>
+    <card qty="1" id="59dcc7c8-96ad-42f4-bb43-8258e4054a89">Unknown Hooded Figure</card>
+    <card qty="1" id="5119197f-e3a7-43cb-a349-3844ce1a686c">Armitage the Damned</card>
+    <card qty="1" id="56dfe0a4-524f-403d-97e1-5cee703ecbaa">Wilhelmina Whateley</card>
+    <card qty="1" id="a186ef57-1d79-4e92-99c4-8ca65d1d8099">Bad Blood</card>
+    <card qty="1" id="0b4a0b50-46f7-4318-a8c3-c0399015494d">Knicknevin's Deal</card>
+    <card qty="1" id="128ce93c-cd17-472b-8b27-77449c15ca73">Harvest Moon</card>
+    <card qty="1" id="39dca172-c9e5-47ad-9362-690435b801e3">Dolores Whateley</card>
+  </section>
+</deck>

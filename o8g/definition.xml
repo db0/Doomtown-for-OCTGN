@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<game xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+      name="Doomtown" 
+      id="9afa6473-fd81-41b9-955f-8f67c7d3f423" 
+      octgnVersion="3.1.0.0" 
+      version="3.1.0.2" 
+      markersize="16"
+      tags="western deadlands poker maneuvering multiplayer"
+      description="A western themed card game, marying poker, town building, and maneuvering.&#xD;&#xD;&#xD;Doomtown has players taking the part of gangs, called 'outfits,' trying to gain control of the California boomtown known as Gomorrah, in the same Weird West setting as the popular Deadlands RPG.&#xD;&#xD;This game works very well for more than 2 players.&#xd;&#xd;Automation rank: C&#xd;(This game definition contains automation of common actions to reduce tediousness amd speed up play.)"
+      setsurl="http://octgn.gamersjudgement.com/viewtopic.php?f=9&amp;t=14"
+      gameurl="https://github.com/db0/Doomtown-for-OCTGN"
+      authors="Db0"
+      iconurl="https://raw.github.com/db0/Doomtown-for-OCTGN/master/doomtown_logo.jpg">
+	<scripts>
+		<script src="Scripts/actions.py" />
+	</scripts>
+   <fonts>
+       <font src="Fonts/Pixel-Western.ttf" size="8" target="context"/>
+       <font src="Fonts/Pixel-Western.ttf" size="8" target="chat"/> 
+   </fonts>   
+   <proxygen definitionsrc="Proxy/proxydef.xml">
+   </proxygen>   
+   <globalvariables> 
+   </globalvariables>
+	<card back="Card/back.jpg" front="Card/front.jpg" width="90" height="126" cornerRadius="3">
+		<property name="Rank" type="String" hidden="False" ignoreText="False" textKind="Free"  />
+		<property name="Suit" type="String" hidden="False" ignoreText="False" textKind="Free"  />
+		<property name="Type" type="String" hidden="False" ignoreText="False" textKind="Enum" />
+		<property name="Cost" type="String" hidden="False" ignoreText="False" textKind="Free"  />
+		<property name="Upkeep" type="String" hidden="False" ignoreText="False" textKind="Free"  />
+		<property name="Production" type="String" hidden="False" ignoreText="False" textKind="Free"  />
+		<property name="Bullets" type="String" hidden="False" ignoreText="False" textKind="Free"  />
+		<property name="Bullet Bonus" type="String" hidden="False" ignoreText="False" textKind="Free"  />
+		<property name="Draw Type" type="String" hidden="False" ignoreText="False" textKind="Enum" />
+		<property name="Influence" type="String" hidden="False" ignoreText="False" textKind="Free"  />
+		<property name="Control" type="String" hidden="False" ignoreText="False" textKind="Free"  />
+		<property name="Outfit" type="String" hidden="False" ignoreText="False" textKind="Enum" />
+		<property name="Rarity" type="String" hidden="False" ignoreText="True" textKind="Enum" />
+		<property name="Ghost Rock" type="String" hidden="False" ignoreText="False" textKind="Free"  />
+		<property name="Text" type="String" hidden="False" ignoreText="False" textKind="Free"  />
+	</card>
+	<table name="Table" visibility="undefined" ordered="False" width="1150" height="750" background="Background/background.jpg" backgroundStyle="uniformToFill">
+		<cardaction menu="Boot/Unboot" default="True" execute="boot" />
+		<cardaction menu="Inspect Card" default="False" execute="inspectCard" />
+		<groupaction menu="Pay Upkeep / Receive Production." default="False" shortcut="Ctrl+U" execute="upkeep" />
+		<groupaction menu="Move to Next phase." default="False" shortcut="enter" execute="nextPhase" />
+		<groupactions menu="Game...">
+			<groupaction menu="Download Sets Card Images." shortcut="Ctrl+G" default="False" execute="download_o8c" />
+		</groupactions>
+		<groupactions menu="Phases...">
+			<groupaction menu="Jump to Gamblin' Phase." default="False" shortcut="F1" execute="goToGamblin" />
+			<groupaction menu="Jump to Upkeep Phase." default="False" shortcut="F2" execute="goToUpkeep" />
+			<groupaction menu="Jump to High Noon Phase." default="False" shortcut="F3" execute="goToHighNoon" />
+			<groupaction menu="Jump to Nightfall Phase." default="False" shortcut="F4" execute="goToNightfall" />
+			<groupaction menu="Start/End a Shootout Phase." default="False" shortcut="F10" execute="goToShootout" />
+			<groupaction menu="Go back to the Pre-Game Setup Phase (use this only after a reset)." default="False" execute="goToSetup" />
+		</groupactions>
+		<groupaction menu="Announce Pass." default="False" shortcut="Ctrl+Space" execute="Pass" />
+		<groupaction menu="Pull." default="False" execute="Pull" />
+		<groupaction menu="Spawn Token Dude." default="False" execute="spawnTokenDude" />
+		<groupaction menu="Hand Rank Guide" default="False" execute="HandRankGuide" />
+		<cardactions menu="Dude-Specific">
+			<cardactions menu="Posse/Job/Callout reactions...">
+				<cardaction menu="Join Attacking/Job Posse." default="False" shortcut="Ctrl+Shift+J" execute="joinAttack" />
+				<cardaction menu="Accept Call out." default="False" shortcut="Ctrl+Shift+A" execute="acceptCallout" />
+				<cardaction menu="Refuse Call out." default="False" shortcut="Ctrl+Shift+R" execute="refuseCallout" />
+				<cardaction menu="Join Defending Posse." default="False" shortcut="Ctrl+Shift+D" execute="joinDefence" />
+				<groupaction menu="Announce Posse ready." default="False" shortcut="Ctrl+Shift+F" execute="posseReady" />
+				<cardaction menu="Run Away from the Shootout." default="False" execute="runAway" />
+			</cardactions>
+			<cardaction menu="Announce move without booting." default="False" shortcut="Ctrl+M" execute="move" />
+			<cardaction menu="Announce move by booting." default="False" shortcut="Ctrl+B" execute="moveBoot" />
+			<cardaction menu="Call out another dude in this location." default="False" shortcut="Ctrl+Shift+C" execute="callout" />
+			<cardaction menu="Receive new goods." default="False" shortcut="Ctrl+G" execute="goods" />
+			<cardaction menu="Trade Goods." default="False" batchExecute="tradeGoods" />
+			<cardaction menu="(Un)Mark as Wanted." default="False" shortcut="Alt+W" execute="modWantedMarker" />
+			<cardaction menu="Mark as Harrowed." default="False" shortcut="Alt+H" execute="addHarrowedMarker" />
+		</cardactions>
+		<cardactions menu="Deed-Specific">
+			<cardaction menu="Announce as target location." default="False" shortcut="Ctrl+L" execute="locationTarget" />
+			<cardaction menu="Take Over (Become the owner of the deed)." default="False" shortcut="Alt+D" execute="takeOver" />
+			<cardaction menu="Mark as Jailbroken." default="False" shortcut="Alt+J" execute="addJailbreakMarker" />
+		</cardactions>
+		<cardactions menu="Markers">
+			<cardaction menu="Use High Noon ability" default="False" shortcut="Alt+A" execute="HNActivate" />
+			<cardaction menu="Use Shootout ability" default="False" shortcut="Alt+S" execute="SHActivate" />
+			<cardaction menu="Increase Influence by 1" default="False" shortcut="Alt+I" execute="plusInfluence" />
+			<cardaction menu="Decrease Influence by 1" default="False" shortcut="Alt+Shift+I" execute="minusInfluence" />
+			<cardaction menu="Increase Control by 1." default="False" shortcut="Alt+C" execute="plusControl" />
+			<cardaction menu="Decrease Control by 1." default="False" shortcut="Alt+Shift+C" execute="minusControl" />
+			<cardaction menu="Increase Production by 1." default="False" shortcut="Alt+P" execute="plusProd" />
+			<cardaction menu="Decrease Production by 1." default="False" shortcut="Alt+Shift+P" execute="minusProd" />
+			<cardaction menu="Increase Bullets by 1." default="False" shortcut="Alt+B" execute="plusBullet" />
+			<cardaction menu="Decrease Bullets by 1." default="False" shortcut="Alt+Shift+B" execute="minusBullet" />
+			<cardaction menu="Increase Value." default="False" shortcut="Alt+V" execute="plusValue" />
+			<cardaction menu="Decrease Value." default="False" shortcut="Alt+Shift+V" execute="minusValue" />
+			<cardaction menu="Set Value." default="False" shortcut="Alt+Ctrl+V" execute="setValue" />
+			<cardaction menu="Flight of Angels" default="False" execute="FlightOfAngels" />
+			<cardaction menu="Add Markers" default="False" shortcut="Alt+M" batchExecute="addMarker" />
+		</cardactions>
+		<groupaction menu="Re-Calculate your total influence &amp; control" default="False" shortcut="Ctrl+C" execute="reCalculate" />
+		<groupaction menu="Nightfall Refresh (Unboot cards / Refill Hand)" default="False" shortcut="Ctrl+N" execute="NightfallUnboot" />
+		<cardaction menu="(Un)Mark card as unbootable" default="False" execute="doesNotUnboot" />
+		<cardaction menu="Ace card(s)" default="False" shortcut="Del" batchExecute="ace" />
+		<cardaction menu="Discard card(s)" default="False" shortcut="Ctrl+Del" batchExecute="discard" />
+	</table>
+	<player summary="GR:{#GhostRock} | Inf:{#Influence} | CP:{#Control} | VP:{#VictoryPoints}">
+		<hand name="Play Hand" visibility="me" ordered="False" width="90" height="126" icon="Groups/playhand.png">
+			<cardaction menu="Play" default="True" execute="playcard" />
+			<cardaction menu="Inspect Card" default="False" execute="inspectCard" />
+			<cardaction menu="Discard card" default="False" execute="handDiscard" />
+			<groupaction menu="Set Hand Size" default="False" shortcut="Ctrl+H" execute="setHandSize" />
+			<groupaction menu="Random Discard" default="False" shortcut="Ctrl+Alt+D" execute="randomDiscard" />
+			<groupaction menu="Setup starting cards &amp; hand" default="False" shortcut="Ctrl+Shift+S" execute="setup" />
+		</hand>
+		<group name="Draw Hand" visibility="me" ordered="False" width="90" height="126" icon="Groups/drawhand.png" collapsed="False">
+			<groupaction menu="Reveal Lowball Hand" default="True" execute="revealLowballHand" />
+			<groupaction menu="Reveal Shootout Hand" default="False" execute="revealShootoutHand" />
+			<groupaction menu="Discard hand" default="False" execute="discardDrawHand" />
+		</group>
+		<group name="Deck" visibility="none" ordered="False" width="90" height="126" icon="Groups/deck.png" collapsed="False">
+			<groupaction menu="Draw" default="True" shortcut="Ctrl+D" execute="draw" />
+			<groupaction menu="Pull" default="False" shortcut="Ctrl+P" execute="Pull" />
+			<groupaction menu="QuickPlay Lowball!" default="False" execute="playLowball" />
+			<groupaction menu="Draw cards to Draw Hand" default="False" execute="drawhandMany" />
+			<groupaction menu="Draw cards to Play Hand" default="False" execute="drawMany" />
+			<groupaction menu="Shuffle" default="False" execute="shuffle" />
+		</group>
+		<group name="Discard Pile" visibility="all" ordered="False" width="90" height="126" icon="Groups/discard.png" collapsed="False">
+			<groupaction menu="Reshuffle into deck" default="False" execute="reshuffle" />
+			<groupaction menu="Ace all Events" default="False" execute="aceevents" />
+		</group>
+		<group name="Boot Hill" visibility="all" ordered="False" width="90" height="126" icon="Groups/boothill.png" collapsed="False">
+			<cardaction menu="Harrow" default="False" execute="harrow" />
+			<cardaction menu="Remove from Play" default="False" execute="permRemove" />
+		</group>
+		<counter name="GhostRock" default="0" reset="False" icon="Counters/ghostrock.png" />
+		<counter name="Influence" default="0" reset="False" icon="Counters/influence.png" />
+		<counter name="Control" default="0" reset="False" icon="Counters/control.png" />
+		<counter name="VictoryPoints" default="0" reset="False" icon="Counters/victory.png" />
+		<counter name="HandRank" default="0" reset="False" icon="Counters/Hand_Size.png" />
+	</player>
+	<shared>
+		<counter name="Fear Level" default="5" reset="False" icon="Counters/fear.png" />
+		<counter name="Lowball Pot" default="0" reset="False" icon="Counters/coin.png" />
+		<counter name="Phase" default="0" reset="False" icon="Counters/phases.png" />
+		<group name="Common" visibility="all" ordered="False" width="90" height="126" icon="Groups/playhand.png" collapsed="False" />
+		<group name="Removed from Play" visibility="all" ordered="False" width="90" height="126" icon="Groups/removed.png" collapsed="False" />
+	</shared>
+	<deck>
+		<section name="Outfit" group="Play Hand" />
+		<section name="Starting Cards" group="Play Hand" />
+		<section name="Deck" group="Deck" />
+	</deck>
+	<sharedDeck>
+		<section name="Common" group="Common" />
+	</sharedDeck>
+</game>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<deck game="9afa6473-fd81-41b9-955f-8f67c7d3f423">
+  <section name="Outfit">
+    <card qty="1" id="6f1a654b-fd90-4830-b095-7fb3fe80a16e">The Flock,(Children of Armageddon)</card>
+  </section>
+  <section name="Starting Cards">
+    <card qty="1" id="fabeea52-fad7-4302-94db-00ee149a48e2">Christopher Hill</card>
+    <card qty="1" id="4c6f0d7c-f7b8-410e-a74f-ee2f24ca15d4">Karl Rundgren</card>
+    <card qty="1" id="58cb1e8a-f7c1-40b7-8727-6985fba86c7c">Miss Lily</card>
+    <card qty="1" id="906e4c39-3ae5-4ae9-8fca-f54a915853a2">Avarice</card>
+  </section>
+  <section name="Deck">
+    <card qty="1" id="9a1e4b81-86e2-4212-a5e2-63335381e27f">The Missionary</card>
+    <card qty="1" id="66313bfa-c773-4e47-b59a-ad3f5dcd09d1">April Segarra</card>
+    <card qty="1" id="c1975fe1-b475-403a-9b3b-f766f265a12c">Envy</card>
+    <card qty="1" id="42991cea-d14c-46ad-9f02-78cb717e03d0">Flim</card>
+    <card qty="1" id="bcc7db02-af51-4c6e-ad94-a66352ff9049">Pride</card>
+    <card qty="1" id="f0c874a1-e920-4482-bf4f-a2a78b494e67">Wrath</card>
+    <card qty="1" id="711591a0-6cc6-4e7e-820c-7a164714ed5f">Elijah</card>
+    <card qty="1" id="98eddd32-d931-4259-a4d4-a966c7a11b3a">Hangin' Judge Gabriel</card>
+    <card qty="1" id="72d332db-cdfd-49e5-bb47-7086f9986bef">The Golden Crack</card>
+    <card qty="1" id="a9f3b8d1-be3c-460d-a871-4bd68664f62f">Sepulcher</card>
+    <card qty="1" id="1b0a99b2-bba1-4b01-840f-1545564dc3d9">Far Away Strike</card>
+    <card qty="1" id="89062ed6-00b7-4781-802f-ef32fe734637">The Seventh-Sign Strike</card>
+    <card qty="1" id="3fcb1ecc-8599-456a-9d07-e03e6d29d7ca">Polecat Saloon</card>
+    <card qty="1" id="41044704-e9fc-46d3-b7c3-a1fe56acdd7e">St. Martin's Chapel</card>
+    <card qty="1" id="55390d2c-24d6-471c-8e30-a6e790e48f65">1st Baptist Church of Gomorra</card>
+    <card qty="1" id="596ba580-75e3-4f89-8e7a-71bf3eca65f3">Well of Souls</card>
+    <card qty="1" id="07717de0-4fa2-487a-b14a-cc7493f49ced">The Lode</card>
+    <card qty="1" id="4dffb553-df62-48a7-afe6-5764a751878f">Stained-Glass Windows</card>
+    <card qty="1" id="fddd13f4-2ed1-4fce-ba1a-607a7d1b6cd4">The Gaping Maw Strike</card>
+    <card qty="1" id="8caee809-cc81-41f6-9009-b6a40937afad">Disrepair</card>
+    <card qty="1" id="52833c59-cc77-4402-a1d8-3c2b0bce6ea4">Tombstone Dispatch Branch Office</card>
+    <card qty="1" id="6b5b4064-9f95-4511-9434-96c3d7b88e74">Brimstone Bullets</card>
+    <card qty="1" id="425ace72-ffe4-4319-9354-369db6ed484c">Path of the Righteous</card>
+    <card qty="1" id="c011172e-e8f4-49ff-bd34-ed744889bc90">Clear Out!</card>
+    <card qty="1" id="0806c4fc-65ae-42da-bc3b-005aa49e88ee">Lay on Hands</card>
+    <card qty="1" id="dce869a2-4de7-48bf-91c1-5d46fc99efdb">Full Moon</card>
+    <card qty="1" id="6d981c7a-9324-4034-babe-3584b6d9df21">Cloak</card>
+    <card qty="1" id="3730a75b-e198-4370-a915-5bf6318a852f">Confession</card>
+    <card qty="1" id="37dd8450-550a-492c-be66-bec884b1adf6">Puppet</card>
+    <card qty="1" id="3c8adf1e-7182-43a5-ace5-16ac87e58aa4">Fire And Brimstone</card>
+    <card qty="1" id="8fdd5107-159d-4092-a675-511f362b6ded">Calm</card>
+    <card qty="1" id="3a8246fe-2602-4819-8d55-71c7d8a101b7">Not So Fast!'</card>
+    <card qty="1" id="b309b979-e3d7-401b-80b2-d165a4cc5eaf">Lyin' in Wait</card>
+    <card qty="1" id="c2cbd3ef-443a-4b4f-bcaa-af4dbc37f1e7">This'll Teach You...</card>
+    <card qty="1" id="b4d15322-fcdd-4f08-8c40-8cf9f5479fe2">You're Comin' With Us!</card>
+    <card qty="1" id="6d48752b-dac6-43a8-8fe9-d03428770b11">Burnin' the Midnight Oil</card>
+    <card qty="1" id="419ffd91-6663-484c-bd31-ad00b10b0d84">Down the Barrel...</card>
+    <card qty="1" id="809e9edf-0218-4260-bb04-ada6bc57869d">Lynch Mob</card>
+    <card qty="1" id="c0b12470-fa56-44ac-8296-2befd1c9dff2">Let's Take It Outside</card>
+    <card qty="1" id="13196eeb-0a21-45da-8f82-10a5b94c2a77">Listen Up!</card>
+    <card qty="1" id="6c762baf-1fdf-44ab-a725-3de7991e34eb">Auction</card>
+    <card qty="1" id="864094ad-cfc5-41d4-ad2a-5698db8439a7">Between the Cracks</card>
+    <card qty="1" id="2fdfb240-8fb1-4521-948c-06c87d0f8be4">Blueprints</card>
+    <card qty="1" id="4a24b705-878f-49af-9196-623b30e68b18">Clean Up the Town</card>
+    <card qty="1" id="d5b9d2b1-be4f-44f6-aaea-db3f85670487">Printing Press</card>
+    <card qty="1" id="3f720e59-fcc3-48a4-9ddc-fd7d59e5dfee">First Bowl</card>
+    <card qty="1" id="826df217-1b20-49d2-9018-f8670d3c3f0d">Welcome To Hell</card>
+    <card qty="1" id="bfdef67e-d5ef-4571-9e40-8d6aac15a09b">Megan Mallory</card>
+  </section>
+</deck>

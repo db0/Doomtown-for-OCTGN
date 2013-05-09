@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<deck game="9afa6473-fd81-41b9-955f-8f67c7d3f423">
+  <section name="Outfit">
+    <card qty="1" id="c281167c-ff60-437a-8dfb-837c32695807">Lost Angels</card>
+  </section>
+  <section name="Starting Cards">
+    <card qty="1" id="ac5ed4a4-8fc6-4305-b835-e0bdc9b540b7">Charlie Landers</card>
+    <card qty="1" id="eb100912-8652-4d5d-968d-ded1dadf14d0">Guardian Angel</card>
+    <card qty="1" id="8205598a-193e-4cbf-800f-26e5cd406114">Abel Owens</card>
+  </section>
+  <section name="Deck">
+    <card qty="1" id="05cfa1c8-7b1b-4547-891c-2f93a2650b99">Haborym</card>
+    <card qty="1" id="e3afb3ca-996d-43ad-8636-7496dfec414f">Moloch</card>
+    <card qty="1" id="99135490-403b-4940-b618-ef1e1444a525">Simon Lambeth</card>
+    <card qty="1" id="8b37573b-6dea-42e1-9ec3-8a92abe6fa1e">Perdition</card>
+    <card qty="1" id="1ad51ea6-de33-42fc-9494-5a2898c97bb2">Elijah</card>
+    <card qty="1" id="4705f7a0-a081-4818-8ab2-6b4be001c7f8">Cassidy Greene</card>
+    <card qty="1" id="b8b0d6ae-e339-488d-afa4-323067e80738">Lilith Vandekamp</card>
+    <card qty="1" id="5d0a8c06-a8b9-497f-a704-97f7d3020dc4">Sister Mercy Winters</card>
+    <card qty="1" id="a8773383-d10d-4527-a2c5-752704118118">Buster Madison</card>
+    <card qty="1" id="6080163f-b586-4c2e-8740-e6fb35c97825">No-Tell Hotel</card>
+    <card qty="1" id="3071f8b3-ce9b-4180-be4d-e96a5f7f99d1">Buffalo Chip Saloon</card>
+    <card qty="1" id="f84ce46b-a933-4221-ac56-f40751e07b4e">Boomtown of Soddum</card>
+    <card qty="1" id="8469819e-ff4c-4ccc-9d40-600b83bf5645">Caroline</card>
+    <card qty="1" id="a9032ff4-b71a-4e08-8734-6b3ab3ee8b8d">New Dunwitch Casino</card>
+    <card qty="1" id="0f1d8da6-7109-48a2-9e7c-091340b6fa50">Golden Mare Hotel</card>
+    <card qty="1" id="b9e6a7b1-1086-493f-b82f-40f3d793b48e">Buster's Gambling Hall</card>
+    <card qty="1" id="86339664-4349-4549-bcfa-a9cd5084d8ea">Glass Maker</card>
+    <card qty="1" id="2da37649-f8d2-4f8c-a448-746b0a9fd436">Piano Player</card>
+    <card qty="1" id="9061a22b-1be4-49c6-882c-6bbf131931e1">Elijah's Parish</card>
+    <card qty="1" id="e9585107-f3cf-4afd-a214-cfc9bdb0b291">Ignacio's Exotics</card>
+    <card qty="1" id="e12eb8e2-d829-4544-a60e-36da9606074c">Scared Stiff Saloon</card>
+    <card qty="1" id="38a062ee-8e50-4a2b-8076-8b64463fdb55">Henry's Hole</card>
+    <card qty="1" id="06b7a8ef-09de-498c-a6fa-d2e9d1f4603e">Last Will</card>
+    <card qty="1" id="497765ed-0bed-4f0c-803f-410a89c4c7b3">Claustrophobia</card>
+    <card qty="1" id="45656920-3c7c-4c3a-8cf0-7bb3d6d53eaf">No Mas</card>
+    <card qty="1" id="3d7d50f0-ac51-41c9-b97b-0f4f92da07c2">Seductress</card>
+    <card qty="1" id="c0e600f9-1fff-4258-8ce6-df7dd356ecad">Yer Not Welcome Here!</card>
+    <card qty="1" id="d0a83287-a615-44ea-bc5c-b02ef1b333e2">Last Request</card>
+    <card qty="1" id="ec985a95-23c7-4062-860d-3003e2fc8b3e">Manitou's Control</card>
+    <card qty="1" id="3e3bdba3-6954-4b97-ba8d-408597002b20">His Back Was to Me</card>
+    <card qty="1" id="6b943f87-3976-4e33-a50b-4bf29ed5b4da">Crippled</card>
+    <card qty="1" id="eba3485b-6c68-46ab-897f-7aa87fc166d4">Distracted!</card>
+    <card qty="1" id="5111c60b-93a5-4791-a90b-5477fb407c77">Monopoly</card>
+    <card qty="1" id="b67722d5-e2d2-4c23-b4b7-8c6c5737329d">Life of the Party</card>
+    <card qty="1" id="72c3e729-1c5f-42fc-bce6-a2c03ebda6cf">Faith</card>
+    <card qty="1" id="194d5e6b-838f-48cb-9882-48a2c068342e">Water to Wine</card>
+    <card qty="1" id="6777b348-a643-4a04-a075-ad7516bc5952">Dim Eyes</card>
+    <card qty="1" id="6a1d7980-1a34-4ee1-94f9-e1cba0a7ceef">Snow In July</card>
+    <card qty="1" id="f3ba1dd4-b98a-4863-9bdd-3f1493f2889f">Sacrifice</card>
+    <card qty="1" id="08a1fe54-7433-4aee-9f50-c632bed72b6c">Clovis the Devilbunny</card>
+    <card qty="1" id="006c6d31-c4a8-45a0-a5f7-53cc7f5409ad">Third Bowl</card>
+    <card qty="1" id="745caa5e-7f6c-443b-aa19-7806f30e3b25">Devil's Plaything</card>
+    <card qty="1" id="d6703a5c-6c42-4c29-ae8c-002af78d67e5">Interpret Vision</card>
+    <card qty="1" id="38d3ea9b-47a5-4bf9-8815-ba3c8ac54dce">Brush With Death</card>
+    <card qty="1" id="3f823fe5-342c-4eda-ba92-aa3c2df11ce9">Anahuac Staff</card>
+    <card qty="1" id="ce0e685e-3642-4f8c-a062-56a8aaae1d11">White Shire</card>
+    <card qty="1" id="bcd735b0-d612-42c3-8806-95152503f481">Billy No-Neck</card>
+    <card qty="1" id="b0da90c0-e134-4530-8ce8-72ca6f302cf9">Pale Horse</card>
+    <card qty="1" id="0aa0c137-bf86-4151-ad55-deac535da115">Unholy Symbol</card>
+  </section>
+</deck>

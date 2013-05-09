@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<deck game="9afa6473-fd81-41b9-955f-8f67c7d3f423">
+  <section name="Outfit">
+    <card qty="1" id="97ef478f-3de6-4ed8-9628-a91cc21ff9a1">Maze Rats - Iron Dragon</card>
+  </section>
+  <section name="Starting Cards">
+    <card qty="1" id="0e8fba4a-23a1-465c-81d8-d8f45bfb7dca">Shi Kuan</card>
+    <card qty="1" id="e11e2eda-4212-425c-864b-7cc2c16902e0">Chao Li</card>
+    <card qty="1" id="f0c8e7e2-98a0-4b3f-a4d0-e3bee012c31d">Sin Je</card>
+  </section>
+  <section name="Deck">
+    <card qty="1" id="1e8b9440-d5c4-415a-b06f-809df59535bb">Chen Li</card>
+    <card qty="1" id="f1a4d757-2fcd-4883-9207-566ea9fb0a17">Chester Nero</card>
+    <card qty="1" id="5719503b-7a2b-4b4a-8764-f6e195c0e215">Private Daniel Phelts</card>
+    <card qty="1" id="5cdfe46b-eabc-4a60-8573-18e2d7603219">Chiang Shen</card>
+    <card qty="1" id="5422edde-3cd4-4d44-b9e1-03bdabe16d4f">Freddy Fast Hands</card>
+    <card qty="1" id="aa52f6d4-53d8-41a2-8873-0a5864c32bef">Master Chan</card>
+    <card qty="1" id="3d6f0836-0a06-4c54-8bcf-9d8b15929ea6">Po Yu</card>
+    <card qty="1" id="262d74fb-985b-49e5-aa2a-ad47e22dbde1">Jolinaxas</card>
+    <card qty="1" id="f10346a3-e4bc-434f-8d42-64d2625ef702">Buster Madison</card>
+    <card qty="1" id="a66548a5-6340-4dda-b363-2c51c51af288">Faustian Deal</card>
+    <card qty="1" id="69f6287c-9c34-4634-bbb7-c7e5b590a0b8">Texas Twister</card>
+    <card qty="1" id="b68b1f66-bcd6-4607-9c25-085bc4ee6f6c">Stoker's Sabre</card>
+    <card qty="1" id="c354f76b-2f98-4dd3-b685-f7da23c36e00">Shadow Walk</card>
+    <card qty="1" id="a32a11b7-4ffc-4167-b037-bfc1d874af98">Phantom Fingers</card>
+    <card qty="1" id="afaf9c6f-3692-41a9-9991-d598640e90ec">Suzy Goes Berserk</card>
+    <card qty="1" id="12a8b1fe-f385-4608-a923-202960d444a3">Boxin' Match</card>
+    <card qty="1" id="5be7d84a-bf90-491f-9a1e-8849089d275d">Hoyle's Book, 1769 Ed.</card>
+    <card qty="1" id="adace0b6-47d7-44f1-b117-f3c1f650828d">Soul Blast</card>
+    <card qty="1" id="08ad9c67-95f3-4d12-aa39-7e9903c04eaa">The Good Doctor</card>
+    <card qty="1" id="eb4fa6a2-09e3-41d6-a87f-754ba51c0f64">Sea of Sorrows Mine</card>
+    <card qty="1" id="619b6c42-7b18-4b2c-9670-273234151e03">Captain Sim Yut-San</card>
+    <card qty="1" id="3147c651-38f8-411b-8b69-d5d060b5e612">Tent City (Chinese Workers)</card>
+    <card qty="1" id="2d0ae7f0-1895-4bc4-9244-d0b2cd80ea8d">The Master's Dojo</card>
+    <card qty="1" id="9901c989-0907-4bb7-adb8-74a69dd9d903">Fish Ridge Mine</card>
+    <card qty="1" id="83bf03d5-bcb2-4d8b-b4c6-40c04ae7f7de">Library</card>
+    <card qty="1" id="975a9c06-d19a-4466-956d-8af18f7fcb64">Theatre</card>
+    <card qty="1" id="e35861f0-6f89-4c80-aa92-5e68bcbaaff4">Bookstore</card>
+    <card qty="1" id="e5f21527-39a3-4796-aee2-1975cbc28b30">Gulgoleth</card>
+    <card qty="1" id="af8447f8-ce9c-4b0f-80fc-90624ad645dc">Look Homeward Mine</card>
+    <card qty="1" id="ec2bd0ad-3a71-4f89-9b7d-9452ca143ebd">Gypsy's Tent</card>
+    <card qty="1" id="870e2a3d-d70e-4ee3-982c-1f05f4044271">Foale's Folly</card>
+    <card qty="1" id="5da27246-1e37-4e99-8c88-0890d8d97a7d">Out of Ammo</card>
+    <card qty="1" id="3a0c2452-f228-46f5-bb4e-50a51fa25171">Seizing the Pearl of Death</card>
+    <card qty="1" id="8fffd5a1-5b79-4213-bd32-0494d24a897d">Palm of Prevention</card>
+    <card qty="1" id="8e2b4291-88ff-4b84-a0b3-5ca451c1a9bf">Flying Claw</card>
+    <card qty="1" id="4b422cfc-2e05-413e-9716-3f21cb344b3c">Drunken Monkey Technique</card>
+    <card qty="1" id="f050f7fb-4b12-4136-b281-67f74a5a5742">Ambition</card>
+    <card qty="1" id="b5069ee9-a805-4839-8f26-e98119b4dee1">Tai Ch'I Technique</card>
+    <card qty="1" id="cabccc4f-782a-4b97-b698-c7d320aeb1d8">Wing Chun Technique</card>
+    <card qty="1" id="5f8ec825-7b6b-4112-ab46-82e1c88cd423">Step Back to Ward Off Monkey</card>
+    <card qty="1" id="b2f78b76-6e28-4bfd-a8a3-5339850cb14a">Mantis Pinch</card>
+    <card qty="1" id="241ec77e-829a-4808-9e80-2fd5ee78c7d7">Blood of Gold</card>
+    <card qty="1" id="a4d5b0e6-cf6d-408a-a6d8-51b3c27e4278">Jade King Stance</card>
+    <card qty="1" id="0d51b6c7-4cb3-429c-a0dd-0167478d3e68">Leopard and Her Cubs</card>
+    <card qty="1" id="69c56ead-6c59-4757-a76f-c2c41c16791e">2nd Bank of Gomorra</card>
+    <card qty="1" id="0af9b7a5-33ff-41e2-8f29-58961995c7b1">Army of Gremlins</card>
+    <card qty="1" id="88f2ada0-882d-495e-8d3e-b3aeb44cf6f1">Heat Wave</card>
+    <card qty="1" id="fa1e38cc-f5ab-4334-99f6-f096aaedbc0a">Sumner's Revenge</card>
+    <card qty="1" id="a6bccfef-64d7-42cb-a208-0b36efc81625">Speakin' With the Dead</card>
+  </section>
+</deck>

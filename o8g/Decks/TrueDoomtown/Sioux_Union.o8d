@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<deck game="9afa6473-fd81-41b9-955f-8f67c7d3f423">
+  <section name="Outfit">
+    <card qty="1" id="8f0a1991-186b-4d31-8f53-b154c903f55f">Sioux Union</card>
+  </section>
+  <section name="Starting Cards">
+    <card qty="1" id="0344a5bf-f133-4cd4-96b3-fad20bcc27ac">Tioga Joe</card>
+    <card qty="1" id="651750b6-e0c6-42d4-929d-0a79e4188044">Seeking Fury</card>
+    <card qty="1" id="eca89b6f-e76a-49b5-b93f-12e3dd6b8494">Weeping Crow</card>
+  </section>
+  <section name="Deck">
+    <card qty="1" id="005f2f07-eaae-4a44-a7d1-44af3a497320">Hope in Winter</card>
+    <card qty="1" id="cfa24298-8812-4344-879c-e00ba6ffb8f1">Wise Cloud</card>
+    <card qty="1" id="e82fc4fa-69a0-40bd-9770-09d29779e2dd">Feather-in-His-Hair</card>
+    <card qty="1" id="e4e537ee-e035-4160-bb2b-5584d8ff1b3d">Strikes a Hawk</card>
+    <card qty="1" id="34f9da76-d1e4-4c2f-a50f-3702b5ace5fe">Spirit's Eyes</card>
+    <card qty="1" id="6600965f-34d8-4d6b-b4d6-2b5c3fa691f1">Thunderbird</card>
+    <card qty="1" id="b0201735-ee29-48ea-a295-332b58989d74">Eagle Rock</card>
+    <card qty="1" id="7ec023de-dbce-44ab-8582-8d80c0171dc7">Joseph Eyes-Like-Rain</card>
+    <card qty="1" id="cee5d50f-02ad-4c9c-a6f3-97d2690d5158">Bow and Arrow</card>
+    <card qty="1" id="b8a2e7f5-2650-4829-b60c-6a24fd9154e9">Gift of the Thunderbird</card>
+    <card qty="1" id="bff2dde8-5637-4e3a-a337-11214ec0657f">Raven's Chop</card>
+    <card qty="1" id="24ebbd59-7fb0-4242-b2c3-243bb45b20bf">Little Running Bear</card>
+    <card qty="1" id="671278fa-dbb5-479e-ad28-fb16a63ac5f3">Lightning Strike</card>
+    <card qty="1" id="f960c9d1-37f9-4bff-b074-b0ed5fd053e0">Rain Dance</card>
+    <card qty="1" id="2b2630ee-bcba-459d-b54e-763a11d149fa">Summon Spirit</card>
+    <card qty="1" id="45c8299c-fa47-4c09-bcb6-944f4f7d82f9">Clumsiness</card>
+    <card qty="1" id="ebc7d097-deba-4573-8d9e-68801a5e1daa">Pox Walker</card>
+    <card qty="1" id="430eb886-13a7-46b7-82be-c8235e0153f5">Speed of the Wolf</card>
+    <card qty="1" id="2724ff1d-0244-4b97-b4e6-333081ffcf68">Curse</card>
+    <card qty="1" id="c0067feb-70c3-4e33-a21c-58456f104a87">Breath of the Spirits</card>
+    <card qty="1" id="c320a823-f142-4e9f-8d10-83db573496d5">Bind Spirit</card>
+    <card qty="1" id="52a503f8-d49e-4943-a3bb-deeda3ed5719">Medicine</card>
+    <card qty="1" id="ef02134d-283b-4af5-a15e-91c80572fcc3">Pinned Down</card>
+    <card qty="1" id="b11e84db-54c9-413b-b269-130a4320956a">Tricky Spirits</card>
+    <card qty="1" id="bb0b6116-2c18-4015-9916-699034dd8423">Get on Your Feet!</card>
+    <card qty="1" id="602c98e1-da44-4b92-bf21-c99ca48a68d3">Just a Graze</card>
+    <card qty="1" id="1ec33661-0e93-4e88-b2f3-262ce438695e">Play It Again</card>
+    <card qty="1" id="83a17d11-0bb5-472e-bece-691c2549e3c2">Bad Tequila</card>
+    <card qty="1" id="6c8dcecd-3896-4a55-a129-92bb4593693a">Run, You Coward!</card>
+    <card qty="1" id="dbdd9eac-50e0-44e4-a495-9912ab700c56">My Fight's With You</card>
+    <card qty="1" id="6e5e7e26-dd43-4e8a-b2de-aea6321946c3">Tattoo</card>
+    <card qty="1" id="94558189-11e4-4e0c-8b58-40582e7e9fa1">Ignore 'im</card>
+    <card qty="1" id="6dc5ba48-af9c-4b7c-ba3f-a9b00c795120">Hot Lead Flyin'</card>
+    <card qty="1" id="b5b8d698-ea1c-4832-b3d8-f8a4925ee029">Inner Strength</card>
+    <card qty="1" id="af762df7-1b09-44b5-8c00-95ee9c606b83">Snake Eyes</card>
+    <card qty="1" id="c9f48594-067f-43ea-bb71-91864f892186">Water Lou's</card>
+    <card qty="1" id="f0a1f5db-7400-44d1-a6e5-dda8bdde8836">Big Doc's Casino</card>
+    <card qty="1" id="9dcd4f32-d970-42f1-ae08-d611ac3e8aa7">Hell's End Mine</card>
+    <card qty="1" id="c3266681-9880-4bf6-a26f-b8c39d4f33f6">Burial Ground</card>
+    <card qty="1" id="74d6246e-5386-492e-9f1a-74fccb2b039f">Shady Jake's</card>
+    <card qty="1" id="b1d292e7-4273-4830-b140-419ec45cd4cd">Gas Lamp</card>
+    <card qty="1" id="16b32716-3084-4959-8ff3-1f241ddb23a4">Cobbler Shop</card>
+    <card qty="1" id="67debc23-29d9-43f8-8c09-3a4195260574">The Undermaze</card>
+    <card qty="1" id="cda746b8-c723-4e1d-b234-80b582bb3597">Art Gallery</card>
+    <card qty="1" id="25d216ef-e919-4d1d-8b2a-be4749c31e49">Shouting Tom's Tunnel</card>
+    <card qty="1" id="9f356231-bcfe-4b02-bbb9-b61e7ff6a582">Bat's Breath Mine</card>
+    <card qty="1" id="55984705-67fa-4bf1-b176-b8d025a4a158">The Desert Rose Lode</card>
+    <card qty="1" id="d381a39f-dc7d-4f87-a6e3-3a08bbe3b657">Razor-Cliff Mine</card>
+    <card qty="1" id="e40acad7-6205-4898-8f1c-a7e802cafb5d">Hatchet</card>
+  </section>
+</deck>
