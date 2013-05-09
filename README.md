@@ -5,7 +5,7 @@ The Doomtown Card Game arrives in OCTGN. A Brilliant mix of poker, collectible c
 
 This is a repository for the a game definition for the [Online Card and Tabletop Gaming Network (OCTGN)](http://octgn.net).
 
-* Automation Rank C *(This game definition contains automation of common actions to reduce tediousness amd speed up play.)*
+* Automation Rank: **C** *(This game definition contains automation of common actions to reduce tediousness amd speed up play.)*
 
 Available Sets
 ---------
