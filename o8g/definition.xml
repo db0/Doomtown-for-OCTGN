@@ -4,7 +4,7 @@
       name="Doomtown" 
       id="9afa6473-fd81-41b9-955f-8f67c7d3f423" 
       octgnVersion="3.1.0.0" 
-      version="3.1.0.2" 
+      version="3.1.0.3" 
       markersize="16"
       tags="western deadlands poker maneuvering multiplayer"
       description="A western themed card game, marying poker, town building, and maneuvering.&#xD;&#xD;&#xD;Doomtown has players taking the part of gangs, called 'outfits,' trying to gain control of the California boomtown known as Gomorrah, in the same Weird West setting as the popular Deadlands RPG.&#xD;&#xD;This game works very well for more than 2 players.&#xd;&#xd;Automation rank: C&#xd;(This game definition contains automation of common actions to reduce tediousness amd speed up play.)"
@@ -13,8 +13,12 @@
       authors="Db0"
       iconurl="https://raw.github.com/db0/Doomtown-for-OCTGN/master/doomtown_logo.jpg">
 	<scripts>
-		<script src="Scripts/actions.py" />
-	</scripts>
+      <script src="Scripts/actions.py" />
+      <script src="Scripts/constants.py" />
+      <script src="Scripts/generic.py" />
+      <script src="Scripts/meta.py" />
+      <script src="Scripts/poker.py" />
+	</scripts> 
    <fonts>
        <font src="Fonts/Pixel-Western.ttf" size="8" target="context"/>
        <font src="Fonts/Pixel-Western.ttf" size="8" target="chat"/> 
