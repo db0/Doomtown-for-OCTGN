@@ -110,6 +110,7 @@
 		<cardaction menu="Discard card(s)" default="False" shortcut="Ctrl+Del" batchExecute="discard" />
 	</table>
 	<player summary="GR:{#GhostRock} | Inf:{#Influence} | CP:{#Control} | VP:{#VictoryPoints}">
+      <globalvariable name="Hand Rank" value="N/A" /> 
 		<hand name="Play Hand" visibility="me" ordered="False" width="90" height="126" icon="Groups/playhand.png">
 			<cardaction menu="Play" default="True" execute="playcard" />
 			<cardaction menu="Inspect Card" default="False" execute="inspectCard" />
