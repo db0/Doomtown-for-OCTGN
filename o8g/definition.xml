@@ -7,7 +7,11 @@
       version="3.1.0.3" 
       markersize="16"
       tags="western deadlands poker maneuvering multiplayer"
-      description="A western themed card game, marying poker, town building, and maneuvering.&#xD;&#xD;&#xD;Doomtown has players taking the part of gangs, called 'outfits,' trying to gain control of the California boomtown known as Gomorrah, in the same Weird West setting as the popular Deadlands RPG.&#xD;&#xD;This game works very well for more than 2 players.&#xd;&#xd;Automation rank: C&#xd;(This game definition contains automation of common actions to reduce tediousness amd speed up play.)"
+      description="A western themed card game, marying poker, town building, and maneuvering.
+      &#xD;&#xD;&#xD;Doomtown has players taking the part of gangs, called 'outfits,' trying to gain control of the California boomtown known as Gomorrah, in the same Weird West setting as the popular Deadlands RPG.
+      &#xD;&#xD;This game works very well for more than 2 players.
+      &#xd;&#xd;Automation rank: C
+      &#xd;(This game definition contains automation of common actions to reduce tediousness amd speed up play.)"
       setsurl="https://github.com/db0/Doomtown-for-OCTGN#available-sets"
       gameurl="https://github.com/db0/Doomtown-for-OCTGN#doomtown-ccg-plugin-for-octgn"
       authors="Db0"
