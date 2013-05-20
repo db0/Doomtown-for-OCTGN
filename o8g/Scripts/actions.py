@@ -303,7 +303,7 @@ def setWinner(winner):
 # Marker functions
 #---------------------------------------------------------------------------
 
-def plusControl(card, x = 0, y = 0, notification = loud, count = 1): # Adds an extra control marker to cards (usually deeds)
+def plusControl(card, x = 0, y = 0, notification = 'loud', count = 1): # Adds an extra control marker to cards (usually deeds)
    mute()
    if notification == loud:
       notify("{} marks that {} provides {}  more control (Their total has been adjusted accordingly).".format(me, card, count))
@@ -317,7 +317,7 @@ def plusControl(card, x = 0, y = 0, notification = loud, count = 1): # Adds an e
          card.markers[ControlPlusMarker] += 1
          modControl() 
         
-def minusControl(card, x = 0, y = 0, notification = loud, count = 1): # Similar to adding Control but we remove instead.
+def minusControl(card, x = 0, y = 0, notification = 'loud', count = 1): # Similar to adding Control but we remove instead.
    mute()
    if notification == loud:
       notify("{} marks that {} provides {} less control (Their total has been adjusted accordingly).".format(me, card, count))
@@ -330,7 +330,7 @@ def minusControl(card, x = 0, y = 0, notification = loud, count = 1): # Similar 
                                                                                      # As the minimum CP on a card is always 0.
          card.markers[ControlMinusMarker] += 1     
 
-def plusInfluence(card, x = 0, y = 0, notification = loud, count = 1): # The same as pluControl but for influence
+def plusInfluence(card, x = 0, y = 0, notification = 'loud', count = 1): # The same as pluControl but for influence
    mute()
    if notification == loud:
       notify("{} marks that {}'s influence has increased by {} ({}'s total has been adjusted automatically)".format(me, card, count, me))
@@ -343,7 +343,7 @@ def plusInfluence(card, x = 0, y = 0, notification = loud, count = 1): # The sam
          card.markers[InfluencePlusMarker] += 1         
          modInfluence()
         
-def minusInfluence(card, x = 0, y = 0, notification = loud, count = 1): # The same as minusContorl but for influence
+def minusInfluence(card, x = 0, y = 0, notification = 'loud', count = 1): # The same as minusContorl but for influence
    mute()
    if notification == loud:
       notify("{} marks that {}'s influence has decreased by {} ({}'s total has been adjusted automatically).".format(me, card, count, me))
@@ -410,7 +410,7 @@ def calcValue(card, type = 'poker'):
    if numvalue < 1: return 0
    return numvalue
       
-def plusValue(card, x = 0, y = 0, notification = loud, valuemod = None): 
+def plusValue(card, x = 0, y = 0, notification = 'loud', valuemod = None): 
 # Very much like plus Influence and control, but we don't have to worry about modifying the player's totals
    mute()
    if valuemod == None: valuemod = askInteger("Increase {}'s value by how much? (Current value is: {})".format(card.name,calcValue(card)), 3)
@@ -426,7 +426,7 @@ def plusValue(card, x = 0, y = 0, notification = loud, valuemod = None):
    if notification == loud:
       notify("{} marks that {}'s value has increased by {} and is now {}.".format(me, card, valuemod, calcValue(card)))
         
-def minusValue(card, x = 0, y = 0, notification = loud, valuemod = None): 
+def minusValue(card, x = 0, y = 0, notification = 'loud', valuemod = None): 
    mute()
    if valuemod == None: valuemod = askInteger("Decrease {}'s value by how much? (Current value is: {})".format(card.name,calcValue(card)), 3)
    if ValuePlusMarker in card.markers:
@@ -819,7 +819,7 @@ def Pull(group = me.Deck, x = 0, y = 0): # Draws one card from the deck into the
    suit = fullsuit(me.piles['Discard Pile'].top().Suit) # Save the card's suit
    notify("{} Pulled a {} {}.".format(me, rank, suit))  # Announce them nicely to everyone.
 
-def drawMany(group, count = None, notification = loud): # This function draws a variable number cards into the player's hand.
+def drawMany(group, count = None, notification = 'loud'): # This function draws a variable number cards into the player's hand.
    mute()
    if count == None: count = askInteger("Draw how many cards to your Play Hand?", 5) # Ask the player how many cards they want.
    for i in range(0, count): 
@@ -856,7 +856,7 @@ def moveIntoDeck(group):
    for card in group: card.moveTo(Deck)
    notify("{} moves their {} into their Deck.".format(me, group.name))
    
-def drawhandMany(group, count = None, notification = loud): #Same as drawMany, but puts the cards into the player's Draw Hand pile.
+def drawhandMany(group, count = None, notification = 'loud'): #Same as drawMany, but puts the cards into the player's Draw Hand pile.
    mute()
    if count == None: count = askInteger("Draw how many cards to your Draw Hand?", 5)
    for i in range(0, count): 

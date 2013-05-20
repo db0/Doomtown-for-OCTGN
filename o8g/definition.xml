@@ -4,7 +4,7 @@
       name="Doomtown" 
       id="9afa6473-fd81-41b9-955f-8f67c7d3f423" 
       octgnVersion="3.1.0.0" 
-      version="3.1.0.3" 
+      version="3.1.0.8" 
       markersize="16"
       tags="western deadlands poker maneuvering multiplayer"
       description="A western themed card game, marying poker, town building, and maneuvering.
@@ -29,6 +29,11 @@
    </fonts>   
    <proxygen definitionsrc="Proxy/proxydef.xml">
    </proxygen>   
+  <documents>
+      <document name="Rulebook" icon="Documents/Manual.png" src="Documents/DoomtownRules.htm" />
+      <document name="FAQ" icon="Documents/Manual.png" src="Documents/Doomtown-FAQ-AEG.htm" />
+      <document name="Accumulated Rulings" icon="Documents/Manual.png" src="Documents/DoomtownAccumulatedRulings.htm" />
+  </documents>    
    <globalvariables> 
    </globalvariables>
 	<card back="Card/back.jpg" front="Card/front.jpg" width="90" height="126" cornerRadius="3">
