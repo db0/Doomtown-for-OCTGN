@@ -101,7 +101,9 @@ def goToSetup(group, x = 0, y = 0):  # Go back to the Pre-Game Setup phase.
    harrowedDudes.clear()
    jailbrokenDeeds.clear()
    ValueMemory.clear()
-   AttachedCards.clear()
+   hostCards = eval(getGlobalVariable('Host Cards'))
+   hostCards.clear()
+   setGlobalVariable('Host Cards',str(hostCards))   
    showCurrentPhase() # Remind the players which phase it is now
 
 def goToShootout(group, x = 0, y = 0): # Start or End a Shootout Phase

@@ -1,13 +1,17 @@
 Changelog - Doomtown CCG OCTGN Game Definition
 ===============================================
 
+### 3.2.1.x
+
+* Wiping host cards on game reset now
+
 ### 3.2.0.x
 
 * Added goods attaching, removing and trading code. 
   * Now to play a goods, spell or improvement card, you need to have a dude or deed targeted respectively.
   * Attached goods will be autoplaced on the target card
   * To trade goods simply target the target dude and use the "Trade Goods" action in the first dude's context menu.
-    * If you trade only one good, only it will be moved
+    * If you only hold one good, it will be moved immediately.
     * If you trade more than one goods card, you'll get a multiple choice menu to choose which ones you want to trade.
 * Removed the "Deed Specific" submenu and put those actions on the root, to avoid too manu nested menus
 * Removed the special font from the chat menu for readability.
@@ -16,6 +20,7 @@ Changelog - Doomtown CCG OCTGN Game Definition
 ### 3.1.0.x
 
 * Doomtown updated for OCTGN 3.1.x
+* Added documentation in the game definition. Find the rules, FAQ and accumulated rulings under the Documentation menu in the game.
 
 ### 3.0.7
 

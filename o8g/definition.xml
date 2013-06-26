@@ -4,7 +4,7 @@
       name="Doomtown" 
       id="9afa6473-fd81-41b9-955f-8f67c7d3f423" 
       octgnVersion="3.1.0.0" 
-      version="3.2.0.22" 
+      version="3.2.1.2" 
       markersize="16"
       tags="western deadlands poker maneuvering multiplayer"
       description="A western themed card game, marying poker, town building, and maneuvering.
@@ -12,8 +12,8 @@
       &#xD;&#xD;This game works very well for more than 2 players.
       &#xd;&#xd;Automation rank: C
       &#xd;(This game definition contains automation of common actions to reduce tediousness amd speed up play.)"
-      setsurl="https://github.com/db0/Doomtown-for-OCTGN#available-sets"
-      gameurl="https://github.com/db0/Doomtown-for-OCTGN#doomtown-ccg-plugin-for-octgn"
+      setsurl="http://octgn.gamersjudgement.com/wordpress/doomtown/sets/"
+      gameurl="http://octgn.gamersjudgement.com/wordpress/doomtown"
       authors="Db0"
       iconurl="https://raw.github.com/db0/Doomtown-for-OCTGN/master/doomtown_logo.jpg">
 	<scripts>
@@ -58,7 +58,7 @@
 		<cardaction menu="Boot/Unboot" default="True" execute="boot" />
 		<cardaction menu="Inspect Card" default="False" execute="inspectCard" />
 		<groupaction menu="Pay Upkeep / Receive Production." default="False" shortcut="Ctrl+U" execute="upkeep" />
-		<groupaction menu="Move to Next phase." default="False" shortcut="enter" execute="nextPhase" />
+		<groupaction menu="Move to Next phase." default="False" shortcut="Ctrl+enter" execute="nextPhase" />
 		<groupactions menu="Game...">
 			<groupaction menu="Setup starting cards &amp; hand" default="False" shortcut="Ctrl+Shift+S" execute="setup" />
 			<groupaction menu="Download Sets Card Images." shortcut="Ctrl+G" default="False" execute="download_o8c" />
