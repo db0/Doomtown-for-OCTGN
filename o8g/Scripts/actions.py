@@ -536,6 +536,7 @@ def tradeGoods(card, x = 0, y = 0):
    if not newHost:
       whisper(":::ERROR::: You need to target a dude in the same location to receive the goods")
       return
+   if newHost.orientation != Rot0 and not confirm("You can only trade goods to unbooted dudes. Bypass restriction?"): return
    hostCards = eval(getGlobalVariable('Host Cards'))
    attachedGoods = [Card(att_id) for att_id in hostCards if hostCards[att_id] == card._id and Card(att_id).Type == 'Goods']
    chosenGoods = []
@@ -676,14 +677,21 @@ def playcard(card):
    elif card.Type == "Goods" or card.Type == "Spell" or card.Type == "Improvement": # If we're bringing in any goods, just remind the player to pull for gadgets.
       if card.Type == "Improvement": hostCard = findHost('Improvement')
       else: hostCard = findHost('Goods')
+      if hostCard.orientation != Rot0 and not confirm("You can only trade goods to unbooted dudes. Bypass restriction?"): return      
       if not hostCard:
          if card.Type == "Improvement": whisper("You need to target the deed which is going to be improved")
          else: whisper("You need to target the dude which is going to purchase the goods")
          return
       else:
+         if hostCard.orientation != Rot0 and card.Type != "Improvement" and not confirm("You can only attach goods to unbooted dudes. Bypass restriction?"): return      
          if payCost(card.Cost, loud) == 'ABORT' : return # Check if the player can pay the cost. If not, abort.
          attachCard(card,hostCard)
-         if re.search('Gadget', card.Text): notify("{} is trying to create a {}. Don't forget to pull!".format(hostCard, card))
+         if re.search('Gadget', card.Text):
+            if confirm("You are trying to create a gadget. Would you like to do a gadget pull at this point?"): 
+               gadgetPull = pull(silent = True) # pull returns a tuple with the results of the pull
+               hostCard.orientation = Rot90
+               notify("{} attempted to manufacture a {} and pulled a {} {}".format(hostCard,card,fullrank(gadgetPull[0]), fullsuit(gadgetPull[1])))
+            else: notify("{} has created a {} without a gadget pull.".format(hostCard, card))
          elif card.Type == "Spell": notify("{} has learned {}.".format(hostCard, card))
          elif card.Type == "Improvement": notify("{} has improved {} with {}.".format(me, hostCard, card))
          else : notify("{} has purchased {}.".format(hostCard, card))
@@ -767,18 +775,19 @@ def draw(group = me.Deck): # Draws one card from the deck into the player's hand
    group.top().moveTo(me.hand)
    notify("{} draws a card.".format(me))   
    
-def Pull(group = me.Deck, x = 0, y = 0): # Draws one card from the deck into the discard pile and announces its value.
+def pull(group = me.Deck, x = 0, y = 0, silent = False): # Draws one card from the deck into the discard pile and announces its value.
    mute()
    Deck = me.Deck
    if len(Deck) == 0: # In case the deck is empty, invoke the reshuffle function.
       notify("{}'s Deck empty. Will reshuffle discard pile".format(me))
       reshuffle()
-      random = rnd(100, 10000) # Bug workaround. We wait a bit so that we are sure the cards are there.
+      rnd(1, 100) # Bug workaround. We wait a bit so that we are sure the cards are there.
    Deck.top().moveTo(me.piles['Discard Pile']) # Move the top card from the deck into the discard pile
-   random = rnd(100, 10000) # Wait a bit more, as in multiplayer games, things are slower.
-   rank = fullrank(me.piles['Discard Pile'].top().Rank) # Save the card's rank
-   suit = fullsuit(me.piles['Discard Pile'].top().Suit) # Save the card's suit
-   notify("{} Pulled a {} {}.".format(me, rank, suit))  # Announce them nicely to everyone.
+   rnd(1, 100) # Wait a bit more, as in multiplayer games, things are slower.
+   rank = me.piles['Discard Pile'].top().Rank # Save the card's rank
+   suit = me.piles['Discard Pile'].top().Suit # Save the card's suit
+   if not silent: notify("{} Pulled a {} {}.".format(me, fullrank(rank), fullsuit(suit)))  # Announce them nicely to everyone.
+   return (rank,suit)
 
 def drawMany(group, count = None, notification = 'loud'): # This function draws a variable number cards into the player's hand.
    mute()
