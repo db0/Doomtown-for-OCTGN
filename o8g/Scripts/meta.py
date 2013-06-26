@@ -23,6 +23,40 @@ Automations = {'Play'      : True, # If True, game will automatically trigger ca
                'Phase'     : True, # If True, game will automatically trigger effects happening at the start of the player's turn, from cards they control.
                'WinForms'  : True} # If True, game will use the custom Windows Forms for displaying multiple-choice menus and information pop-ups
 
+
+#---------------------------------------------------------------------------
+# Misc
+#---------------------------------------------------------------------------
+               
+def resetAll(): # Clears all the global variables in order to start a new game.
+   # Import all our global variables and reset them.
+   global ShootoutActive, playerside, strikeCount, posSideCount, negSideCount, handsize, playerOutfit 
+   global wantedDudes, harrowedDudes, jailbrokenDeeds, ValueMemory, debugVerbosity
+   debugNotify(">>> resetAll()") #Debug   
+   ShootoutActive = 0
+   playerside = None
+   strikeCount = 0
+   posSideCount = 0
+   negSideCount = 0
+   handsize = 5
+   shared.Phase = 0
+   me.GhostRock = 0 # Wipe the counters
+   me.Influence = 0
+   me.Control = 0
+   me.VictoryPoints = 0
+   me.HandRank = 0
+   playerOutfit = None
+   wantedDudes.clear() # Clear the dictionaries so that you don't remember card memory from the previous games
+   harrowedDudes.clear()
+   jailbrokenDeeds.clear()
+   ValueMemory.clear()
+   hostCards = eval(getGlobalVariable('Host Cards'))
+   hostCards.clear()
+   setGlobalVariable('Host Cards',str(hostCards))   
+   if len(players) > 1: debugVerbosity = -1 # Reset means normal game.
+   elif debugVerbosity != -1 and confirm("Reset Debug Verbosity?"): debugVerbosity = -1    
+   debugNotify("<<< resetAll()") #Debug   
+
 #---------------------------------------------------------------------------
 # Card Memory
 #---------------------------------------------------------------------------

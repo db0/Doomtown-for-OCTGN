@@ -4,10 +4,10 @@
       name="Doomtown" 
       id="9afa6473-fd81-41b9-955f-8f67c7d3f423" 
       octgnVersion="3.1.0.0" 
-      version="3.2.1.2" 
+      version="3.2.1.6" 
       markersize="16"
       tags="western deadlands poker maneuvering multiplayer"
-      description="A western themed card game, marying poker, town building, and maneuvering.
+      description="A western themed card game, marying poker mechanics, town building, and chess-like maneuvering.
       &#xD;&#xD;&#xD;Doomtown has players taking the part of gangs, called 'outfits,' trying to gain control of the California boomtown known as Gomorrah, in the same Weird West setting as the popular Deadlands RPG.
       &#xD;&#xD;This game works very well for more than 2 players.
       &#xd;&#xd;Automation rank: C
@@ -54,7 +54,7 @@
 		<property name="Ghost Rock" type="String" hidden="False" ignoreText="False" textKind="Free"  />
 		<property name="Text" type="String" hidden="False" ignoreText="False" textKind="Free"  />
 	</card>
-	<table name="Table" visibility="undefined" ordered="False" width="1150" height="750" background="Background/background.jpg" backgroundStyle="uniformToFill">
+	<table name="Table" visibility="undefined" ordered="False" width="1250" height="750" background="Background/background.jpg" backgroundStyle="uniformToFill">
 		<cardaction menu="Boot/Unboot" default="True" execute="boot" />
 		<cardaction menu="Inspect Card" default="False" execute="inspectCard" />
 		<groupaction menu="Pay Upkeep / Receive Production." default="False" shortcut="Ctrl+U" execute="upkeep" />
@@ -70,7 +70,6 @@
 			<groupaction menu="Jump to High Noon Phase." default="False" shortcut="F3" execute="goToHighNoon" />
 			<groupaction menu="Jump to Nightfall Phase." default="False" shortcut="F4" execute="goToNightfall" />
 			<groupaction menu="Start/End a Shootout Phase." default="False" shortcut="F10" execute="goToShootout" />
-			<groupaction menu="Go back to the Pre-Game Setup Phase (use this only after a reset)." default="False" execute="goToSetup" />
 		</groupactions>
 		<groupaction menu="Announce Pass." default="False" shortcut="Ctrl+Space" execute="Pass" />
 		<groupaction menu="Pull." default="False" execute="Pull" />

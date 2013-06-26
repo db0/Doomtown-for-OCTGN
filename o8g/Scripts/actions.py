@@ -77,35 +77,6 @@ def goToNightfall(group, x = 0, y = 0): # Go directly to the Nightfall phase
    shared.Phase = 4
    showCurrentPhase()   
 
-def goToSetup(group, x = 0, y = 0):  # Go back to the Pre-Game Setup phase.
-# This phase is not rotated with the nextPhase function as it is a way to basically restart the game.
-# It also serves as a control, so as to avoid a player by mistake using the setup function during play.
-   mute()
-   global ShootoutActive, playerside, strikeCount, posSideCount, negSideCount, handsize, playerOutfit 
-   global wantedDudes, harrowedDudes, jailbrokenDeeds, ValueMemory
-   # Import all our global variables and reset them.
-   ShootoutActive = 0
-   playerside = None
-   strikeCount = 0
-   posSideCount = 0
-   negSideCount = 0
-   handsize = 5
-   shared.Phase = 0
-   me.GhostRock = 0 # Wipe the counters
-   me.Influence = 0
-   me.Control = 0
-   me.VictoryPoints = 0
-   me.HandRank = 0
-   playerOutfit = None
-   wantedDudes.clear() # Clear the dictionaries so that you don't remember card memory from the previous games
-   harrowedDudes.clear()
-   jailbrokenDeeds.clear()
-   ValueMemory.clear()
-   hostCards = eval(getGlobalVariable('Host Cards'))
-   hostCards.clear()
-   setGlobalVariable('Host Cards',str(hostCards))   
-   showCurrentPhase() # Remind the players which phase it is now
-
 def goToShootout(group, x = 0, y = 0): # Start or End a Shootout Phase
    global ShootoutActive
    if ShootoutActive == 0: # The shootout phase just shows a nice notification when it starts and does nothing else.
@@ -732,48 +703,49 @@ def playcard(card):
 def setup(group):
 # This function is usually the first one the player does. It will setup their home and cards on the left or right of the playfield 
 # It will also setup the starting Ghost Rock for the player according to the cards they bring in play, as well as their influence and CP.
-   if shared.Phase == 0: # First check if we're on the pre-setup game phase. 
-                     # As this function will play your whole hand and wipe your counters, we don't want any accidents.
-      global playerside, playerOutfit # Import some necessary variables we're using around the game.
-      mute()
-      if table.isTwoSided(): 
-         if not confirm("This game is NOT designed to be played on a two-sided table. Things will break!! Please start a new game and unckeck the appropriate button. Are you sure you want to continue?"): return
-      chooseSide() # The classic place where the players choose their side.
-      dudecount = 0
-      concat_dudes = 'and has the following starting dudes: ' # A string where we collect the names of the dudes we bring in
-      concat_home = '' # A string to remember our home's name
-      concat_other = '' # A string to remember any other card (like sweetrock's mine)
-      me.Deck.shuffle() # First let's shuffle our deck now that we have the chance.
-      me.GhostRock = 0 # Wipe the counters
-      me.Influence = 0
-      me.Control = 0
-      if len(table) == 0: # Only create a Town Square token if nobody has setup their side yet.
-         TSL = table.create("ac0b08ed-8f78-4cff-a63b-fa1010878af9",2 - cwidth(divisor = 0),0, 1, True) # Create a Left Town Square card in the middle of the table.
-         TSR = table.create("72f6c0a9-e4f6-4b17-9777-185f88187ad7",-1,0, 1, True) # Create a Right Town Square card in the middle of the table.
-      for card in me.hand: # For every card in the player's hand... (which should be an outfit and a bunch of dudes usually)
-         if card.Type == "Outfit" :  # If it's the outfit...
-            placeCard(card,'SetupHome')
-            me.GhostRock += num(card.properties['Ghost Rock']) # Then we add its starting Ghost Rock to the bank
-            playerOutfit = card.Outfit # We make a note of the outfit the player is playing today (used later for upkeep)
-            concat_home += '{}'.format(card) # And we save the name.
-         elif card.Type == "Dude" : # If it's a dude...
-            placeCard(card,'SetupDude',dudecount)
-            dudecount += 1 # This counter increments per dude, ad we use it to move each other dude further back.
-            payCost(card.Cost) # Pay the cost of the dude
-            modInfluence(card.Influence, silent) # Add their influence to the total
-            concat_dudes += '{}. '.format(card) # And prepare a concatenated string with all the names.
-         else: # If it's any other card...
-            placeCard(card,'SetupOther')
-            payCost(card.Cost) # We pay the cost 
-            modControl(card.Control) # Add any control to the total
-            modInfluence(card.Influence) # Add any influence to the total
-            concat_other = ', brings {} into play'.format(card) # And we create a special concat string to use later for the notification.
-      if dudecount == 0: concat_dudes = 'and has no starting dudes. ' # In case the player has no starting dudes, we change the notification a bit.
-      refill() # We fill the player's play hand to their hand size (usually 5)
-      notify("{} is playing {} {} {}Starting Ghost Rock is {} and starting influence is {}.".format(me, concat_home, concat_other, concat_dudes, me.GhostRock, me.Influence))  
-      # And finally we inform everyone of the player's outfit, starting dudes & other cards, starting ghost rock and influence.
-   else: whisper('You can only setup your starting cards during the Pre-Game setup phase') # If this function was called outside the pre-game setup phase
-                                                                                           # We assume a mistake and stop.
+   global playerOutfit # Import some necessary variables we're using around the game.
+   debugNotify(">>> setup()")
+   mute()
+   if table.isTwoSided(): 
+      if not confirm("This game is NOT designed to be played on a two-sided table. Things will break!! Please start a new game and unckeck the appropriate button. Are you sure you want to continue?"): return
+   if playerOutfit and not confirm("Are you sure you want to setup for a new game? (This action should only be done after a table reset)"): return # We make sure the player intended to start a new game
+   resetAll()
+   chooseSide() # The classic place where the players choose their side.
+   me.Deck.shuffle() # First let's shuffle our deck now that we have the chance.
+   if len([c for c in table if c.name == 'Town Square']) == 0: # Only create a Town Square token if there's not one in the table until now
+      TSL = table.create("ac0b08ed-8f78-4cff-a63b-fa1010878af9",2 - cwidth(divisor = 0),0, 1, True) # Create a Left Town Square card in the middle of the table.
+      TSR = table.create("72f6c0a9-e4f6-4b17-9777-185f88187ad7",-1,0, 1, True) # Create a Right Town Square card in the middle of the table.
+   for card in me.hand: # For every card in the player's hand... (which should be an outfit and a bunch of dudes usually)
+      if card.Type == "Outfit" :  # First we do a loop to find an play the outfit, (in case the player managed to mess the order somehow)
+         placeCard(card,'SetupHome')
+         me.GhostRock += num(card.properties['Ghost Rock']) # Then we add its starting Ghost Rock to the bank
+         playerOutfit = card.Outfit # We make a note of the outfit the player is playing today (used later for upkeep)
+         concat_home = '{}'.format(card) # And we save the name.
+   if not playerOutfit: # If we haven't found an outfit in the player's hand, we assume they made some mistake and break out.
+      whisper(":::ERROR:::  You need to have an outfit card in your hand before you try to setup the game. Please reset the board, load a valid deck and try again.")
+      return
+   debugNotify("About to place Dudes",2)
+   dudecount = 0
+   concat_dudes = 'and has the following starting dudes: ' # A string where we collect the names of the dudes we bring in
+   concat_other = '' # A string to remember any other card (like sweetrock's mine)
+   for card in me.hand: # For every card in the player's hand... (which should a bunch of dudes now)
+      debugNotify("Placing {}".format(card),4)
+      if card.Type == "Dude" : # If it's a dude...
+         placeCard(card,'SetupDude',dudecount)
+         dudecount += 1 # This counter increments per dude, ad we use it to move each other dude further back.
+         payCost(card.Cost) # Pay the cost of the dude
+         modInfluence(card.Influence, silent) # Add their influence to the total
+         concat_dudes += '{}. '.format(card) # And prepare a concatenated string with all the names.
+      else: # If it's any other card...
+         placeCard(card,'SetupOther')
+         payCost(card.Cost) # We pay the cost 
+         modControl(card.Control) # Add any control to the total
+         modInfluence(card.Influence) # Add any influence to the total
+         concat_other = ', brings {} into play'.format(card) # And we create a special concat string to use later for the notification.
+   if dudecount == 0: concat_dudes = 'and has no starting dudes. ' # In case the player has no starting dudes, we change the notification a bit.
+   refill() # We fill the player's play hand to their hand size (usually 5)
+   notify("{} is playing {} {} {}Starting Ghost Rock is {} and starting influence is {}.".format(me, concat_home, concat_other, concat_dudes, me.GhostRock, me.Influence))  
+   # And finally we inform everyone of the player's outfit, starting dudes & other cards, starting ghost rock and influence.
 
 def shuffle(group): # A simple function to shuffle piles
    group.shuffle()
