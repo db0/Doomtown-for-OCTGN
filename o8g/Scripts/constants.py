@@ -45,3 +45,5 @@ lowball = 'lowball' # Same as above
 shootout = 'shootout' # Same as above
 Xaxis = 'x'  # Same as above
 Yaxis = 'y'	 # Same as above
+
+specialHostPlacementAlgs = {} # A Dictionary which holds tuples of X and Y placement offsets, for cards which place their hosted cards differently to normal.

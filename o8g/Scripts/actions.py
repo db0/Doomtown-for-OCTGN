@@ -140,8 +140,9 @@ def ace(cards, x = 0, y = 0): # Ace a card. I.e. kill it and send it to the boot
                           # We need to do it before the card is moved to the boot hill because by then, the markers are removed.
          cardMemoryStore(card) # This function stores added effects likes being wanted or harrowed in card memory.
       # Remind the player to take a bounty for wanted dudes. In the future this will be automated.
-      card.moveTo(cardowner.piles['Boot Hill']) # Cards aced need to be sent to their owner's boot hill
       notify("{} has aced {}.".format(me, card))
+      clearAttachLinks(card,'Ace')
+      card.moveTo(cardowner.piles['Boot Hill']) # Cards aced need to be sent to their owner's boot hill
 
 def discard(cards, x = 0, y = 0): # Discard a card.
    mute()
@@ -151,6 +152,7 @@ def discard(cards, x = 0, y = 0): # Discard a card.
          cardRMsync(card) # Then remove it's influence / CP from the player's pool
          cardMemoryStore(card) # And store it's memory.
          notify("{} has discarded {}.".format(me, card))
+      clearAttachLinks(card,'Discard')
       if card.highlight == EventColor and re.search('Ace this card', card.Text): # If the card being discarded was an event in a lowball hand
                                                                                  # And that event had instructions to be aced
          card.moveTo(cardowner.piles['Boot Hill'])                               # Then assume player error and ace it         
@@ -691,41 +693,19 @@ def playcard(card):
    elif card.Type == "Deed" :   
       placeCard(card,'BuyDeed')
       notify("{} has acquired the deed to {}.".format(me, card))
-   elif card.Type == "Goods" : # If we're bringing in any goods, just remind the player to pull for gadgets.
-      if AttachingCard == None:
-         card.moveToTable(0,0)
-         if re.search('Gadget', card.Text): notify("{} is trying to create a {}. Don't forget to pull!".format(me, card))
-         else: notify("{} has purchased {}.".format(me, card))
+   elif card.Type == "Goods" or card.Type == "Spell" or card.Type == "Improvement": # If we're bringing in any goods, just remind the player to pull for gadgets.
+      if card.Type == "Improvement": hostCard = findHost('Improvement')
+      else: findHost('Goods')
+      if not hostCard:
+         if card.Type == "Improvement": whisper("You need to target the deed which is going to be improved")
+         else: whisper("You need to target the dude which is going to purchase the goods")
+         return
       else:
-         xp, yp = AttachingCard.position        
-         card.moveToTable(xp,yp - 22 * AttachedCards[AttachingCard])
+         attachCard(card,hostCard)
          if re.search('Gadget', card.Text): notify("{} is trying to create a {}. Don't forget to pull!".format(AttachingCard, card))
-         else: notify("{} has purchased {}.".format(AttachingCard, card))
-         AttachedCards[AttachingCard] += 1
-         card.sendToBack()
-         AttachingCard = None
-   elif card.Type == "Spell" : # For spells, just change the notification text.
-      if AttachingCard == None:
-         card.moveToTable(0,0)
-         notify("One of {}'s dudes has learned {}.".format(me, card))      
-      else:
-         xp, yp = AttachingCard.position        
-         notify("{} has learned {}.".format(AttachingCard, card))      
-         card.moveToTable(xp,yp - 22 * AttachedCards[AttachingCard])
-         AttachedCards[AttachingCard] += 1
-         card.sendToBack()
-         AttachingCard = None
-   elif card.Type == "Improvement" : # For improvements, just change the notification text.
-      if AttachingCard == None:
-         card.moveToTable(0,0)
-         notify("{} is improving one of their Deeds with {}.".format(me, card))      
-      else:
-         xp, yp = AttachingCard.position        
-         notify("{} is improving {} with {}.".format(me, AttachingCard, card))      
-         card.moveToTable(xp,yp - 22 * AttachedCards[AttachingCard])
-         AttachedCards[AttachingCard] += 1
-         card.sendToBack()
-         AttachingCard = None
+         elif card.Type == "Spell": notify("{} has learned {}.".format(hostCard, card))
+         elif card.Type == "Improvement": notify("{} has improved {} with {}.".format(me, hostCard, card))
+         else : notify("{} has purchased {}.".format(hostCard, card))
    else: 
       card.moveToTable(0,0) # For anything else, just say they play it.
       notify("{} plays {} from their hand.".format(me, card))

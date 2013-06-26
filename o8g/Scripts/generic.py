@@ -55,7 +55,8 @@ def download_o8c(group,x=0,y=0):
 # Card Placement functions
 #---------------------------------------------------------------------------
 
-def cwidth(card, divisor = 10): 
+def cwidth(card = None, divisor = 10):
+   #if debugVerbosity >= 1: notify(">>> cwidth(){}".format(extraASDebug())) #Debug
 # This function is used to always return the width of the card plus an offset that is based on the percentage of the width of the card used.
 # The smaller the number given, the less the card is divided into pieces and thus the larger the offset added.
 # For example if a card is 80px wide, a divisor of 4 will means that we will offset the card's size by 80/4 = 20.
@@ -63,13 +64,14 @@ def cwidth(card, divisor = 10):
 # Thus, no matter what the size of the table and cards becomes, the distances used will be relatively the same.
 # The default is to return an offset equal to 1/10 of the card width. A divisor of 0 means no offset.
    if divisor == 0: offset = 0
-   else: offset = card.width() / divisor
-   return (card.width() + offset)
+   else: offset = CardWidth / divisor
+   return (CardWidth + offset)
 
-def cheight(card, divisor = 10):
+def cheight(card = None, divisor = 10):
+   #if debugVerbosity >= 1: notify(">>> cheight(){}".format(extraASDebug())) #Debug
    if divisor == 0: offset = 0
-   else: offset = card.height() / divisor
-   return (card.height() + offset)
+   else: offset = CardHeight / divisor
+   return (CardHeight + offset)
 
 def placeCard(card,type = None, dudecount = 0):
 # This function automatically places a card on the table according to what type of card is being placed
