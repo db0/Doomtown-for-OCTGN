@@ -554,29 +554,35 @@ def goods(card, x = 0, y = 0): # Notifies that this dude is about to receive som
       if AttachingCard not in AttachedCards: 
          AttachedCards[AttachingCard] = 1 # We set the dictionary AttachedCards to store an entry for the card which is about to receive goods, so as not to crash our scripts later on.
 
-def tradeGoods(cards, x = 0, y = 0): # Notified that this dude is giving away some goods. 
-                                     # Allows one to target dude and goods at the same time for quick use.
-   global AttachingCard, AttachedCards
+def tradeGoods(card, x = 0, y = 0): 
    mute()
-   for card in cards: # If the player has selected the dude when trading goods, then we store the card in order to reduce the counter with how many items they have attached.
-      if card.Type == "Dude":
-         holdingDude = card
-   for card in cards: 
-      if card.Type == "Dude": # If dudes are selected, we just mention their name.
-         notify("{} is trading away some of their goods.".format(card))
-      if card.Type == "Goods":
-         if AttachingCard == None: notify("{} is being traded.".format(card)) # If no designated target is selected, then we simply mention the act.
-         else: # The a goods is selected, it's automatically moved, if there is a designated target.
-            xp, yp = AttachingCard.position # the .position is a tuple. We need to extract the values to use them with moveToTable.
-            notify("{} is being traded to {}.".format(card, AttachingCard))
-            card.moveToTable(xp,yp - 22 * AttachedCards[AttachingCard]) 
-            AttachedCards[AttachingCard] += 1 # This counter holds how many attached cards each card has. This is used when attaching extra goods, to avoid moving cards below other cards.
-            card.sendToBack() # We send attached cards behind their "parent".
-            if holdingDude in AttachedCards: 
-               AttachedCards[holdingDude] -= 1 # We decrease the counter holding how many cards are attached to the "parent".
-               if AttachedCards[holdingDude] < 1: AttachedCards[holdingDude] = 1 # When the counter is 1, it means there are no attached cards.
-   AttachingCard = None # Once we've moved everything, we clear the variable.
-
+   if card.Type != "Dude":
+     whisper(":::ERROR::: You can only use this action on a dude")
+     return
+   newHost = findHost()
+   if not newHost:
+      whisper(":::ERROR::: You need to target a dude in the same location to receive the goods")
+      return
+   hostCards = eval(getGlobalVariable('Host Cards'))
+   attachedGoods = [Card(att_id) for att_id in hostCards if hostCards[att_id] == card._id and Card(att_id).Type == 'Goods']
+   chosenGoods = []
+   if len(attachedGoods) == 0: 
+      whisper(":::ERROR::: This dude does not hold any goods they can trade.")
+      return
+   elif len(attachedGoods) == 1: 
+      attachCard(attachedGoods[0],newHost)  #If there's only 1 goods attached, we assume that's the one that is going to be moved.
+      chosenGoods.append(attachedGoods[0])
+   else:
+      notify("{} is trading goods some goods between their dudes...".format(me))
+      choices = multiChoice("Choose goods to trade to {}".format(newHost.name), makeChoiceListfromCardList(attachedGoods))
+      if choices == 'ABORT': 
+         notify("{} has aborted the trading action.".format(me))
+         return
+      for choice in choices: 
+         attachCard(attachedGoods[choice],newHost)
+         chosenGoods.append(attachedGoods[choice])
+   orgAttachments(card)
+   notify("{} has traded {} to {}".format(card,[c.name for c in chosenGoods],newHost))
    
 #---------------------------------------------------------------------------
 # Posse actions

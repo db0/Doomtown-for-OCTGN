@@ -19,6 +19,10 @@ import re, time
 
 debugVerbosity = -1 # At -1, means no debugging messages display
 
+Automations = {'Play'      : True, # If True, game will automatically trigger card effects when playing or double-clicking on cards. Requires specific preparation in the sets.
+               'Phase'     : True, # If True, game will automatically trigger effects happening at the start of the player's turn, from cards they control.
+               'WinForms'  : True} # If True, game will use the custom Windows Forms for displaying multiple-choice menus and information pop-ups
+
 #---------------------------------------------------------------------------
 # Card Memory
 #---------------------------------------------------------------------------
@@ -297,6 +301,36 @@ def orgAttachments(card,facing = 'Same'):
       for attachment in cardAttachements: notify("{} index = {}".format(attachment,attachment.getIndex)) # Debug
    debugNotify("<<< orgAttachments()", 3) #Debug      
 
+def makeChoiceListfromCardList(cardList,includeText = False):
+# A function that returns a list of strings suitable for a choice menu, out of a list of cards
+# Each member of the list includes a card's name, traits, resources, markers and, if applicable, combat icons
+   debugNotify(">>> makeChoiceListfromCardList()")
+   debugNotify("cardList: {}".format([c.name for c in cardList]), 2)
+   targetChoices = []
+   debugNotify("About to prepare choices list.", 2)# Debug
+   for T in cardList:
+      debugNotify("Checking {}".format(T), 4)# Debug
+      markers = 'Counters:'
+      if T.markers[mdict['WantedMarker']] and T.markers[mdict['WantedMarker']] >= 1: markers += "Wanted,".format(T.markers[mdict['Advancement']])
+      if T.markers[mdict['HarrowedMarker']] and T.markers[mdict['HarrowedMarker']] >= 1: markers += "Harrowed,".format(T.markers[mdict['Credits']])
+      if markers != 'Counters:': markers += '\n'
+      else: markers = ''
+      debugNotify("Finished Adding Markers. Adding stats...", 4)# Debug               
+      stats = ''
+      stats += "Cost: {}. ".format(T.Cost)
+      if num(T.Upkeep): stats += "Upkeep: {}.\n".format(T.Upkeep)
+      if num(T.Production): stats += "Production: {}.\n".format(T.Production)
+      if num(T.Bullets): stats += "Bullets: {}.".format(T.Bullets)
+      if num(T.Influence): stats += "Influence: {}.".format(T.Influence)
+      if num(T.Control): stats += "CP: {}.".format(T.Control)
+      if includeText: cText = '\n' + T.Text
+      else: cText = ''
+      debugNotify("Finished Adding Stats. Going to choice...", 4)# Debug               
+      choiceTXT = "{}\n{}\n{}{}{}".format(T.name,T.Type,markers,stats,cText)
+      targetChoices.append(choiceTXT)
+   debugNotify("<<< makeChoiceListfromCardList()", 3)
+   return targetChoices
+   
 #------------------------------------------------------------------------------
 # Debugging
 #------------------------------------------------------------------------------

@@ -4,7 +4,7 @@
       name="Doomtown" 
       id="9afa6473-fd81-41b9-955f-8f67c7d3f423" 
       octgnVersion="3.1.0.0" 
-      version="3.2.0.15" 
+      version="3.2.0.22" 
       markersize="16"
       tags="western deadlands poker maneuvering multiplayer"
       description="A western themed card game, marying poker, town building, and maneuvering.
@@ -76,23 +76,20 @@
 		<groupaction menu="Pull." default="False" execute="Pull" />
 		<groupaction menu="Spawn Token Dude." default="False" execute="spawnTokenDude" />
 		<groupaction menu="Hand Rank Guide" default="False" execute="HandRankGuide" />
-		<cardactions menu="Dude-Specific">
-			<cardactions menu="Posse/Job/Callout reactions...">
-				<cardaction menu="Join Attacking/Job Posse." default="False" shortcut="Ctrl+Shift+J" execute="joinAttack" />
-				<cardaction menu="Accept Call out." default="False" shortcut="Ctrl+Shift+A" execute="acceptCallout" />
-				<cardaction menu="Refuse Call out." default="False" shortcut="Ctrl+Shift+R" execute="refuseCallout" />
-				<cardaction menu="Join Defending Posse." default="False" shortcut="Ctrl+Shift+D" execute="joinDefence" />
-				<groupaction menu="Announce Posse ready." default="False" shortcut="Ctrl+Shift+F" execute="posseReady" />
-				<cardaction menu="Run Away from the Shootout." default="False" execute="runAway" />
-			</cardactions>
-			<cardaction menu="Announce move without booting." default="False" shortcut="Ctrl+M" execute="move" />
-			<cardaction menu="Announce move by booting." default="False" shortcut="Ctrl+B" execute="moveBoot" />
-			<cardaction menu="Call out another dude in this location." default="False" shortcut="Ctrl+Shift+C" execute="callout" />
-			<cardaction menu="Receive new goods." default="False" shortcut="Ctrl+G" execute="goods" />
-			<cardaction menu="Trade Goods." default="False" batchExecute="tradeGoods" />
-			<cardaction menu="(Un)Mark as Wanted." default="False" shortcut="Alt+W" execute="modWantedMarker" />
-			<cardaction menu="Mark as Harrowed." default="False" shortcut="Alt+H" execute="addHarrowedMarker" />
-		</cardactions>
+      <cardactions menu="Posse/Job/Callout reactions...">
+         <cardaction menu="Join Attacking/Job Posse." default="False" shortcut="Ctrl+Shift+J" execute="joinAttack" />
+         <cardaction menu="Accept Call out." default="False" shortcut="Ctrl+Shift+A" execute="acceptCallout" />
+         <cardaction menu="Refuse Call out." default="False" shortcut="Ctrl+Shift+R" execute="refuseCallout" />
+         <cardaction menu="Join Defending Posse." default="False" shortcut="Ctrl+Shift+D" execute="joinDefence" />
+         <groupaction menu="Announce Posse ready." default="False" shortcut="Ctrl+Shift+F" execute="posseReady" />
+         <cardaction menu="Run Away from the Shootout." default="False" execute="runAway" />
+      </cardactions>
+      <cardaction menu="Announce move without booting." default="False" shortcut="Ctrl+M" execute="move" />
+      <cardaction menu="Announce move by booting." default="False" shortcut="Ctrl+B" execute="moveBoot" />
+      <cardaction menu="Call out another dude in this location." default="False" shortcut="Ctrl+Shift+C" execute="callout" />
+      <cardaction menu="Trade Goods to target dude." default="False" execute="tradeGoods" />
+      <cardaction menu="(Un)Mark as Wanted." default="False" shortcut="Alt+W" execute="modWantedMarker" />
+      <cardaction menu="Mark as Harrowed." default="False" shortcut="Alt+H" execute="addHarrowedMarker" />
 		<cardactions menu="Deed-Specific">
 			<cardaction menu="Announce as target location." default="False" shortcut="Ctrl+L" execute="locationTarget" />
 			<cardaction menu="Take Over (Become the owner of the deed)." default="False" shortcut="Alt+D" execute="takeOver" />
