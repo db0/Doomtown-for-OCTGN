@@ -48,15 +48,77 @@ def defPlayerColor(): # Obsolete in OCTGN 3 but leaving it here in case I find a
    RGB = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"]
    for i in range(6): PlayerColor += RGB[rnd(0,15)]
 
+def debugNotify(msg = 'Debug Ping!', level = 1):
+   if not re.search(r'<<<',msg) and not re.search(r'>>>',msg):
+      hashes = '#' 
+      for iter in range(level): hashes += '#' # We add extra hashes at the start of debug messages equal to the level of the debug+1, to make them stand out more
+      msg = hashes + ' ' +  msg
+   if re.search(r'<<<',msg): level = 3 # We always request level debug logs to display function exist notifications.
+   if debugVerbosity >= level: notify(msg)
+   
+def delayed_whisper(text): # Because whispers for some reason execute before notifys
+   rnd(1,10)
+   whisper(text)
+
+def numOrder(num):
+    """Return the ordinal for each place in a zero-indexed list.
+
+    list[0] (the first item) returns '1st', list[1] return '2nd', etc.
+    """
+    def int_to_ordinal(i):
+        """Return the ordinal for an integer."""
+        # if i is a teen (e.g. 14, 113, 2517), append 'th'
+        if 10 <= i % 100 < 20:
+            return str(i) + 'th'
+        # elseif i ends in 1, 2 or 3 append 'st', 'nd' or 'rd'
+        # otherwise append 'th'
+        else:
+            return  str(i) + {1 : 'st', 2 : 'nd', 3 : 'rd'}.get(i % 10, "th")
+    return int_to_ordinal(num + 1)
+
+def sortPriority(cardList):
+   if debugVerbosity >= 1: notify(">>> sortPriority() with cardList: {}".format([c.name for c in cardList])) #Debug
+   priority1 = []
+   priority2 = []
+   priority3 = []
+   sortedList = []
+   for card in cardList:
+      if card.highlight == PriorityColor: # If a card is clearly highlighted for priority, we use its counters first.
+         priority1.append(card)
+      elif card.targetedBy and card.targetedBy == me: # If a card it targeted, we give it secondary priority in losing its counters.
+         priority2.append(card)   
+      else: # If a card is neither of the above, then the order is defined on how they were put on the table.
+         priority3.append(card) 
+   sortedList.extend(priority1)
+   sortedList.extend(priority2)
+   sortedList.extend(priority3)
+   if debugVerbosity >= 3: 
+      notify("<<< sortPriority() returning {}".format([sortTarget.name for sortTarget in sortedList])) #Debug
+   return sortedList
+
+def findMarker(card, markerDesc): # Goes through the markers on the card and looks if one exist with a specific description
+   if debugVerbosity >= 1: notify(">>> findMarker(){}".format(extraASDebug())) #Debug
+   foundKey = None
+   if markerDesc in mdict: markerDesc = mdict[markerDesc][0] # If the marker description is the code of a known marker, then we need to grab the actual name of that.
+   for key in card.markers:
+      if debugVerbosity >= 3: notify("### Key: {}\nmarkerDesc: {}".format(key[0],markerDesc)) # Debug
+      if re.search(r'{}'.format(markerDesc),key[0]) or markerDesc == key[0]:
+         foundKey = key
+         if debugVerbosity >= 2: notify("### Found {} on {}".format(key[0],card))
+         break
+   if debugVerbosity >= 3: notify("<<< findMarker() by returning: {}".format(foundKey))
+   return foundKey
+      
 def download_o8c(group,x=0,y=0):
    openUrl("http://dbzer0.com/pub/Doomtown/sets/Doomtown-Sets-Bundle.o8c")
-     
+
+   
 #---------------------------------------------------------------------------
 # Card Placement functions
 #---------------------------------------------------------------------------
 
 def cwidth(card = None, divisor = 10):
-   #if debugVerbosity >= 1: notify(">>> cwidth(){}".format(extraASDebug())) #Debug
+#if debugVerbosity >= 1: notify(">>> cwidth(){}".format(extraASDebug())) #Debug
 # This function is used to always return the width of the card plus an offset that is based on the percentage of the width of the card used.
 # The smaller the number given, the less the card is divided into pieces and thus the larger the offset added.
 # For example if a card is 80px wide, a divisor of 4 will means that we will offset the card's size by 80/4 = 20.

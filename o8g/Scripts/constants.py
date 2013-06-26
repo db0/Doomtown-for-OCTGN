@@ -38,10 +38,11 @@ WinnerMarker = ("Winner", "eeb5f447-f9fc-46b4-846a-a9a40e575cbc")
 FlightOfAngelsMarker = ("Flight of Angels", "8ba2d501-e8b7-4df0-a168-be2d16b26daf")
 
 ### Misc ###
+CardWidth = 90
+CardHeight = 126
 
 loud = 'loud' # So that I don't have to use the quotes all the time in my function calls
 silent = 'silent' # Same as above
-lowball = 'lowball' # Same as above
 shootout = 'shootout' # Same as above
 Xaxis = 'x'  # Same as above
 Yaxis = 'y'	 # Same as above

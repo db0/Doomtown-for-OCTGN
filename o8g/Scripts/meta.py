@@ -248,6 +248,7 @@ def clearAttachLinks(card,type = 'Discard'):
       for attachmentID in hostCardSnapshot:
          if hostCardSnapshot[attachmentID] == card._id:
             if Card(attachmentID) in table: 
+               debugNotify("Attachment exists. Trying to remove.", 2)      
                if type == 'Discard': discard(Card(attachmentID))
                else: ace(Card(attachmentID))
             del hostCards[attachmentID]
@@ -332,20 +333,3 @@ def TrialError(group, x=0, y=0): # Debugging
 def extraASDebug(Autoscript = None):
    if Autoscript and debugVerbosity >= 3: return ". Autoscript:{}".format(Autoscript)
    else: return ''
-
-def fixMissions(group, x = 0, y = 0): 
-   setGlobalVariable('currentMissions', '[]')
-   for card in table:
-      if fetchProperty(card, 'Type') == 'Mission':
-         prepMission(card, True)
-   notify("{} has re-scanned the Mission Queue".format(me))
-         
-def debugMissions(group, x = 0, y = 0): 
-   missionsVar = getGlobalVariable('currentMissions')
-   debugNotify("Sh.Var: {}".format(missionsVar),1)
-   if missionsVar != "CHECKED OUT":
-      missionsList = eval(missionsVar)
-      debugNotify("len = {}".format(len(missionsList)),1)
-      debugNotify("missions: {}".format([Card(mission) for mission in missionsList]), 1)         
-   else: debugNotify("Mission Queue is checked out",1)
-   

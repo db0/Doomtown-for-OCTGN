@@ -4,7 +4,7 @@
       name="Doomtown" 
       id="9afa6473-fd81-41b9-955f-8f67c7d3f423" 
       octgnVersion="3.1.0.0" 
-      version="3.2.0.1" 
+      version="3.2.0.15" 
       markersize="16"
       tags="western deadlands poker maneuvering multiplayer"
       description="A western themed card game, marying poker, town building, and maneuvering.
@@ -17,15 +17,15 @@
       authors="Db0"
       iconurl="https://raw.github.com/db0/Doomtown-for-OCTGN/master/doomtown_logo.jpg">
 	<scripts>
-      <script src="Scripts/actions.py" />
       <script src="Scripts/constants.py" />
+      <script src="Scripts/actions.py" />
       <script src="Scripts/generic.py" />
       <script src="Scripts/meta.py" />
       <script src="Scripts/poker.py" />
 	</scripts> 
    <fonts>
        <font src="Fonts/Pixel-Western.ttf" size="8" target="context"/>
-       <font src="Fonts/Pixel-Western.ttf" size="8" target="chat"/> 
+<!--       <font src="Fonts/Pixel-Western.ttf" size="8" target="chat"/>  -->
    </fonts>   
    <proxygen definitionsrc="Proxy/proxydef.xml">
    </proxygen>   
@@ -60,7 +60,9 @@
 		<groupaction menu="Pay Upkeep / Receive Production." default="False" shortcut="Ctrl+U" execute="upkeep" />
 		<groupaction menu="Move to Next phase." default="False" shortcut="enter" execute="nextPhase" />
 		<groupactions menu="Game...">
+			<groupaction menu="Setup starting cards &amp; hand" default="False" shortcut="Ctrl+Shift+S" execute="setup" />
 			<groupaction menu="Download Sets Card Images." shortcut="Ctrl+G" default="False" execute="download_o8c" />
+         <groupaction menu="Debug" default="False" shortcut="Ctrl+Shift+D" execute="TrialError" /> 
 		</groupactions>
 		<groupactions menu="Phases...">
 			<groupaction menu="Jump to Gamblin' Phase." default="False" shortcut="F1" execute="goToGamblin" />
@@ -116,8 +118,8 @@
 		<groupaction menu="Re-Calculate your total influence &amp; control" default="False" shortcut="Ctrl+C" execute="reCalculate" />
 		<groupaction menu="Nightfall Refresh (Unboot cards / Refill Hand)" default="False" shortcut="Ctrl+N" execute="NightfallUnboot" />
 		<cardaction menu="(Un)Mark card as unbootable" default="False" execute="doesNotUnboot" />
-		<cardaction menu="Ace card(s)" default="False" shortcut="Del" batchExecute="ace" />
-		<cardaction menu="Discard card(s)" default="False" shortcut="Ctrl+Del" batchExecute="discard" />
+		<cardaction menu="Ace card(s)" default="False" shortcut="Del" execute="ace" />
+		<cardaction menu="Discard card(s)" default="False" shortcut="Ctrl+Del" execute="discard" />
 	</table>
 	<player summary="GR:{#GhostRock} | Inf:{#Influence} | CP:{#Control} | VP:{#VictoryPoints}">
       <globalvariable name="Hand Rank" value="N/A" /> 
@@ -127,7 +129,6 @@
 			<cardaction menu="Discard card" default="False" execute="handDiscard" />
 			<groupaction menu="Set Hand Size" default="False" shortcut="Ctrl+H" execute="setHandSize" />
 			<groupaction menu="Random Discard" default="False" shortcut="Ctrl+Alt+D" execute="randomDiscard" />
-			<groupaction menu="Setup starting cards &amp; hand" default="False" shortcut="Ctrl+Shift+S" execute="setup" />
 		</hand>
 		<group name="Draw Hand" visibility="me" ordered="False" width="90" height="126" icon="Groups/drawhand.png" collapsed="False">
 			<groupaction menu="Reveal Lowball Hand" default="True" execute="revealLowballHand" />

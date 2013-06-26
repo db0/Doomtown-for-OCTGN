@@ -126,38 +126,40 @@ def boot(card, x = 0, y = 0): # Boot or Unboot a card. I.e. turn it 90 degrees s
    else: # if the card is now at 0 degrees (i.e. straight up), then announce the card was unbooted
       notify('{} unboots {}'.format(me, card))
 
-def ace(cards, x = 0, y = 0): # Ace a card. I.e. kill it and send it to the boot hill (i.e.graveyard)
+def ace(card, x = 0, y = 0): # Ace a card. I.e. kill it and send it to the boot hill (i.e.graveyard)
+   debugNotify(">>> ace()") #Debug
    mute()
-   for card in cards:	# This function can be used at more than one card as the same time. Useful for sending dudes and attached cards to the boot hill quickly.
-      cardowner = card.owner # We need to save the card onwer for later
-      if card.highlight != DrawHandColor: # We don't want to do anything else except move cards when they're not really in play.
-         if (card.markers[HarrowedMarker] == 1 or re.search(r'\bHarrowed\b\.', card.Text)) and card.Type == 'Dude': 
-            if not confirm("{} was harrowed! Did you remember to do a harrowed pull?".format(card.name)): continue
-            # if the dude is harrowed, remind the player about the harrowed pull. If they haven't done it, leave the dude in play.
-            # In the future, I'll modify the option to perform the harrowed pull automatically.
-         if card.markers[WantedMarker] == 1: notify("{} was wanted! Don't forget your bounty.".format(card)) # Remind the player to take a bounty for wanted dudes.
-         cardRMsync(card) # This function removes any Influence and Control Points that card had from your total. 
-                          # We need to do it before the card is moved to the boot hill because by then, the markers are removed.
-         cardMemoryStore(card) # This function stores added effects likes being wanted or harrowed in card memory.
-      # Remind the player to take a bounty for wanted dudes. In the future this will be automated.
-      notify("{} has aced {}.".format(me, card))
-      clearAttachLinks(card,'Ace')
-      card.moveTo(cardowner.piles['Boot Hill']) # Cards aced need to be sent to their owner's boot hill
+   cardowner = card.owner # We need to save the card onwer for later
+   if card.highlight != DrawHandColor: # We don't want to do anything else except move cards when they're not really in play.
+      if (card.markers[HarrowedMarker] == 1 or re.search(r'\bHarrowed\b\.', card.Text)) and card.Type == 'Dude': 
+         if not confirm("{} was harrowed! Did you remember to do a harrowed pull?".format(card.name)): return
+         # if the dude is harrowed, remind the player about the harrowed pull. If they haven't done it, leave the dude in play.
+         # In the future, I'll modify the option to perform the harrowed pull automatically.
+      if card.markers[WantedMarker] == 1: notify("{} was wanted! Don't forget your bounty.".format(card)) # Remind the player to take a bounty for wanted dudes.
+      cardRMsync(card) # This function removes any Influence and Control Points that card had from your total. 
+                       # We need to do it before the card is moved to the boot hill because by then, the markers are removed.
+      cardMemoryStore(card) # This function stores added effects likes being wanted or harrowed in card memory.
+   # Remind the player to take a bounty for wanted dudes. In the future this will be automated.
+   notify("{} has aced {}.".format(me, card))
+   clearAttachLinks(card,'Ace')
+   card.moveTo(cardowner.piles['Boot Hill']) # Cards aced need to be sent to their owner's boot hill
+   debugNotify("<<< ace()") #Debug
 
-def discard(cards, x = 0, y = 0): # Discard a card.
+def discard(card, x = 0, y = 0): # Discard a card.
+   debugNotify(">>> discard()") #Debug
    mute()
-   for card in cards:	# Can be done at more than one card at the same time, since attached cards follow their parent always.
-      cardowner = card.owner
-      if card.highlight != DrawHandColor and card.highlight != EventColor: # If the card being discarded was not part of a draw hand
-         cardRMsync(card) # Then remove it's influence / CP from the player's pool
-         cardMemoryStore(card) # And store it's memory.
-         notify("{} has discarded {}.".format(me, card))
-      clearAttachLinks(card,'Discard')
-      if card.highlight == EventColor and re.search('Ace this card', card.Text): # If the card being discarded was an event in a lowball hand
-                                                                                 # And that event had instructions to be aced
-         card.moveTo(cardowner.piles['Boot Hill'])                               # Then assume player error and ace it         
-         notify("{} was the active event and has been aced as per card instructions.".format(card)) # And inform the players.
-      else: card.moveTo(cardowner.piles['Discard Pile']) # Cards aced need to be sent to their owner's discard pile
+   cardowner = card.owner
+   if card.highlight != DrawHandColor and card.highlight != EventColor: # If the card being discarded was not part of a draw hand
+      cardRMsync(card) # Then remove it's influence / CP from the player's pool
+      cardMemoryStore(card) # And store it's memory.
+      notify("{} has discarded {}.".format(me, card))
+   clearAttachLinks(card,'Discard')
+   if card.highlight == EventColor and re.search('Ace this card', card.Text): # If the card being discarded was an event in a lowball hand
+                                                                              # And that event had instructions to be aced
+      card.moveTo(cardowner.piles['Boot Hill'])                               # Then assume player error and ace it         
+      notify("{} was the active event and has been aced as per card instructions.".format(card)) # And inform the players.
+   else: card.moveTo(cardowner.piles['Discard Pile']) # Cards aced need to be sent to their owner's discard pile
+   debugNotify("<<< discard()") #Debug
 
 def upkeep(group, x = 0, y = 0): # Automatically receive production and pay upkeep costs
 # This function goes through each of your cards and checks if it provides production or requires upkeep, then automatically removes it from your bank.
@@ -633,8 +635,6 @@ def playcard(card):
 # It will automatically pay the cost of cards if you can, or inform you if you cannot.
 # If the card being played has influence or Control points, those will automatically be added to the player's total.
 # Dudes and deeds will be placed at default locations to facilitate quicker play.
-   global AttachingCard, AttachedCards
-   # Import some variables to know where the player is seated, how much they've built and any cards targets that are receiving attachments.
    mute()
    chooseSide()
    chkcards = [] # Create an empty list to fill later with cards to check
@@ -686,27 +686,30 @@ def playcard(card):
          else: # if they're not on the table, they're in someone's boothill
             notify ("{} wanted to bring {} in play but it currently RIP in {}'s Boot Hill".format(me,card,chkcard.owner))
          return
-   if payCost(card.Cost, loud) == 'ABORT' : return # Check if the player can pay the cost. If not, abort.
    if card.Type == "Dude" : 
+      if payCost(card.Cost, loud) == 'ABORT' : return # Check if the player can pay the cost. If not, abort.
       placeCard(card,'HireDude')
       notify("{} has hired {}.".format(me, card)) # Inform of the new hire      
    elif card.Type == "Deed" :   
+      if payCost(card.Cost, loud) == 'ABORT' : return # Check if the player can pay the cost. If not, abort.
       placeCard(card,'BuyDeed')
       notify("{} has acquired the deed to {}.".format(me, card))
    elif card.Type == "Goods" or card.Type == "Spell" or card.Type == "Improvement": # If we're bringing in any goods, just remind the player to pull for gadgets.
       if card.Type == "Improvement": hostCard = findHost('Improvement')
-      else: findHost('Goods')
+      else: hostCard = findHost('Goods')
       if not hostCard:
          if card.Type == "Improvement": whisper("You need to target the deed which is going to be improved")
          else: whisper("You need to target the dude which is going to purchase the goods")
          return
       else:
+         if payCost(card.Cost, loud) == 'ABORT' : return # Check if the player can pay the cost. If not, abort.
          attachCard(card,hostCard)
-         if re.search('Gadget', card.Text): notify("{} is trying to create a {}. Don't forget to pull!".format(AttachingCard, card))
+         if re.search('Gadget', card.Text): notify("{} is trying to create a {}. Don't forget to pull!".format(hostCard, card))
          elif card.Type == "Spell": notify("{} has learned {}.".format(hostCard, card))
          elif card.Type == "Improvement": notify("{} has improved {} with {}.".format(me, hostCard, card))
          else : notify("{} has purchased {}.".format(hostCard, card))
    else: 
+      if payCost(card.Cost, loud) == 'ABORT' : return # Check if the player can pay the cost. If not, abort.
       card.moveToTable(0,0) # For anything else, just say they play it.
       notify("{} plays {} from their hand.".format(me, card))
    cardMemoryRemember(card) # Remember the card's memory.
@@ -737,11 +740,9 @@ def setup(group):
       me.Influence = 0
       me.Control = 0
       if len(table) == 0: # Only create a Town Square token if nobody has setup their side yet.
-         TSL = table.create("ac0b08ed-8f78-4cff-a63b-fa1010878af9", 0, 0, 1, True) # Create a Left Town Square card in the middle of the table.
-         TSL.moveToTable(2 - cwidth(TSL,0) ,0) # Move the left TS part to the left
-         TSR = table.create("72f6c0a9-e4f6-4b17-9777-185f88187ad7", 0, 0, 1, True) # Create a Right Town Square card in the middle of the table.
-         TSR.moveToTable(-1,0)
-      for card in group: # For every card in the player's hand... (which should be an outfit and a bunch of dudes usually)
+         TSL = table.create("ac0b08ed-8f78-4cff-a63b-fa1010878af9",2 - cwidth(divisor = 0),0, 1, True) # Create a Left Town Square card in the middle of the table.
+         TSR = table.create("72f6c0a9-e4f6-4b17-9777-185f88187ad7",-1,0, 1, True) # Create a Right Town Square card in the middle of the table.
+      for card in me.hand: # For every card in the player's hand... (which should be an outfit and a bunch of dudes usually)
          if card.Type == "Outfit" :  # If it's the outfit...
             placeCard(card,'SetupHome')
             me.GhostRock += num(card.properties['Ghost Rock']) # Then we add its starting Ghost Rock to the bank
@@ -850,7 +851,7 @@ def discardDrawHand(group = me.piles['Draw Hand']): # Discards the player's whol
    notify("{} moved their {} ({} cards) to their discard pile.".format(me, group.name, len(group)))    
    for card in group: card.moveTo(Discard)
    
-def revealHand(group = me.piles['Draw Hand'], type = lowball, event = None): 
+def revealHand(group = me.piles['Draw Hand'], type = 'lowball', event = None): 
 # This function moves 5 cards from the player's Draw Hand pile into the table (normally there should be only 5 there when this function is invoked)
 # It also highlights those cards, so that they are not confused with the cards in play
 # The cards are moved to the table relevant to the player's side and they are placed next to each other so that their suit&ranks are read easily
@@ -888,7 +889,7 @@ def revealHand(group = me.piles['Draw Hand'], type = lowball, event = None):
          else: card.moveToTable(i * (cwidth(card) / 4) - cwidth(card), 0)
          if foundjoker == 'yes': random = rnd(100, 10000)
       card.highlight = DrawHandColor # Highlight them
-      if type == lowball and card == event: 
+      if type == 'lowball' and card == event: 
          card.highlight = EventColor # If this is the selected event, highlight it differently
          notify("{} reveals an event this turn: {}".format(me,card)) 
       rank[i] = card.Rank # save their rank into the table
@@ -927,10 +928,10 @@ def revealLowballHand(group = me.piles['Draw Hand'], type = 'normal'):
          evCount += 1 # Count how many events we have in the hand
    if evCount > 1: # If we have more than one, select one at random
       eventPointer = rnd(0,evCount-1)
-      revealHand(group, lowball,foundEvents[eventPointer]) # Then pass its name to the next function so that it can be highlighted and announced.
+      revealHand(group, 'lowball',foundEvents[eventPointer]) # Then pass its name to the next function so that it can be highlighted and announced.
    elif evCount == 1: # If there's only one event, then just pass it's name on the revealHand function so that it can be highlighted and announced.
-      revealHand(group, lowball,foundEvents[0])      
-   else: revealHand(group, lowball)
+      revealHand(group, 'lowball',foundEvents[0])      
+   else: revealHand(group, 'lowball')
    winner = lowballWinner()
    if type == 'quick': return winner  # If this function has been called from playLowball(), just return the winner.
    else: 
