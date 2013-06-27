@@ -30,10 +30,10 @@ Automations = {'Play'      : True, # If True, game will automatically trigger ca
                
 def resetAll(): # Clears all the global variables in order to start a new game.
    # Import all our global variables and reset them.
-   global ShootoutActive, playerside, strikeCount, posSideCount, negSideCount, handsize, playerOutfit 
+   global playerside, strikeCount, posSideCount, negSideCount, handsize, playerOutfit 
    global wantedDudes, harrowedDudes, jailbrokenDeeds, ValueMemory, debugVerbosity
    debugNotify(">>> resetAll()") #Debug   
-   ShootoutActive = 0
+   setGlobalVariable('Shootout','False')
    playerside = None
    strikeCount = 0
    posSideCount = 0
@@ -52,7 +52,9 @@ def resetAll(): # Clears all the global variables in order to start a new game.
    ValueMemory.clear()
    hostCards = eval(getGlobalVariable('Host Cards'))
    hostCards.clear()
-   setGlobalVariable('Host Cards',str(hostCards))   
+   setGlobalVariable('Host Cards',str(hostCards))
+   setGlobalVariable('Called Out','None')
+   setGlobalVariable('Shootout','False')
    if len(players) > 1: debugVerbosity = -1 # Reset means normal game.
    elif debugVerbosity != -1 and confirm("Reset Debug Verbosity?"): debugVerbosity = -1    
    debugNotify("<<< resetAll()") #Debug   

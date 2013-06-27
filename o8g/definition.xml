@@ -4,7 +4,7 @@
       name="Doomtown" 
       id="9afa6473-fd81-41b9-955f-8f67c7d3f423" 
       octgnVersion="3.1.0.0" 
-      version="3.2.1.8" 
+      version="3.2.1.11" 
       markersize="16"
       tags="western deadlands poker maneuvering multiplayer"
       description="A western themed card game, marying poker mechanics, town building, and chess-like maneuvering.
@@ -36,6 +36,8 @@
   </documents>    
    <globalvariables> 
      <globalvariable name="Host Cards" value="{}" />      
+     <globalvariable name="Shootout" value="False" />      
+     <globalvariable name="Called Out" value="None" />      
    </globalvariables>
 	<card back="Card/back.jpg" front="Card/front.jpg" width="90" height="126" cornerRadius="3">
 		<property name="Rank" type="String" hidden="False" ignoreText="False" textKind="Free"  />
@@ -55,6 +57,7 @@
 		<property name="Text" type="String" hidden="False" ignoreText="False" textKind="Free"  />
 	</card>
 	<table name="Table" visibility="undefined" ordered="False" width="1250" height="750" background="Background/background.jpg" backgroundStyle="uniformToFill">
+		<!-- <cardaction menu="Smart Action (Move/Boot/Join Posse...)" default="True" shortcut="Ctrl+S" execute="defaultAction" /> -->
 		<cardaction menu="Boot/Unboot" default="True" execute="boot" />
 		<cardaction menu="Inspect Card" default="False" execute="inspectCard" />
 		<groupaction menu="Pay Upkeep / Receive Production." default="False" shortcut="Ctrl+U" execute="upkeep" />
@@ -78,14 +81,16 @@
       <cardactions menu="Posse/Job/Callout reactions...">
          <cardaction menu="Join Attacking/Job Posse." default="False" shortcut="Ctrl+Shift+J" execute="joinAttack" />
          <cardaction menu="Accept Call out." default="False" shortcut="Ctrl+Shift+A" execute="acceptCallout" />
-         <cardaction menu="Refuse Call out." default="False" shortcut="Ctrl+Shift+R" execute="refuseCallout" />
+         <cardaction menu="Refuse Call out." default="False" shortcut="Esc" execute="refuseCallout" />
          <cardaction menu="Join Defending Posse." default="False" shortcut="Ctrl+Shift+D" execute="joinDefence" />
          <groupaction menu="Announce Posse ready." default="False" shortcut="Ctrl+Shift+F" execute="posseReady" />
          <cardaction menu="Run Away from the Shootout." default="False" execute="runAway" />
       </cardactions>
       <cardaction menu="Announce move without booting." default="False" shortcut="Ctrl+M" execute="move" />
       <cardaction menu="Announce move by booting." default="False" shortcut="Ctrl+B" execute="moveBoot" />
-      <cardaction menu="Call out another dude in this location." default="False" shortcut="Ctrl+Shift+C" execute="callout" />
+      <cardaction menu="Call out target dude." default="False" shortcut="Ctrl+Shift+C" execute="callout" />
+      <groupaction menu="Accept Call out." default="False" shortcut="F5" execute="acceptCallout" />
+      <groupaction menu="Refuse Call out." default="False" shortcut="Esc" execute="refuseCallout" />
       <cardaction menu="Trade Goods to target dude." default="False" execute="tradeGoods" />
       <cardaction menu="(Un)Mark as Wanted." default="False" shortcut="Alt+W" execute="modWantedMarker" />
       <cardaction menu="Mark as Harrowed." default="False" shortcut="Alt+H" execute="addHarrowedMarker" />

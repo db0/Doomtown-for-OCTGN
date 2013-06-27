@@ -18,7 +18,6 @@
 # Global variables
 #---------------------------------------------------------------------------
 
-ShootoutActive = 0 # A variable to keep track if we are in a shootout phase
 playerside = None # Variable to keep track on which side each player is
 playeraxis = None # Variable to keep track on which axis the player is
 strikeCount = 0 # Used to automatically place strikes
@@ -40,6 +39,7 @@ ControlRAM = {} # Which cards have extra cp
 #---------------------------------------------------------------------------
 # Table group actions
 #---------------------------------------------------------------------------
+
 
 def Pass(group, x = 0, y = 0): # Player says pass. A very common action.
    notify('{} Passes.'.format(me))
@@ -78,18 +78,20 @@ def goToNightfall(group, x = 0, y = 0): # Go directly to the Nightfall phase
    showCurrentPhase()   
 
 def goToShootout(group, x = 0, y = 0): # Start or End a Shootout Phase
-   global ShootoutActive
-   if ShootoutActive == 0: # The shootout phase just shows a nice notification when it starts and does nothing else.
+   if getGlobalVariable('Shootout') == 'False': # The shootout phase just shows a nice notification when it starts and does nothing else.
       notify("A shootout has broken out.".format(me))
-      ShootoutActive = 1
+      setGlobalVariable('Shootout','True')
    else: # When the shootout ends however, any card.highlights for attacker and defender are quickly cleared.
       notify("The shootout has ended.".format(me))
-      ShootoutActive = 0
-      cards = (card for card in table
-                     if card.highlight == DefendColor
-                     or card.highlight == AttackColor)
-      for card in cards: card.highlight = None
-      clearHandRanks()  # Clear the Hand Ranks, in case one is leftover.
+      clearShootout()
+
+def clearShootout():
+   setGlobalVariable('Shootout','False')
+   cards = (card for card in table
+                  if card.highlight == DefendColor
+                  or card.highlight == AttackColor)
+   for card in cards: card.highlight = None
+   clearHandRanks()  # Clear the Hand Ranks, in case one is leftover.
       
 def boot(card, x = 0, y = 0): # Boot or Unboot a card. I.e. turn it 90 degrees sideways or set it straight.
    mute()
@@ -499,9 +501,21 @@ def addHarrowedMarker(card, x = 0, y = 0): # Same as the modWantedMarker but you
 
 def callout(card, x = 0, y = 0): # Notifies that this dude is calling someone out.
    mute()
+   if getGlobalVariable('Called Out') != 'None' and not confirm(":::WARNING::: There seems to be another call out in progress. Override it?"): return
    if card.Type == "Dude":
-      notify("{} is calling someone out.".format(card))
-      if card.orientation == Rot90: notify("(Remember that you need a card effect to call out someone while booted)".format(card))
+      targetDudes = [c for c in table if c.Type == 'Dude' and c.targetedBy and c.targetedBy == me]
+      if not len(targetDudes):
+         whisper(":::ERROR::: You need to target the dude you're calling out.")
+         return
+      targetD = targetDudes[0]
+      if targetD == card:
+         whisper(":::ERROR::: You cannot call out yourself silly!")
+         return         
+      notify("{} is calling {} out.".format(card,targetD))
+      setGlobalVariable('Called Out',str(targetD._id)) # We store the called out dude as a global variable so that the owner can easier select their answer.
+      if card.orientation == Rot90: notify(":::WARNING::: Remember that you need a card effect to call out someone while booted)".format(card))
+      card.highlight = AttackColor
+   else: whisper(":::ERROR::: You can only initiate a call-out with a dude")
 
 def move(card, x = 0, y = 0): # Notifies that this dude is moving without booting
    mute()
@@ -575,23 +589,31 @@ def joinDefence(card, x = 0, y = 0): # Same as above, but about defensive posse.
       notify("{} is joining the defending posse.".format(card))
       card.highlight = DefendColor   
 
-def acceptCallout(card, x = 0, y = 0): # Same as the defending posse but with diferent notification.
-   if card.Type == "Dude" : 
-      mute ()
-      notify("{} has accepted the call out.".format(card))
-      card.highlight = DefendColor   
+def acceptCallout(ignored, x = 0, y = 0): # Same as the defending posse but with diferent notification.
+   mute ()
+   if getGlobalVariable('Called Out') == 'None': whisper(":::ERROR::: There seems to be no callout in progress")
+   else:
+      dude = Card(num(getGlobalVariable('Called Out')))
+      notify("{} has accepted the call out. A shootout is breaking out!".format(dude))
+      dude.highlight = DefendColor
+      setGlobalVariable('Shootout','True') 
 
-def refuseCallout(card, x = 0, y = 0): # Boots the dude and moves him to your home or informs you if they cannot refuse.
-   if card.Type == "Dude" : 
-      chooseSide()
-      mute ()
-      if card.orientation == Rot90: # If the dude is booted, they cannot refuse without a card effect
-         notify ("Booted Dudes cannot refuse a Call Out!")
+def refuseCallout(ignored, x = 0, y = 0): # Boots the dude and moves him to your home or informs you if they cannot refuse.
+   chooseSide()
+   mute ()
+   if getGlobalVariable('Called Out') == 'None': whisper(":::ERROR::: There seems to be no callout in progress")
+   else:
+      chickenDude = Card(num(getGlobalVariable('Called Out')))
+      if chickenDude.orientation == Rot90 and not confirm(":::WARNING::: Normally booted dudes cannot refuse callouts. Bypass restriction and refuse anyway?"): 
+         return # If the dude is booted, they cannot refuse without a card effect
       else:
-         notify("{} has turned yella and run home to hide.".format(card))
-         card.orientation = Rot90 # If they refure boot them...
-         if playeraxis == Xaxis: card.moveToTable(homeDistance(card) + (playerside * cwidth(card,-4)), 0) # ...and move them where we expect the player's home to be.
-         elif playeraxis == Yaxis: card.moveToTable(0,homeDistance(card) + (playerside * cheight(card,-4)))
+         notify("{} has turned yella and run home to hide.".format(chickenDude))
+         chickenDude.orientation = Rot90 # If they refure boot them...
+         if playeraxis == Xaxis: chickenDude.moveToTable(homeDistance(chickenDude) + (playerside * cwidth(chickenDude,-4)), 0) # ...and move them where we expect the player's home to be.
+         elif playeraxis == Yaxis: chickenDude.moveToTable(0,homeDistance(chickenDude) + (playerside * cheight(chickenDude,-4)))
+         orgAttachments(chickenDude)
+         setGlobalVariable('Called Out','None') # Finally we clear the Called Out variable
+         clearShootout()
 
 def runAway(card, x = 0, y = 0): # Same as above pretty much but also clears the shootout highlights.
    if card.Type == "Dude" : 
@@ -677,7 +699,7 @@ def playcard(card):
    elif card.Type == "Goods" or card.Type == "Spell" or card.Type == "Improvement": # If we're bringing in any goods, just remind the player to pull for gadgets.
       if card.Type == "Improvement": hostCard = findHost('Improvement')
       else: hostCard = findHost('Goods')
-      if hostCard.orientation != Rot0 and not confirm("You can only trade goods to unbooted dudes. Bypass restriction?"): return      
+      if hostCard.orientation != Rot0 and not confirm("You can only purchase goods with unbooted dudes. Bypass restriction?"): return      
       if not hostCard:
          if card.Type == "Improvement": whisper("You need to target the deed which is going to be improved")
          else: whisper("You need to target the dude which is going to purchase the goods")
@@ -708,7 +730,7 @@ def playcard(card):
       modInfluence(num(card.Influence) + card.markers[InfluencePlusMarker] - card.markers[InfluenceMinusMarker], loud) 
    # Increase influence, if the new card provides any or any influence markers are remembered
 
-def setup(group):
+def setup(group,x=0,y=0):
 # This function is usually the first one the player does. It will setup their home and cards on the left or right of the playfield 
 # It will also setup the starting Ghost Rock for the player according to the cards they bring in play, as well as their influence and CP.
    global playerOutfit # Import some necessary variables we're using around the game.
