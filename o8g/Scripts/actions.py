@@ -40,6 +40,28 @@ ControlRAM = {} # Which cards have extra cp
 # Table group actions
 #---------------------------------------------------------------------------
 
+def defaultAction(card, x = 0, y = 0):
+   debugNotify(">>> defaultAction()") #Debug
+   mute()
+   side = None
+   debugNotify("Checking for activation",2) #Debug
+   if getGlobalVariable('Shootout') == 'True':
+      if card.Type == 'Dude' and not card.highlight:
+         for c in table:
+            if c.highlight == AttackColor:
+               if c.controller == me: side = 'Attack'
+               elif len(players) == 2: side = 'Defence' # If we found out opponent's dude as attacker and there's only 2 player in the game, we assume we're the defender.
+            elif c.highlight == DefendColor:
+               if c.controller == me: side = 'Defence'
+               elif len(players) == 2: side = 'Attack'               
+         if not side: # If we still couldn't determine which side the player is on, we just ask directly.
+            if confirm("Sorry, but I could not automatically determine if you're the attacking or defending player.\n\nIs this dude joining the attacking posse?"): side = 'Attack' 
+            else: side = 'Defence'
+         if side == 'Defence': joinDefence(card)
+         else: joinAttack(card)
+      else: boot(card)
+   else: boot(card)
+   debugNotify("<<< defaultAction()") #Debug
 
 def Pass(group, x = 0, y = 0): # Player says pass. A very common action.
    notify('{} Passes.'.format(me))
@@ -190,6 +212,8 @@ def HNActivate(card, x = 0, y = 0): # A function to add or remove High Noon (HN)
       card.markers[HNActivatedMarker] += 1
    else: # If we have have such a marker, assume the player did it by mistake and inform everyone.
       notify("{} Wanted to use {}'s High Noon ability but it has already been used this turn. Did they use a card effect?".format(me, card))
+      return False
+   return True
 
 def SHActivate(card, x = 0, y = 0): # Same process as the HN markers above
    mute()
@@ -198,6 +222,8 @@ def SHActivate(card, x = 0, y = 0): # Same process as the HN markers above
       card.markers[SHActivatedMarker] += 1
    else:
       notify("{} Wanted to use {}'s Shootout ability but it has already been used this turn.".format(me, card))		
+      return False
+   return True
 
 def nightfall(card, x = 0, y = 0): # This function "refreshes" each card for nightfall.
                                    # This practically means that we remove any High Noon and Shootout ability markers and unboot the card
@@ -623,6 +649,7 @@ def runAway(card, x = 0, y = 0): # Same as above pretty much but also clears the
       card.orientation = Rot90
       if playeraxis == Xaxis: card.moveToTable(homeDistance(card) + (playerside * cwidth(card,-4)), 0)
       elif playeraxis == Yaxis: card.moveToTable(0,homeDistance(card) + (playerside * cheight(card,-4)))
+      orgAttachments(card)
       card.highlight = None
       
 def posseReady (group, x = 0, y = 0):
