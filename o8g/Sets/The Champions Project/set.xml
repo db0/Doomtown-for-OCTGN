@@ -103,5 +103,22 @@
 			<property name="Ghost Rock" value="" />
 			<property name="Text" value="The Wanted Poster attachés to Deputy Carter Richardson for two less Ghost Rock. When the Wanted Poster comes into play, name a Wanted dude. That dude cannot become unwanted by any means. Noon Job: Boot this dude to start a job to ace the Wanted dude targeted by the Wanted Poster. Your Law Dogs dudes and Bounty Hunter dudes do not become Wanted, even if this job takes place at a private location. If the dude is aced as a result of this job, gain Ghost Rock equal to the dude's influence" />
 		</card>
+      <card id="766af97b-6517-48a3-b189-505853e7613c" name="Law Dogs: Mob Justice">
+         <property name="Rank" value="" />
+         <property name="Suit" value="" />
+         <property name="Type" value="Outfit" />
+         <property name="Cost" value="" />
+         <property name="Upkeep" value="" />
+         <property name="Production" value="3" />
+         <property name="Bullets" value="" />
+         <property name="Bullet Bonus" value="" />
+         <property name="Draw Type" value="" />
+         <property name="Influence" value="" />
+         <property name="Control" value="" />
+         <property name="Outfit" value="Law Dogs" />
+         <property name="Rarity" value="FR" />
+         <property name="Ghost Rock" value="19" />
+         <property name="Text" value="All your Dudes with 'Deputy' in the title have their Ghost Rock cost and upkeep reduced by 1 (minimum 0). Reaction: Boot a Law Dog Dude you control when a wanted Dude moves to an in-town location. Target the wanted Dude and move him or her to another in-town location of your choice." />
+      </card>
 	</cards>
 </set>

@@ -1771,7 +1771,7 @@
       <property name="Ghost Rock" value="" />
       <property name="Text" value="" />
    </card>
-   <card id="97ef478f-3de6-4ed8-9628-a91cc21ff9a1" name="Maze Rats - Iron Dragon">
+   <card id="97ef478f-3de6-4ed8-9628-a91cc21ff9a1" name="Maze Rats: Iron Dragon">
       <property name="Rank" value="" />
       <property name="Suit" value="" />
       <property name="Type" value="Outfit" />
@@ -1787,23 +1787,6 @@
       <property name="Rarity" value="FR" />
       <property name="Ghost Rock" value="18" />
       <property name="Text" value="All of your Dudes with one or more Kung-Fu Powers gains a +1 Influence bonus. Noon: Boot one of your Dudes to call out a Dude at the same location with a Weapon attached. The call-out cannot be refused." />
-   </card>
-   <card id="d5a29e5d-ac34-402b-b96c-3ad9b3b88e24" name="Mob Justice">
-      <property name="Rank" value="Q" />
-      <property name="Suit" value="C" />
-      <property name="Type" value="Action" />
-      <property name="Cost" value="0" />
-      <property name="Upkeep" value="" />
-      <property name="Production" value="" />
-      <property name="Bullets" value="" />
-      <property name="Bullet Bonus" value="" />
-      <property name="Draw Type" value="" />
-      <property name="Influence" value="" />
-      <property name="Control" value="" />
-      <property name="Outfit" value="" />
-      <property name="Rarity" value="FR" />
-      <property name="Ghost Rock" value="" />
-      <property name="Text" value="Reaction: Target a Wanted Dude who is performing an action that could make the Dude Wanted if he or she weren't already. Boot a number of your Dudes greater than the target's Bullet rating to Ace the target Dude." />
    </card>
    <card id="797faf4c-a56c-467c-9a4c-c44de57438c6" name="Nash Bilton">
       <property name="Rank" value="J" />

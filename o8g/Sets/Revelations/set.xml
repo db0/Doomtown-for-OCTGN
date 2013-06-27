@@ -224,7 +224,7 @@
       <property name="Ghost Rock" value="" />
       <property name="Text" value="Experienced. 2. Jack is always Wanted. Jack cannot be targeted by an action from a card with 'Judge' in the title. Reaction: When a Cheatin'! card targets your shootout Draw hand, if Jack is in your posse, cancel the card's action." />
    </card>
-   <card id="e2f3ed17-5c9b-4932-a764-41aa3500c5f8" name="Blackjacks - Stoker's Alliance">
+   <card id="e2f3ed17-5c9b-4932-a764-41aa3500c5f8" name="Blackjacks: Stoker's Alliance">
       <property name="Rank" value="" />
       <property name="Suit" value="" />
       <property name="Type" value="Outfit" />
@@ -1771,7 +1771,7 @@
       <property name="Ghost Rock" value="" />
       <property name="Text" value="This Dude does not become Wanted for joining a posse in a shootout at another player's Private location." />
    </card>
-   <card id="de2d7457-5869-4cbc-ae28-d44120b18e4a" name="Maze Rats - Landed Rats">
+   <card id="de2d7457-5869-4cbc-ae28-d44120b18e4a" name="Maze Rats: Landed Rats">
       <property name="Rank" value="" />
       <property name="Suit" value="" />
       <property name="Type" value="Outfit" />
@@ -2859,7 +2859,7 @@
       <property name="Ghost Rock" value="" />
       <property name="Text" value="Private. Strike. Each non-Terror, non-Blessed Dude at the Seventh-Sign Strike has a -2 Bullet penalty (minimum 0) and has his or her value lowered by 3. If a Dude's value drops under A at the Seventh-Sign Strike, Ace the Dude." />
    </card>
-   <card id="9cc98882-2179-4e3c-bd0d-4a9a7f665cd6" name="The Sioux Union - War Party">
+   <card id="9cc98882-2179-4e3c-bd0d-4a9a7f665cd6" name="The Sioux Union: War Party">
       <property name="Rank" value="" />
       <property name="Suit" value="" />
       <property name="Type" value="Outfit" />

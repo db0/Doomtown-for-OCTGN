@@ -2247,7 +2247,7 @@
       <property name="Ghost Rock" value="19" />
       <property name="Text" value="All your Harrowed dudes have their Ghost Rock cost and Upkeep cost reduced by 2." />
    </card>
-   <card id="9f3dd026-3692-4d91-9432-0652b7b32961" name="The Agency - Union Blue">
+   <card id="9f3dd026-3692-4d91-9432-0652b7b32961" name="The Agency: Union Blue">
       <property name="Rank" value="" />
       <property name="Suit" value="" />
       <property name="Type" value="Outfit" />

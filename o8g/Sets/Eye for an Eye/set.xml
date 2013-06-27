@@ -241,7 +241,7 @@
       <property name="Ghost Rock" value="" />
       <property name="Text" value="Bites the Hand may not attach Goods cards that can only be attached to Sioux Dudes." />
    </card>
-   <card id="03afd24d-b8e1-442d-8c11-b989d332f38f" name="Blackjacks - Rachel's Gang">
+   <card id="03afd24d-b8e1-442d-8c11-b989d332f38f" name="Blackjacks: Rachel's Gang">
       <property name="Rank" value="" />
       <property name="Suit" value="" />
       <property name="Type" value="Outfit" />
@@ -2383,7 +2383,7 @@
       <property name="Ghost Rock" value="" />
       <property name="Text" value="Public. Out of Town. Brothel. Saloon. Controller Noon: Unboot all dudes at this location." />
    </card>
-   <card id="c14ab086-5ae2-48d8-9f6c-e1b787d4d05b" name="The Sioux Union - Spirit Warriors">
+   <card id="c14ab086-5ae2-48d8-9f6c-e1b787d4d05b" name="The Sioux Union: Spirit Warriors">
       <property name="Rank" value="" />
       <property name="Suit" value="" />
       <property name="Type" value="Outfit" />
