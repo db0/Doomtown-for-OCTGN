@@ -208,5 +208,8 @@ def fullrank(rank): # This function simply returns the full rank of non-numeral 
    else: return rank
  
 def clearHandRanks(): # Cleas player hand ranks so that comparisons can start anew
+   debugNotify(">>> clearHandRanks().")
    for player in players:
       player.HandRank = 0 # Make sure that all shootout handrank counters are cleared.
+   debugNotify("<<< clearHandRanks().")
+      

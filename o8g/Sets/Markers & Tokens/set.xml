@@ -3,17 +3,17 @@
      gameId="9afa6473-fd81-41b9-955f-8f67c7d3f423" version="3.0.3" gameVersion="3.0.4"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CardSet.xsd">
   <markers>
-    <marker name="wanted" id="0a5fabc8-fe56-481a-b45a-a9ad6917d0d9"/>
-    <marker name="coin" id="42f8f2f3-2995-4556-b4d0-374f91811c82"/>
+    <marker name="Wanted" id="0a5fabc8-fe56-481a-b45a-a9ad6917d0d9"/>
+    <marker name="Ante" id="42f8f2f3-2995-4556-b4d0-374f91811c82"/>
     <marker name="+1 Bullet" id="5f740820-4c72-4042-b6eb-dcedc77c82ed"/>
     <marker name="-1 Bullet" id="093166b4-fddb-4e67-b6e4-86277faedc91"/>
-    <marker name="red" id="08aae3d6-cff5-4e55-bcc9-76354f1e7b21"/>
-    <marker name="blue" id="c671cb32-c8ef-46ea-93ed-f685b3e3aac5"/>
+    <marker name="Red" id="08aae3d6-cff5-4e55-bcc9-76354f1e7b21"/>
+    <marker name="Blue" id="c671cb32-c8ef-46ea-93ed-f685b3e3aac5"/>
     <marker name="High Noon Ability" id="836dfd81-805b-489a-a3d6-b55d68ff5a71"/>	
     <marker name="Shootout Ability" id="197d8de5-d63f-4455-9144-7a106b192a02"/>	
-    <marker name="bullets" id="eb6be661-ea5b-40f1-9105-3973986c3ad6"/>		
-    <marker name="harrowed" id="661f2771-6b73-414b-b0b1-3e2b50386b71"/>		
-    <marker name="jailbroken" id="692a1ab1-9aa9-49da-aff5-114644da921f"/>			
+    <marker name="Bullets" id="eb6be661-ea5b-40f1-9105-3973986c3ad6"/>		
+    <marker name="Harrowed" id="661f2771-6b73-414b-b0b1-3e2b50386b71"/>		
+    <marker name="Jailbroken" id="692a1ab1-9aa9-49da-aff5-114644da921f"/>			
     <marker name="+1 Influence" id="43a4a6ba-d63b-46fd-8305-f9ffedf74f6d"/>	
     <marker name="-1 Influence" id="b59df5b4-708b-481a-8b38-2d50eac48465"/>		
     <marker name="+1 Control" id="6dbe2df7-4e9f-4e52-ab7d-c80afd7356ae"/>		
@@ -22,7 +22,7 @@
     <marker name="-1 Production" id="869eebe2-f503-4d9f-8fa3-af708c7ad70c"/>
     <marker name="+1 Value" id="baff5422-3654-4f74-86fa-782805082fab"/>
     <marker name="-1 Value" id="7fa426df-689e-41f5-91b8-5d06cbc46463"/>
-    <marker name="Winner" id="eeb5f447-f9fc-46b4-846a-a9a40e575cbc"/>
+    <marker name="Lowball Winner" id="eeb5f447-f9fc-46b4-846a-a9a40e575cbc"/>
     <marker name="Flight of Angels" id="8ba2d501-e8b7-4df0-a168-be2d16b26daf"/>
   </markers>
   <cards>

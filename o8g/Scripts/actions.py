@@ -37,6 +37,54 @@ InfluenceRAM = {} # Which cards have extra influence
 ControlRAM = {} # Which cards have extra cp
 
 #---------------------------------------------------------------------------
+# Phases
+#---------------------------------------------------------------------------
+   
+def showCurrentPhase(): # Just say a nice notification about which phase you're on.
+   notify(phases[shared.Phase].format(me))
+   
+def nextPhase(group = table, x = 0, y = 0):  
+# Function to take you to the next phase. 
+   mute()
+   if shared.Phase == 4: shared.Phase = 1 # In case we're on the last phase (Nightfall), go back to the first game phase (Gamblin')
+   else: shared.Phase += 1 # Otherwise, just move up one phase
+   if shared.Phase == 1: goToGamblin()
+   elif shared.Phase == 2: goToUpkeep()
+   elif shared.Phase == 3: goToHighNoon()
+   elif shared.Phase == 4: goToNightfall()
+   else: showCurrentPhase()
+
+def goToGamblin(group = table, x = 0, y = 0): # Go directly to the gamblin' phase
+   mute()
+   shared.Phase = 1
+   showCurrentPhase()
+   clearHandRanks() # Clear the Hand Ranks, in case one is leftover from last High Noon.
+   getPotCard() # Create the PotCard to allow the players to bet manually if need be
+
+def goToUpkeep(group = table, x = 0, y = 0): # Go directly to the Upkeep phase
+   mute()
+   shared.Phase = 2
+   showCurrentPhase()
+
+def goToHighNoon(group = table, x = 0, y = 0): # Go directly to the High Noon phase
+   mute()
+   shared.Phase = 3
+   showCurrentPhase()
+
+def goToNightfall(group = table, x = 0, y = 0): # Go directly to the Nightfall phase
+   mute()
+   shared.Phase = 4
+   showCurrentPhase()   
+
+def goToShootout(group, x = 0, y = 0): # Start or End a Shootout Phase
+   if getGlobalVariable('Shootout') == 'False': # The shootout phase just shows a nice notification when it starts and does nothing else.
+      notify("A shootout has broken out.".format(me))
+      setGlobalVariable('Shootout','True')
+   else: # When the shootout ends however, any card.highlights for attacker and defender are quickly cleared.
+      notify("The shootout has ended.".format(me))
+      clearShootout()
+
+#---------------------------------------------------------------------------
 # Table group actions
 #---------------------------------------------------------------------------
 
@@ -45,7 +93,9 @@ def defaultAction(card, x = 0, y = 0):
    mute()
    side = None
    calledOut = getGlobalVariable('Called Out') # We grab this global variable so that we don't have to check it multiple times and delay them game
-   if getGlobalVariable('Shootout') == 'True':
+   if card.model == 'c421c742-c920-4cad-9f72-032c3378191e': # If the player has double-clicked the lowball card, we assume they are the ones that won lowball.
+      if confirm("Did you win this round's lowball?"): winLowball()
+   elif getGlobalVariable('Shootout') == 'True':
       if card.Type == 'Dude' and not card.highlight:
          for c in table:
             if c.highlight == AttackColor:
@@ -67,49 +117,55 @@ def defaultAction(card, x = 0, y = 0):
    else: boot(card)
    debugNotify("<<< defaultAction()") #Debug
 
+def setup(group,x=0,y=0):
+# This function is usually the first one the player does. It will setup their home and cards on the left or right of the playfield 
+# It will also setup the starting Ghost Rock for the player according to the cards they bring in play, as well as their influence and CP.
+   global playerOutfit # Import some necessary variables we're using around the game.
+   debugNotify(">>> setup()")
+   mute()
+   if table.isTwoSided(): 
+      if not confirm("This game is NOT designed to be played on a two-sided table. Things will break!! Please start a new game and unckeck the appropriate button. Are you sure you want to continue?"): return
+   if playerOutfit and not confirm("Are you sure you want to setup for a new game? (This action should only be done after a table reset)"): return # We make sure the player intended to start a new game
+   resetAll()
+   chooseSide() # The classic place where the players choose their side.
+   me.Deck.shuffle() # First let's shuffle our deck now that we have the chance.
+   if len([c for c in table if c.name == 'Town Square']) == 0: # Only create a Town Square token if there's not one in the table until now
+      TSL = table.create("ac0b08ed-8f78-4cff-a63b-fa1010878af9",2 - cwidth(divisor = 0),0, 1, True) # Create a Left Town Square card in the middle of the table.
+      TSR = table.create("72f6c0a9-e4f6-4b17-9777-185f88187ad7",-1,0, 1, True) # Create a Right Town Square card in the middle of the table.
+   for card in me.hand: # For every card in the player's hand... (which should be an outfit and a bunch of dudes usually)
+      if card.Type == "Outfit" :  # First we do a loop to find an play the outfit, (in case the player managed to mess the order somehow)
+         placeCard(card,'SetupHome')
+         me.GhostRock += num(card.properties['Ghost Rock']) # Then we add its starting Ghost Rock to the bank
+         playerOutfit = card.Outfit # We make a note of the outfit the player is playing today (used later for upkeep)
+         concat_home = '{}'.format(card) # And we save the name.
+   if not playerOutfit: # If we haven't found an outfit in the player's hand, we assume they made some mistake and break out.
+      whisper(":::ERROR:::  You need to have an outfit card in your hand before you try to setup the game. Please reset the board, load a valid deck and try again.")
+      return
+   debugNotify("About to place Dudes",2)
+   dudecount = 0
+   concat_dudes = 'and has the following starting dudes: ' # A string where we collect the names of the dudes we bring in
+   concat_other = '' # A string to remember any other card (like sweetrock's mine)
+   for card in me.hand: # For every card in the player's hand... (which should a bunch of dudes now)
+      debugNotify("Placing {}".format(card),4)
+      if card.Type == "Dude" : # If it's a dude...
+         placeCard(card,'SetupDude',dudecount)
+         dudecount += 1 # This counter increments per dude, ad we use it to move each other dude further back.
+         payCost(card.Cost) # Pay the cost of the dude
+         modInfluence(card.Influence, silent) # Add their influence to the total
+         concat_dudes += '{}. '.format(card) # And prepare a concatenated string with all the names.
+      else: # If it's any other card...
+         placeCard(card,'SetupOther')
+         payCost(card.Cost) # We pay the cost 
+         modControl(card.Control) # Add any control to the total
+         modInfluence(card.Influence) # Add any influence to the total
+         concat_other = ', brings {} into play'.format(card) # And we create a special concat string to use later for the notification.
+   if dudecount == 0: concat_dudes = 'and has no starting dudes. ' # In case the player has no starting dudes, we change the notification a bit.
+   refill() # We fill the player's play hand to their hand size (usually 5)
+   notify("{} is playing {} {} {}Starting Ghost Rock is {} and starting influence is {}.".format(me, concat_home, concat_other, concat_dudes, me.GhostRock, me.Influence))  
+   # And finally we inform everyone of the player's outfit, starting dudes & other cards, starting ghost rock and influence.
+   
 def Pass(group, x = 0, y = 0): # Player says pass. A very common action.
    notify('{} Passes.'.format(me))
-
-def showCurrentPhase(): # Just say a nice notification about which phase you're on.
-   notify(phases[shared.Phase].format(me))
-   
-def nextPhase(group, x = 0, y = 0):  
-# Function to take you to the next phase. 
-   mute()
-   if shared.Phase == 4: 
-      shared.Phase = 1 # In case we're on the last phase (Nightfall), go back to the first game phase (Gamblin')
-      clearHandRanks() # Clear the Hand Ranks, in case one is leftover from last High Noon.
-   else: shared.Phase += 1 # Otherwise, just move up one phase
-   showCurrentPhase()
-
-def goToGamblin(group, x = 0, y = 0): # Go directly to the gamblin' phase
-   mute()
-   shared.Phase = 1
-   showCurrentPhase()
-   clearHandRanks() # Clear the Hand Ranks, in case one is leftover from last High Noon.
-
-def goToUpkeep(group, x = 0, y = 0): # Go directly to the Upkeep phase
-   mute()
-   shared.Phase = 2
-   showCurrentPhase()
-
-def goToHighNoon(group, x = 0, y = 0): # Go directly to the High Noon phase
-   mute()
-   shared.Phase = 3
-   showCurrentPhase()
-
-def goToNightfall(group, x = 0, y = 0): # Go directly to the Nightfall phase
-   mute()
-   shared.Phase = 4
-   showCurrentPhase()   
-
-def goToShootout(group, x = 0, y = 0): # Start or End a Shootout Phase
-   if getGlobalVariable('Shootout') == 'False': # The shootout phase just shows a nice notification when it starts and does nothing else.
-      notify("A shootout has broken out.".format(me))
-      setGlobalVariable('Shootout','True')
-   else: # When the shootout ends however, any card.highlights for attacker and defender are quickly cleared.
-      notify("The shootout has ended.".format(me))
-      clearShootout()
 
 def clearShootout():
    setGlobalVariable('Shootout','False')
@@ -761,53 +817,6 @@ def playcard(card):
       modInfluence(num(card.Influence) + card.markers[InfluencePlusMarker] - card.markers[InfluenceMinusMarker], loud) 
    # Increase influence, if the new card provides any or any influence markers are remembered
 
-def setup(group,x=0,y=0):
-# This function is usually the first one the player does. It will setup their home and cards on the left or right of the playfield 
-# It will also setup the starting Ghost Rock for the player according to the cards they bring in play, as well as their influence and CP.
-   global playerOutfit # Import some necessary variables we're using around the game.
-   debugNotify(">>> setup()")
-   mute()
-   if table.isTwoSided(): 
-      if not confirm("This game is NOT designed to be played on a two-sided table. Things will break!! Please start a new game and unckeck the appropriate button. Are you sure you want to continue?"): return
-   if playerOutfit and not confirm("Are you sure you want to setup for a new game? (This action should only be done after a table reset)"): return # We make sure the player intended to start a new game
-   resetAll()
-   chooseSide() # The classic place where the players choose their side.
-   me.Deck.shuffle() # First let's shuffle our deck now that we have the chance.
-   if len([c for c in table if c.name == 'Town Square']) == 0: # Only create a Town Square token if there's not one in the table until now
-      TSL = table.create("ac0b08ed-8f78-4cff-a63b-fa1010878af9",2 - cwidth(divisor = 0),0, 1, True) # Create a Left Town Square card in the middle of the table.
-      TSR = table.create("72f6c0a9-e4f6-4b17-9777-185f88187ad7",-1,0, 1, True) # Create a Right Town Square card in the middle of the table.
-   for card in me.hand: # For every card in the player's hand... (which should be an outfit and a bunch of dudes usually)
-      if card.Type == "Outfit" :  # First we do a loop to find an play the outfit, (in case the player managed to mess the order somehow)
-         placeCard(card,'SetupHome')
-         me.GhostRock += num(card.properties['Ghost Rock']) # Then we add its starting Ghost Rock to the bank
-         playerOutfit = card.Outfit # We make a note of the outfit the player is playing today (used later for upkeep)
-         concat_home = '{}'.format(card) # And we save the name.
-   if not playerOutfit: # If we haven't found an outfit in the player's hand, we assume they made some mistake and break out.
-      whisper(":::ERROR:::  You need to have an outfit card in your hand before you try to setup the game. Please reset the board, load a valid deck and try again.")
-      return
-   debugNotify("About to place Dudes",2)
-   dudecount = 0
-   concat_dudes = 'and has the following starting dudes: ' # A string where we collect the names of the dudes we bring in
-   concat_other = '' # A string to remember any other card (like sweetrock's mine)
-   for card in me.hand: # For every card in the player's hand... (which should a bunch of dudes now)
-      debugNotify("Placing {}".format(card),4)
-      if card.Type == "Dude" : # If it's a dude...
-         placeCard(card,'SetupDude',dudecount)
-         dudecount += 1 # This counter increments per dude, ad we use it to move each other dude further back.
-         payCost(card.Cost) # Pay the cost of the dude
-         modInfluence(card.Influence, silent) # Add their influence to the total
-         concat_dudes += '{}. '.format(card) # And prepare a concatenated string with all the names.
-      else: # If it's any other card...
-         placeCard(card,'SetupOther')
-         payCost(card.Cost) # We pay the cost 
-         modControl(card.Control) # Add any control to the total
-         modInfluence(card.Influence) # Add any influence to the total
-         concat_other = ', brings {} into play'.format(card) # And we create a special concat string to use later for the notification.
-   if dudecount == 0: concat_dudes = 'and has no starting dudes. ' # In case the player has no starting dudes, we change the notification a bit.
-   refill() # We fill the player's play hand to their hand size (usually 5)
-   notify("{} is playing {} {} {}Starting Ghost Rock is {} and starting influence is {}.".format(me, concat_home, concat_other, concat_dudes, me.GhostRock, me.Influence))  
-   # And finally we inform everyone of the player's outfit, starting dudes & other cards, starting ghost rock and influence.
-
 def shuffle(group): # A simple function to shuffle piles
    group.shuffle()
 
@@ -892,6 +901,33 @@ def discardDrawHand(group = me.piles['Draw Hand']): # Discards the player's whol
    Discard = me.piles['Discard Pile']
    notify("{} moved their {} ({} cards) to their discard pile.".format(me, group.name, len(group)))    
    for card in group: card.moveTo(Discard)
+
+def aceevents(group = me.piles['Discard Pile']): # Goes through your discard pile and moves all events to the boot hill
+   mute()
+   notify("{} is going through their discard pile and acing all events".format(me))
+   for card in group:
+      if card.Type == 'Event': 
+         card.moveTo(me.piles['Boot Hill'])
+         notify("{} has aced {}".format(me,card))
+
+def harrow(card):  # Returns the top dude card from boot hill, into the table with a harrowed marker.
+   mute()
+   if card.Type == 'Dude': 
+      card.moveToTable(playerside * 200, 0)
+      if not re.search(r'\bHarrowed\b\.', card.Text): 
+         card.markers[HarrowedMarker] += 1
+         notify("{} has brought {} back from the dead as one of the Harrowed".format(me,card))
+      else: notify("{} has once again crawled out of a shallow grave.".format(card))
+      modInfluence(card.Influence, loud)
+
+def permRemove(card): # Takes a card from the boot hill and moves it to the shared "removed from play" pile.
+   mute()
+   card.moveTo(shared.piles['Removed from Play'])
+   notify("{} has permanently removed {} from play".format(me, card))
+   
+#---------------------------------------------------------------------------
+# Draw Hand related actions 
+#---------------------------------------------------------------------------
    
 def revealHand(group = me.piles['Draw Hand'], type = 'lowball', event = None): 
 # This function moves 5 cards from the player's Draw Hand pile into the table (normally there should be only 5 there when this function is invoked)
@@ -960,6 +996,7 @@ def revealShootoutHand(group):
          clearHandRanks()
    
 def revealLowballHand(group = me.piles['Draw Hand'], type = 'normal'): 
+   debugNotify(">>> revealLowballHand()")
    mute()
    # Checking for events before passing on to the reveal function
    evCount = 0
@@ -975,13 +1012,16 @@ def revealLowballHand(group = me.piles['Draw Hand'], type = 'normal'):
       revealHand(group, 'lowball',foundEvents[0])      
    else: revealHand(group, 'lowball')
    winner = lowballWinner()
-   if type == 'quick': return winner  # If this function has been called from playLowball(), just return the winner.
+   if type == 'quick': 
+      debugNotify("<<< revealLowballHand()")
+      return winner  # If this function has been called from playLowball(), just return the winner.
    else: 
       try:
          if winner == 'tie': notify ("It's a tie! Y'all need to compare high cards to determine the lucky bastard.")
       except: # Otherwise the evuation will fail which means that the winner variable holds is a player class.
          notify ("The winner is {}".format(winner)) # Thus we can just announce them.
          setWinner(winner)
+   debugNotify("<<< revealLowballHand()")
 
 def playLowball(group = me.Deck):
 # This function does the following. 
@@ -995,39 +1035,28 @@ def playLowball(group = me.Deck):
    if shared.Phase != 1:
       whisper("You can use this action during the lowball phase")
       return
-   notify ("{} has put their bet in their pot and is playing Lowball".format(me))
    drawhandMany(me.Deck, 5, silent)
    random = rnd(100, 1000) # Bug Workaround
-   me.GhostRock -= 1
-   shared.counters['Lowball Pot'].value += 1
-   winner = revealLowballHand( type='quick')
+   betLowball()
+   winner = revealLowballHand(type='quick')
    try:
       if winner == 'tie': notify ("It's a tie! Y'all need to compare high cards to determine the lucky bastard.")
-   except:
-      winner.GhostRock += shared.counters['Lowball Pot'].value
-      notify("{} is the winner has received {} Ghost Rock from the pot".format(winner, shared.counters['Lowball Pot'].value))
-      shared.counters['Lowball Pot'].value = 0
-      setWinner(winner)
+   except: winLowball(winner = winner) # If it's a python exception it means we tried to compare a string to a player object, therefore we actually have a player object in our 'winner' variable
+
+def betLowball(group = table,x = 0,y = 0, silent = False): # Bets a 1 ghost rock to the lowball pot
+   mute()
+   potCard = getPotCard()
+   me.GhostRock -= 1
+   potCard.markers[mdict['Ante']] += 1
+   if not silent: notify ("{} has put their ante in their Lowball pot.".format(me))
+
+def winLowball(group = table, x = 0,y = 0, winner = me): # A function which sets the lowball winner and awards him the lowball money
+   mute()
+   debugNotify(">>> winLowball()")
+   potCard = getPotCard()
+   setWinner(winner) # Set the winner's marker
+   winner.GhostRock += potCard.markers[mdict['Ante']] # Give them all the money from the lowball pot
+   notify("{} is the lowball winner has received {} Ghost Rock from the pot".format(winner, potCard.markers[mdict['Ante']])) # Notify all other players
+   potCard.moveTo(shared.piles['Removed from Play']) # Remove the lowball card from the table
+   debugNotify("<<< winLowball()")
       
-def aceevents(group = me.piles['Discard Pile']): # Goes through your discard pile and moves all events to the boot hill
-   mute()
-   notify("{} is going through their discard pile and acing all events".format(me))
-   for card in group:
-      if card.Type == 'Event': 
-         card.moveTo(me.piles['Boot Hill'])
-         notify("{} has aced {}".format(me,card))
-
-def harrow(card):  # Returns the top dude card from boot hill, into the table with a harrowed marker.
-   mute()
-   if card.Type == 'Dude': 
-      card.moveToTable(playerside * 200, 0)
-      if not re.search(r'\bHarrowed\b\.', card.Text): 
-         card.markers[HarrowedMarker] += 1
-         notify("{} has brought {} back from the dead as one of the Harrowed".format(me,card))
-      else: notify("{} has once again crawled out of a shallow grave.".format(card))
-      modInfluence(card.Influence, loud)
-
-def permRemove(card): # Takes a card from the boot hill and moves it to the shared "removed from play" pile.
-   mute()
-   card.moveTo(shared.piles['Removed from Play'])
-   notify("{} has permanently removed {} from play".format(me, card))

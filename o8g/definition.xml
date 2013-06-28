@@ -4,7 +4,7 @@
       name="Doomtown" 
       id="9afa6473-fd81-41b9-955f-8f67c7d3f423" 
       octgnVersion="3.1.0.0" 
-      version="3.2.1.15" 
+      version="3.2.1.26" 
       markersize="16"
       tags="western deadlands poker maneuvering multiplayer"
       description="A western themed card game, marying poker mechanics, town building, and chess-like maneuvering.
@@ -75,22 +75,18 @@
 			<groupaction menu="Start/End a Shootout Phase." default="False" shortcut="F10" execute="goToShootout" />
 		</groupactions>
 		<groupaction menu="Announce Pass." default="False" shortcut="Ctrl+Space" execute="Pass" />
-		<groupaction menu="Pull." default="False" execute="pull" />
 		<groupaction menu="Spawn Token Dude." default="False" execute="spawnTokenDude" />
-		<groupaction menu="Hand Rank Guide" default="False" execute="HandRankGuide" />
+		<groupaction menu="Show Hand Rank Guide" default="False" execute="HandRankGuide" />
       <cardactions menu="Posse/Job/Callout reactions...">
          <cardaction menu="Join Attacking/Job Posse." default="False" shortcut="Ctrl+Shift+J" execute="joinAttack" />
-         <cardaction menu="Accept Call out." default="False" shortcut="Ctrl+Shift+A" execute="acceptCallout" />
+         <cardaction menu="Accept Call out." default="False" shortcut="F5" execute="acceptCallout" />
          <cardaction menu="Refuse Call out." default="False" shortcut="Esc" execute="refuseCallout" />
          <cardaction menu="Join Defending Posse." default="False" shortcut="Ctrl+Shift+D" execute="joinDefence" />
-         <groupaction menu="Announce Posse ready." default="False" shortcut="Ctrl+Shift+F" execute="posseReady" />
          <cardaction menu="Run Away from the Shootout." default="False" execute="runAway" />
       </cardactions>
       <cardaction menu="Announce move without booting." default="False" shortcut="Ctrl+M" execute="move" />
       <cardaction menu="Announce move by booting." default="False" shortcut="Ctrl+B" execute="moveBoot" />
       <cardaction menu="Call out target dude." default="False" shortcut="Ctrl+Shift+C" execute="callout" />
-      <groupaction menu="Accept Call out." default="False" shortcut="F5" execute="acceptCallout" />
-      <groupaction menu="Refuse Call out." default="False" shortcut="Esc" execute="refuseCallout" />
       <cardaction menu="Trade Goods to target dude." default="False" execute="tradeGoods" />
       <cardaction menu="(Un)Mark as Wanted." default="False" shortcut="Alt+W" execute="modWantedMarker" />
       <cardaction menu="Mark as Harrowed." default="False" shortcut="Alt+H" execute="addHarrowedMarker" />
@@ -99,7 +95,7 @@
 			<cardaction menu="Take Over (Become the owner of the deed)." default="False" shortcut="Alt+D" execute="takeOver" />
 			<cardaction menu="Mark as Jailbroken." default="False" shortcut="Alt+J" execute="addJailbreakMarker" />
 		</cardactions>
-		<cardactions menu="Markers">
+		<cardactions menu="Markers...">
 			<cardaction menu="Use High Noon ability" default="False" shortcut="Alt+A" execute="HNActivate" />
 			<cardaction menu="Use Shootout ability" default="False" shortcut="Alt+S" execute="SHActivate" />
 			<cardaction menu="Increase Influence by 1" default="False" shortcut="Alt+I" execute="plusInfluence" />
@@ -116,6 +112,12 @@
 			<cardaction menu="Flight of Angels" default="False" execute="FlightOfAngels" />
 			<cardaction menu="Add Markers" default="False" shortcut="Alt+M" batchExecute="addMarker" />
 		</cardactions>
+      <groupactions menu="Manual Actions...">
+         <groupaction menu="Accept Call out." default="False" shortcut="F5" execute="acceptCallout" />
+         <groupaction menu="Refuse Call out." default="False" shortcut="Esc" execute="refuseCallout" />
+         <groupaction menu="Place Lowball Ante" default="False" shortcut="Ctrl+A" execute="betLowball"/>
+         <groupaction menu="Win Lowball" default="False" shortcut="Ctrl+W" execute="winLowball"/>
+		</groupactions>      
 		<groupaction menu="Re-Calculate your total influence &amp; control" default="False" shortcut="Ctrl+C" execute="reCalculate" />
 		<groupaction menu="Nightfall Refresh (Unboot cards / Refill Hand)" default="False" shortcut="Ctrl+N" execute="NightfallUnboot" />
 		<cardaction menu="(Un)Mark card as unbootable" default="False" execute="doesNotUnboot" />
@@ -160,7 +162,6 @@
 	</player>
 	<shared>
 		<counter name="Fear Level" default="5" reset="False" icon="Counters/fear.png" />
-		<counter name="Lowball Pot" default="0" reset="False" icon="Counters/coin.png" />
 		<counter name="Phase" default="0" reset="False" icon="Counters/phases.png" />
 		<group name="Common" visibility="all" ordered="False" width="90" height="126" icon="Groups/playhand.png" collapsed="False" />
 		<group name="Removed from Play" visibility="all" ordered="False" width="90" height="126" icon="Groups/removed.png" collapsed="False" />

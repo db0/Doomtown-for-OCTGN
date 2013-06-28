@@ -200,52 +200,72 @@ def lowballWinner():
 # This means that the slowest player is always the one who will do the hand comparison
 # Once all hands are on the table, it compares hand ranks one by one until it finds the highest 
 # then passes the winning player's object to the function that called it (usually revealLowballHand)
+   debugNotify(">>> lowballWinner()")
    i = 0
    j = 1
-   handtie = 'no'
+   handtie = False
+   if len(players) == 1: winner = me # Code to allow me debug with just one player in the match
    tied = [] # A list which holds the player objects of players who are tied. Not used atm.
              # We will pass it later to a variable to determine high card winners.
    for player in players:
-      if player.HandRank == 0: return 'aborted' # If one player hasn't revealed their hand yet, abort this function
-   while i < len(players) -1: # Go once through all the players except the last
+      if player.HandRank == 0: 
+         debugNotify("<<< lowballWinner(). ABORTED")
+         return 'aborted' # If one player hasn't revealed their hand yet, abort this function
+   while i < len(players) - 1: # Go once through all the players except the last
       while j < len(players): # Then go through all the players except the starting one in the previous for loop.
-#         notify("comp {} to {}. handtie {}.".format(players[i].name,players[j].name,handtie))
+         debugNotify("comp {} to {}. handtie {}.".format(players[i].name,players[j].name,handtie),4)
          if players[i].HandRank < players[j].HandRank: # If the player we're checking has a lower hand than the next player...
-            if handtie == 'yes': # If we have recorded a tie...
+            if handtie: # If we have recorded a tie...
                if players[i].HandRank >= tied[0].HandRank: pass # ...and if the tie is lower/equal than the current player. Then do nothing
                else: 
-                  handtie = 'no' # If the tie is higher than the current player, then there's no more a tie.
+                  handtie = False # If the tie is higher than the current player, then there's no more a tie.
                   winner = players[i]
             else: winner = players[i] # Else record the current player as the winner
          elif players[i].HandRank > players[j].HandRank: # If the primary player (players[i])has lost a hand comparison, 
                                                          # then we take him completely off the comparison and move to the next one.
-            if handtie == 'yes': # but if there is a tie...
+            if handtie: # but if there is a tie...
                if players[j].HandRank >= tied[0].HandRank: pass # ...and if the winning player is not lower/equal than the tie. Then do nothing
                else: 
-                  handtie = 'no' # If the tie is higher than the current player, then there's no more a tie.               
+                  handtie = False # If the tie is higher than the current player, then there's no more a tie.               
                   winner = players[j]
             else: winner = players[j] # And the winner is the player who won the current player
             j += 1
             break # No more need to check this player anymore as he's lost.
          else: 
-            handtie = 'yes' # If none of the player's won, it's a tie
+            handtie = True # If none of the player's won, it's a tie
             if len(tied) == 0: # If our list isn't populated yet, then add the first two tied players
                tied = [players[i], players[j]]
             else: # If we have some players in the list, only add the compared ones if they're not already in the list.
                if players[i] not in tied: tied.append(players[i])
                if players[j] not in tied: tied.append(players[j])
          j += 1
-         if handtie == 'no': 
+         if not handtie: 
             if winner ==  players[i] and j == len(players): # If the player we're currently comparing has won all other hands,
                clearHandRanks()                             # and there's no more players to compare with then there' no reason to compare more.
+               debugNotify("<<< lowballWinner() with Winner = {}.".format(winner))
                return winner                                
       i += 1
       j = i + 1
-#   notify("winner {}".format(winner))
    clearHandRanks()
-   if handtie == 'yes': return 'tie'
-   else: return winner # If the loop manages to finish and it's not a tie, then the winner is always the last player in the list.
+   if handtie: 
+      debugNotify("<<< lowballWinner() with a Hand Tie")
+      return 'tie'
+   else: 
+      debugNotify("<<< lowballWinner() with Winner = {}.".format(winner))
+      return winner # If the loop manages to finish and it's not a tie, then the winner is always the last player in the list.
 
+def getPotCard(): # Checks if the Lowball Pot Card is on the table and creates it if it isn't.
+   mute()
+   potCard = None
+   for c in table:
+      if c.model == "c421c742-c920-4cad-9f72-032c3378191e": 
+         potCard = c
+         break
+   if not potCard:
+      potCard = table.create("c421c742-c920-4cad-9f72-032c3378191e",cwidth() / -2,-20, 1, False)
+      potCard.orientation = Rot90
+   return potCard # We return the card to the function that called us, so that it can use it.
+      
 #------------------------------------------------------------------------------
 # Card Attachments scripts
 #------------------------------------------------------------------------------
