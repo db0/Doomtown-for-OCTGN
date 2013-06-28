@@ -59,6 +59,9 @@ def resetAll(): # Clears all the global variables in order to start a new game.
    elif debugVerbosity != -1 and confirm("Reset Debug Verbosity?"): debugVerbosity = -1    
    debugNotify("<<< resetAll()") #Debug   
 
+def chkHighNoon():
+   if shared.Phase != 3 and confirm(":::WARNING::: You are normally only allowed to take this action during High Noon.\n\nDo you want to jump to High Noon now?"): goToHighNoon()
+   
 #---------------------------------------------------------------------------
 # Card Memory
 #---------------------------------------------------------------------------

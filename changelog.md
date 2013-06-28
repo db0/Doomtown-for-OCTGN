@@ -1,6 +1,19 @@
 Changelog - Doomtown CCG OCTGN Game Definition
 ===============================================
 
+### 3.2.2.x
+
+* Now using a Lowball Pot card to store lowball antes. It should make it clearer when there's a lowball and what the stakes are.
+* Call Out Process has been improved somewhat. To call out, target the dude you want and then use the Call out action (Ctrl+Shift+C). The controller of the dude can now quickly accept (F5) or reject (ESC) the call out and will be moved accordingly in the latter case.
+* If a call-out is accepted, a shootout breaks out immediately. Use f10 to finish it.
+* Added a "Default Action" for double clicking cards.
+  * Double clicking on the Lowball Pot will declare you the winner and take the money. Useful for resolving ties.
+  * Double Clicking a Dude, while you have an opposing Dude targeted, will call-out the target dude
+  * Double Clicking a Dude which has been called out, will accept the call out
+  * Double Clicking a Dude while a shootout is going on, will add them as attacker or defender accordingly.
+  * On every other case, the default action will just boot/unboot the card
+* Game will now warn you if you're trying to do something in a phase you're not allowed to. You'll be able to jump to the proper phase from the dialogue.
+  
 ### 3.2.1.x
 
 * Wiping host cards on game reset now

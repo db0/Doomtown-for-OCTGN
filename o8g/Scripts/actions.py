@@ -46,6 +46,9 @@ def showCurrentPhase(): # Just say a nice notification about which phase you're 
 def nextPhase(group = table, x = 0, y = 0):  
 # Function to take you to the next phase. 
    mute()
+   if getGlobalVariable('Shootout') == 'True':
+      if not confirm("There's still a shootout ongoing. Do you want to end it and move to the next phase?"): return
+      else: goToShootout()
    if shared.Phase == 4: shared.Phase = 1 # In case we're on the last phase (Nightfall), go back to the first game phase (Gamblin')
    else: shared.Phase += 1 # Otherwise, just move up one phase
    if shared.Phase == 1: goToGamblin()
@@ -76,7 +79,7 @@ def goToNightfall(group = table, x = 0, y = 0): # Go directly to the Nightfall p
    shared.Phase = 4
    showCurrentPhase()   
 
-def goToShootout(group, x = 0, y = 0): # Start or End a Shootout Phase
+def goToShootout(group = table, x = 0, y = 0): # Start or End a Shootout Phase
    if getGlobalVariable('Shootout') == 'False': # The shootout phase just shows a nice notification when it starts and does nothing else.
       notify("A shootout has broken out.".format(me))
       setGlobalVariable('Shootout','True')
@@ -221,8 +224,8 @@ def discard(card, x = 0, y = 0): # Discard a card.
 def upkeep(group, x = 0, y = 0): # Automatically receive production and pay upkeep costs
 # This function goes through each of your cards and checks if it provides production or requires upkeep, then automatically removes it from your bank.
    if shared.Phase != 2: #One can only call for upkeep during the upkeep phase
-      whisper("You can only call pay upkeep and receive production during the upkeep phase")
-      return
+      if not confirm(":::WARNING::: It is not yet the Upkeep phase. Do you want to jump to upkeep now?"): return
+      goToUpkeep()
    mute()
    gr = 0 # Variable used to track each cards production/upkeep
    concat_prod = '' # A string which we will use to provide a succint notification at the end
@@ -297,8 +300,8 @@ def nightfall(card, x = 0, y = 0): # This function "refreshes" each card for nig
 def NightfallUnboot(group, x = 0, y = 0): # This function simply runs all the cards the player controls through the nigtfall function.
    mute()
    if shared.Phase != 4: #One can only call for refresh during the Nighfall phase
-      whisper("You can only call this action during the nighfall phase")
-      return   
+      if not confirm(":::WARNING::: It is not yet the Nightfall phase. Do you want to jump to nightfall now?"): return
+      goToNightfall()
    if not confirm("Have you remembered to discard any cards you don't want from your play hand?"): return
    refill()
    cards = (card for card in table
@@ -596,7 +599,8 @@ def callout(card, x = 0, y = 0): # Notifies that this dude is calling someone ou
       targetD = targetDudes[0]
       if targetD == card:
          whisper(":::ERROR::: You cannot call out yourself silly!")
-         return         
+         return
+      chkHighNoon()
       notify("{} is calling {} out.".format(card,targetD))
       setGlobalVariable('Called Out',str(targetD._id)) # We store the called out dude as a global variable so that the owner can easier select their answer.
       if card.orientation == Rot90: notify(":::WARNING::: Remember that you need a card effect to call out someone while booted)".format(card))
@@ -636,6 +640,7 @@ def tradeGoods(card, x = 0, y = 0):
    if not newHost:
       whisper(":::ERROR::: You need to target a dude in the same location to receive the goods")
       return
+   chkHighNoon()
    if newHost.orientation != Rot0 and not confirm("You can only trade goods to unbooted dudes. Bypass restriction?"): return
    hostCards = eval(getGlobalVariable('Host Cards'))
    attachedGoods = [Card(att_id) for att_id in hostCards if hostCards[att_id] == card._id and Card(att_id).Type == 'Goods']
@@ -775,15 +780,18 @@ def playcard(card):
          else: # if they're not on the table, they're in someone's boothill
             notify ("{} wanted to bring {} in play but it currently RIP in {}'s Boot Hill".format(me,card,chkcard.owner))
          return
-   if card.Type == "Dude" : 
+   if card.Type == "Dude":
+      chkHighNoon()
       if payCost(card.Cost, loud) == 'ABORT' : return # Check if the player can pay the cost. If not, abort.
       placeCard(card,'HireDude')
       notify("{} has hired {}.".format(me, card)) # Inform of the new hire      
-   elif card.Type == "Deed" :   
+   elif card.Type == "Deed" :
+      chkHighNoon()
       if payCost(card.Cost, loud) == 'ABORT' : return # Check if the player can pay the cost. If not, abort.
       placeCard(card,'BuyDeed')
       notify("{} has acquired the deed to {}.".format(me, card))
    elif card.Type == "Goods" or card.Type == "Spell" or card.Type == "Improvement": # If we're bringing in any goods, just remind the player to pull for gadgets.
+      chkHighNoon()
       if card.Type == "Improvement": hostCard = findHost('Improvement')
       else: hostCard = findHost('Goods')
       if hostCard.orientation != Rot0 and not confirm("You can only purchase goods with unbooted dudes. Bypass restriction?"): return      
@@ -1033,8 +1041,8 @@ def playLowball(group = me.Deck):
 # * It assigns a "Winner" counter to the winner's outfit and wipes the previous winner's marker.
    mute()
    if shared.Phase != 1:
-      whisper("You can use this action during the lowball phase")
-      return
+      if not confirm(":::WARNING::: It is not yet the Gamblin' phase. Do you want to jump to lowball now?"): return
+      goToGamblin()
    drawhandMany(me.Deck, 5, silent)
    random = rnd(100, 1000) # Bug Workaround
    betLowball()
