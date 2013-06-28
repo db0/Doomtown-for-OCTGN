@@ -44,7 +44,7 @@ def defaultAction(card, x = 0, y = 0):
    debugNotify(">>> defaultAction()") #Debug
    mute()
    side = None
-   debugNotify("Checking for activation",2) #Debug
+   calledOut = getGlobalVariable('Called Out') # We grab this global variable so that we don't have to check it multiple times and delay them game
    if getGlobalVariable('Shootout') == 'True':
       if card.Type == 'Dude' and not card.highlight:
          for c in table:
@@ -60,6 +60,10 @@ def defaultAction(card, x = 0, y = 0):
          if side == 'Defence': joinDefence(card)
          else: joinAttack(card)
       else: boot(card)
+   elif len([c for c in table if c.Type == 'Dude' and c.targetedBy and c.targetedBy == me and c.controller != me]) and calledOut == 'None': # If the player has an opposing dude targeted when they doubled clicked, we assume they want to call out
+      callout(card)
+   elif calledOut != 'None' and Card(num(calledOut)) == card: # if there is a callout in progress and we just double clicked the callout's target, we assume they want to accwept it.
+      acceptCallout()
    else: boot(card)
    debugNotify("<<< defaultAction()") #Debug
 
@@ -529,9 +533,9 @@ def callout(card, x = 0, y = 0): # Notifies that this dude is calling someone ou
    mute()
    if getGlobalVariable('Called Out') != 'None' and not confirm(":::WARNING::: There seems to be another call out in progress. Override it?"): return
    if card.Type == "Dude":
-      targetDudes = [c for c in table if c.Type == 'Dude' and c.targetedBy and c.targetedBy == me]
+      targetDudes = [c for c in table if c.Type == 'Dude' and c.targetedBy and c.targetedBy == me and c.controller != me]
       if not len(targetDudes):
-         whisper(":::ERROR::: You need to target the dude you're calling out.")
+         whisper(":::ERROR::: You need to target the opposing dude you're calling out.")
          return
       targetD = targetDudes[0]
       if targetD == card:
@@ -615,7 +619,7 @@ def joinDefence(card, x = 0, y = 0): # Same as above, but about defensive posse.
       notify("{} is joining the defending posse.".format(card))
       card.highlight = DefendColor   
 
-def acceptCallout(ignored, x = 0, y = 0): # Same as the defending posse but with diferent notification.
+def acceptCallout(ignored = None, x = 0, y = 0): # Same as the defending posse but with diferent notification.
    mute ()
    if getGlobalVariable('Called Out') == 'None': whisper(":::ERROR::: There seems to be no callout in progress")
    else:
@@ -624,7 +628,7 @@ def acceptCallout(ignored, x = 0, y = 0): # Same as the defending posse but with
       dude.highlight = DefendColor
       setGlobalVariable('Shootout','True') 
 
-def refuseCallout(ignored, x = 0, y = 0): # Boots the dude and moves him to your home or informs you if they cannot refuse.
+def refuseCallout(ignored = None, x = 0, y = 0): # Boots the dude and moves him to your home or informs you if they cannot refuse.
    chooseSide()
    mute ()
    if getGlobalVariable('Called Out') == 'None': whisper(":::ERROR::: There seems to be no callout in progress")
