@@ -86,6 +86,7 @@ def goToShootout(group = table, x = 0, y = 0): # Start or End a Shootout Phase
    else: # When the shootout ends however, any card.highlights for attacker and defender are quickly cleared.
       notify("The shootout has ended.".format(me))
       clearShootout()
+      setGlobalVariable('Called Out','None') # We also clear the Called Out variable just in case
 
 #---------------------------------------------------------------------------
 # Table group actions
