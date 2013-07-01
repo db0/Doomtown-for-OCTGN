@@ -7,6 +7,28 @@
             <text color="#000000" size="55" />
             <border color="#440044" size="1" />
          </block>
+   <!-- Common Blocks -->
+         <block type="text" id="rank">
+           <location x="20" y="10" />
+           <text color="#000000" size="85"  font="Proxy/PointedlyMad.ttf" />
+         </block>
+         <block type="text" id="suit">
+           <location x="20" y="100" />
+           <text color="#000000" size="65"  font="Proxy/PointedlyMad.ttf" />
+         </block>
+         <block type="text" id="cost">
+           <location x="50" y="795" />
+           <text color="#000000" size="55" />
+           <border color="#000000" size="2" />
+         </block>
+         <block type="text" id="upkeep">
+           <location x="550" y="785" />
+           <text color="#FFFFFF" size="65" font="Proxy/PointedlyMad.ttf" />
+         </block>
+         <block type="text" id="production">
+           <location x="530" y="785" />
+           <text color="#FFFFFF" size="65" font="Proxy/PointedlyMad.ttf" />
+         </block>
    <!-- Card Suit Blocks -->
          <block type="overlay" id="clubs" src="Proxy/Values/clubs.png">         
            <location x="16" y="105" />
@@ -99,27 +121,111 @@
          <block type="overlay" id="r_k" src="Proxy/Values/r_k.png">         
            <location x="20" y="18" />
          </block>  
-   <!-- Common Blocks -->
-         <block type="text" id="rank">
-           <location x="20" y="10" />
-           <text color="#000000" size="85"  font="Proxy/PointedlyMad.ttf" />
+   <!-- Dude Blocks -->
+         <block type="overlay" id="dude_agency" src="Proxy/Dudes/agency.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="dude_blackjacks" src="Proxy/Dudes/blackjacks.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="dude_collegium" src="Proxy/Dudes/collegium.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="dude_drifter" src="Proxy/Dudes/drifter.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="dude_law_dogs" src="Proxy/Dudes/law_dogs.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="dude_lost_angels" src="Proxy/Dudes/lost_angels.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="dude_maze_rats" src="Proxy/Dudes/maze_rats.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="dude_sioux" src="Proxy/Dudes/sioux_union.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="dude_sweetrock" src="Proxy/Dudes/sweetrock.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="dude_texas_rangers" src="Proxy/Dudes/texas_rangers.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="dude_flock" src="Proxy/Dudes/the_flock.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="dude_whateleys" src="Proxy/Dudes/the_whateleys.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="text" id="dude_name">
+           <location x="170" y="30" />
+           <text color="#000000" size="65" font="Proxy/PointedlyMad.ttf" />
+           <wordwrap height="140" width="400" align="center" valign="center" shrinktofit="True"/>
          </block>
-         <block type="text" id="suit">
-           <location x="20" y="100" />
-           <text color="#000000" size="65"  font="Proxy/PointedlyMad.ttf" />
+         <block type="text" id="dude_text">
+           <location x="60" y="590" />
+           <text color="#000000" size="31" />
+           <wordwrap height="200" width="545" shrinktofit="True"/>
          </block>
-         <block type="text" id="cost">
-           <location x="50" y="795" />
-           <text color="#000000" size="55" />
-           <border color="#000000" size="2" />
+   <!-- Outfit Blocks -->
+         <block type="overlay" id="outfit_agency" src="Proxy/Outfits/agency.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="outfit_blackjacks" src="Proxy/Outfits/blackjacks.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="outfit_collegium" src="Proxy/Outfits/collegium.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="outfit_law_dogs" src="Proxy/Outfits/law_dogs.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="outfit_lost_angels" src="Proxy/Outfits/lost_angels.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="outfit_maze_rats" src="Proxy/Outfits/maze_rats.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="outfit_sioux" src="Proxy/Outfits/sioux_union.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="outfit_sweetrock" src="Proxy/Outfits/sweetrock.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="outfit_texas_rangers" src="Proxy/Outfits/texas_rangers.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="outfit_flock" src="Proxy/Outfits/the_flock.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="outfit_whateleys" src="Proxy/Outfits/the_whateleys.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="text" id="starting_rock">
+           <location x="538" y="692" />
+           <text color="#000000" size="65" font="Proxy/PointedlyMad.ttf" />
          </block>
-         <block type="text" id="upkeep">
-           <location x="550" y="785" />
-           <text color="#FFFFFF" size="65" font="Proxy/PointedlyMad.ttf" />
+         <block type="text" id="outfit_name">
+           <location x="20" y="30" />
+           <text color="#FFFFFF" size="75" font="Proxy/PointedlyMad.ttf" />
+           <wordwrap height="160" width="430" align="center" valign="center" shrinktofit="True"/>
          </block>
-         <block type="text" id="production">
-           <location x="530" y="785" />
-           <text color="#FFFFFF" size="65" font="Proxy/PointedlyMad.ttf" />
+         <block type="text" id="outfit_text">
+           <location x="60" y="575" rotate="356" />
+           <text color="#000000" size= "31" />
+           <wordwrap height="280" width="480" shrinktofit="True"/>
+         </block>
+   <!-- Spell Block-->
+         <block type="text" id="spell_name">
+           <location x="170" y="10" />
+           <text color="#000000" size="75" font="Proxy/PointedlyMad.ttf" />
+           <wordwrap height="160" width="430" align="center" valign="center" shrinktofit="True"/>
+         </block>
+         <block type="text" id="action_text">
+           <location x="60" y="590" />
+           <text color="#000000" size="31" />
+           <wordwrap height="200" width="545" shrinktofit="True"/>
          </block>
    <!-- Action Block-->
          <block type="text" id="action_name">
@@ -155,6 +261,171 @@
             </link>
          </textblocks>
       </template>
+   <!-- Outfit Template -->
+      <template src="Proxy/blank_background.jpg">
+         <matches>
+            <match name="Type" value="Outfit" />
+         </matches>
+         <overlayblocks>
+            <conditional>
+               <switch property="Outfit">
+                  <case value="The Agency">
+                     <link block="outfit_agency" />
+                  </case>
+                  <case value="Blackjacks">
+                     <link block="outfit_blackjacks" />
+                  </case>
+                  <case value="Collegium">
+                     <link block="outfit_collegium" />
+                  </case>
+                  <case value="Law Dogs">
+                     <link block="outfit_law_dogs" />
+                  </case>
+                  <case value="Lost Angels">
+                     <link block="outfit_lost_angels" />
+                  </case>
+                  <case value="Maze Rats">
+                     <link block="outfit_maze_rats" />
+                  </case>
+                  <case value="Sioux Union">
+                     <link block="outfit_sioux" />
+                  </case>
+                  <case value="Sweetrock">
+                     <link block="outfit_sweetrock" />
+                  </case>
+                  <case value="Texas Rangers">
+                     <link block="outfit_texas_rangers" />
+                  </case>
+                  <case value="Flock">
+                     <link block="outfit_flock" />
+                  </case>
+                  <case value="Whateleys">
+                     <link block="outfit_whateleys" />
+                  </case>
+                  <default>
+                     <link block="outfit_drifter" />
+                  </default>
+               </switch>
+            </conditional>
+         </overlayblocks>
+         <textblocks>
+            <link block="outfit_name" separator=" ">
+               <property name="Name"  />
+            </link>
+            <link block="starting_rock" separator=" ">
+               <property name="Ghost Rock"  />
+            </link>
+            <link block="outfit_text" separator=" ">
+               <property name="Text"  />
+            </link>
+            <link block="production">
+               <property name="Production" format="+{}" />
+            </link>
+         </textblocks>
+      </template>   
+   <!-- Dude Template -->
+      <template src="Proxy/blank_background.jpg">
+         <matches>
+            <match name="Type" value="Dude" />
+         </matches>
+         <overlayblocks>
+            <conditional>
+               <switch property="Outfit">
+                  <case value="The Agency">
+                     <link block="dude_agency" />
+                  </case>
+                  <case value="Blackjacks">
+                     <link block="dude_blackjacks" />
+                  </case>
+                  <case value="Collegium">
+                     <link block="dude_collegium" />
+                  </case>
+                  <case value="Law Dogs">
+                     <link block="dude_law_dogs" />
+                  </case>
+                  <case value="Lost Angels">
+                     <link block="dude_lost_angels" />
+                  </case>
+                  <case value="Maze Rats">
+                     <link block="dude_maze_rats" />
+                  </case>
+                  <case value="Sioux Union">
+                     <link block="dude_sioux" />
+                  </case>
+                  <case value="Sweetrock">
+                     <link block="dude_sweetrock" />
+                  </case>
+                  <case value="Texas Rangers">
+                     <link block="dude_texas_rangers" />
+                  </case>
+                  <case value="Flock">
+                     <link block="dude_flock" />
+                  </case>
+                  <case value="Whateleys">
+                     <link block="dude_whateleys" />
+                  </case>
+                  <default>
+                     <link block="dude_drifter" />
+                  </default>
+               </switch>
+            </conditional>
+            <conditional>
+               <switch property="Rank">
+                  <case value="K">
+                     <link block="b_k" />
+                  </case>
+                  <case value="Q">
+                     <link block="b_q" />
+                  </case>
+                  <case value="J">
+                     <link block="b_j" />
+                  </case>
+                  <case value="10">
+                     <link block="b_10" />
+                  </case>
+                  <case value="9">
+                     <link block="b_9" />
+                  </case>
+                  <case value="8">
+                     <link block="b_8" />
+                  </case>
+                  <case value="7">
+                     <link block="b_7" />
+                  </case>
+                  <case value="6">
+                     <link block="b_6" />
+                  </case>
+                  <case value="5">
+                     <link block="b_5" />
+                  </case>
+                  <case value="4">
+                     <link block="b_4" />
+                  </case>
+                  <case value="3">
+                     <link block="b_3" />
+                  </case>
+                  <case value="2">
+                     <link block="b_2" />
+                  </case>
+                  <case value="A">
+                     <link block="b_a" />
+                  </case>
+               </switch>
+            </conditional>
+            <link block="spades" />
+         </overlayblocks>
+         <textblocks>
+            <link block="dude_name" separator=" ">
+               <property name="Name"  />
+            </link>
+            <link block="cost" separator=" ">
+               <property name="Cost"  />
+            </link>
+            <link block="dude_text" separator=" ">
+               <property name="Text"  />
+            </link>
+         </textblocks>
+      </template>   
    <!-- Action Template -->
       <template src="Proxy/action.jpg">
          <matches>
@@ -289,6 +560,207 @@
                <property name="Cost"  />
             </link>
             <link block="deed_text">
+               <property name="Text"  />
+            </link>
+         </textblocks>
+      </template>   
+   <!-- Improvement Template -->
+      <template src="Proxy/improvement.jpg">
+         <matches>
+            <match name="Type" value="Improvement" />
+         </matches>
+         <overlayblocks>
+            <conditional>
+               <switch property="Rank">
+                  <case value="K">
+                     <link block="r_k" />
+                  </case>
+                  <case value="Q">
+                     <link block="r_q" />
+                  </case>
+                  <case value="J">
+                     <link block="r_j" />
+                  </case>
+                  <case value="10">
+                     <link block="r_10" />
+                  </case>
+                  <case value="9">
+                     <link block="r_9" />
+                  </case>
+                  <case value="8">
+                     <link block="r_8" />
+                  </case>
+                  <case value="7">
+                     <link block="r_7" />
+                  </case>
+                  <case value="6">
+                     <link block="r_6" />
+                  </case>
+                  <case value="5">
+                     <link block="r_5" />
+                  </case>
+                  <case value="4">
+                     <link block="r_4" />
+                  </case>
+                  <case value="3">
+                     <link block="r_3" />
+                  </case>
+                  <case value="2">
+                     <link block="r_2" />
+                  </case>
+                  <case value="A">
+                     <link block="r_a" />
+                  </case>
+               </switch>
+            </conditional>
+            <link block="diamonds" />
+         </overlayblocks>
+         <textblocks>
+            <conditional>
+               <if property="Production" value="0">
+                  <link block="upkeep">
+                     <property name="Upkeep"  />
+                  </link>
+               </if>
+               <else>
+                  <link block="production">
+                     <property name="Production" format="+{}" />
+                  </link>
+               </else>
+            </conditional>
+            <link block="deed_name">
+               <property name="Name"  />
+            </link>
+            <link block="cost">
+               <property name="Cost"  />
+            </link>
+            <link block="deed_text">
+               <property name="Text"  />
+            </link>
+         </textblocks>
+      </template>   
+   <!-- Goods Template -->
+      <template src="Proxy/goods.jpg">
+         <matches>
+            <match name="Type" value="Goods" />
+         </matches>
+         <overlayblocks>
+            <conditional>
+               <switch property="Rank">
+                  <case value="K">
+                     <link block="r_k" />
+                  </case>
+                  <case value="Q">
+                     <link block="r_q" />
+                  </case>
+                  <case value="J">
+                     <link block="r_j" />
+                  </case>
+                  <case value="10">
+                     <link block="r_10" />
+                  </case>
+                  <case value="9">
+                     <link block="r_9" />
+                  </case>
+                  <case value="8">
+                     <link block="r_8" />
+                  </case>
+                  <case value="7">
+                     <link block="r_7" />
+                  </case>
+                  <case value="6">
+                     <link block="r_6" />
+                  </case>
+                  <case value="5">
+                     <link block="r_5" />
+                  </case>
+                  <case value="4">
+                     <link block="r_4" />
+                  </case>
+                  <case value="3">
+                     <link block="r_3" />
+                  </case>
+                  <case value="2">
+                     <link block="r_2" />
+                  </case>
+                  <case value="A">
+                     <link block="r_a" />
+                  </case>
+               </switch>
+            </conditional>
+            <link block="hearts" />
+         </overlayblocks>
+         <textblocks>
+            <link block="action_name">
+               <property name="Name"  />
+            </link>
+            <link block="cost">
+               <property name="Cost"  />
+            </link>
+            <link block="action_text">
+               <property name="Text"  />
+            </link>
+         </textblocks>
+      </template>   
+   <!-- Spell Template -->
+      <template src="Proxy/spell.jpg">
+         <matches>
+            <match name="Type" value="Spell" />
+         </matches>
+         <overlayblocks>
+            <conditional>
+               <switch property="Rank">
+                  <case value="K">
+                     <link block="r_k" />
+                  </case>
+                  <case value="Q">
+                     <link block="r_q" />
+                  </case>
+                  <case value="J">
+                     <link block="r_j" />
+                  </case>
+                  <case value="10">
+                     <link block="r_10" />
+                  </case>
+                  <case value="9">
+                     <link block="r_9" />
+                  </case>
+                  <case value="8">
+                     <link block="r_8" />
+                  </case>
+                  <case value="7">
+                     <link block="r_7" />
+                  </case>
+                  <case value="6">
+                     <link block="r_6" />
+                  </case>
+                  <case value="5">
+                     <link block="r_5" />
+                  </case>
+                  <case value="4">
+                     <link block="r_4" />
+                  </case>
+                  <case value="3">
+                     <link block="r_3" />
+                  </case>
+                  <case value="2">
+                     <link block="r_2" />
+                  </case>
+                  <case value="A">
+                     <link block="r_a" />
+                  </case>
+               </switch>
+            </conditional>
+            <link block="hearts" />
+         </overlayblocks>
+         <textblocks>
+            <link block="spell_name">
+               <property name="Name"  />
+            </link>
+            <link block="cost">
+               <property name="Cost"  />
+            </link>
+            <link block="action_text">
                <property name="Text"  />
             </link>
          </textblocks>
