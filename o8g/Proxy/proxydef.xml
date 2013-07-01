@@ -7,6 +7,13 @@
             <text color="#000000" size="55" />
             <border color="#440044" size="1" />
          </block>
+         <block type="overlay" id="dummy" src="Proxy/Icons/Conditional_Dummy.png">         
+           <location x="1" y="1" />
+         </block>  
+         <block type="text" id="dummy_text">
+            <location x="1" y="1" />
+            <text color="#000000" size="1" />
+         </block>
    <!-- Common Blocks -->
          <block type="text" id="rank">
            <location x="20" y="10" />
@@ -121,6 +128,59 @@
          <block type="overlay" id="r_k" src="Proxy/Values/r_k.png">         
            <location x="20" y="18" />
          </block>  
+   <!-- Icon Blocks -->
+         <block type="overlay" id="icon_bullet_stud" src="Proxy/Icons/bullet_stud.png">         
+           <location x="30" y="180" />
+         </block>     
+         <block type="overlay" id="icon_bullet_draw" src="Proxy/Icons/bullet_draw.png">         
+           <location x="30" y="180" />
+         </block>     
+         <block type="overlay" id="icon_influence" src="Proxy/Icons/pc_influence.png">         
+           <location x="15" y="350" />
+         </block>     
+         <block type="overlay" id="icon_control" src="Proxy/Icons/pc_control.png">         
+           <location x="15" y="350" />
+         </block>     
+         <block type="overlay" id="icon_cost" src="Proxy/Icons/cost.png">         
+           <location x="23" y="770" />
+         </block>     
+         <block type="overlay" id="icon_production_upkeep" src="Proxy/Icons/production_upkeep.png">         
+           <location x="520" y="770" />
+         </block>     
+   <!-- Outfit Icon Blocks -->
+         <block type="overlay" id="outfit_icon_agency" src="Proxy/Icons/fs_the_agency.png">         
+           <location x="15" y="450" />
+         </block>  
+         <block type="overlay" id="outfit_icon_blackjacks" src="Proxy/Icons/fs_blackjacks.png">         
+           <location x="15" y="450" />
+         </block>  
+         <block type="overlay" id="outfit_icon_collegium" src="Proxy/Icons/fs_collegium.png">         
+           <location x="15" y="450" />
+         </block>  
+         <block type="overlay" id="outfit_icon_law_dogs" src="Proxy/Icons/fs_law_dogs.png">         
+           <location x="15" y="450" />
+         </block>  
+         <block type="overlay" id="outfit_icon_lost_angels" src="Proxy/Icons/fs_lost_angels.png">         
+           <location x="15" y="450" />
+         </block>  
+         <block type="overlay" id="outfit_icon_maze_rats" src="Proxy/Icons/fs_maze_rats.png">         
+           <location x="15" y="450" />
+         </block>  
+         <block type="overlay" id="outfit_icon_sioux" src="Proxy/Icons/fs_sioux_union.png">         
+           <location x="15" y="450" />
+         </block>  
+         <block type="overlay" id="outfit_icon_sweetrock" src="Proxy/Icons/fs_sweetrock.png">         
+           <location x="15" y="450" />
+         </block>  
+         <block type="overlay" id="outfit_icon_texas_rangers" src="Proxy/Icons/fs_texas_rangers.png">         
+           <location x="15" y="450" />
+         </block>  
+         <block type="overlay" id="outfit_icon_flock" src="Proxy/Icons/fs_the_flock.png">         
+           <location x="15" y="450" />
+         </block>  
+         <block type="overlay" id="outfit_icon_whateleys" src="Proxy/Icons/fs_whateleys.png">         
+           <location x="15" y="450" />
+         </block>     
    <!-- Dude Blocks -->
          <block type="overlay" id="dude_agency" src="Proxy/Dudes/agency.jpg">         
            <location x="0" y="0" />
@@ -168,6 +228,14 @@
            <text color="#000000" size="31" />
            <wordwrap height="200" width="545" shrinktofit="True"/>
          </block>
+         <block type="text" id="bullet">
+           <location x="30" y="230" />
+           <text color="#000000" size="75" font="Proxy/PointedlyMad.ttf" />
+         </block>
+         <block type="text" id="influence">
+           <location x="32" y="352" />
+           <text color="#000000" size="75" font="Proxy/PointedlyMad.ttf" />
+         </block>
    <!-- Outfit Blocks -->
          <block type="overlay" id="outfit_agency" src="Proxy/Outfits/agency.jpg">         
            <location x="0" y="0" />
@@ -201,6 +269,45 @@
          </block>  
          <block type="overlay" id="outfit_whateleys" src="Proxy/Outfits/the_whateleys.jpg">         
            <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="outfit_coalition" src="Proxy/Outfits/coalition.jpg">         
+           <location x="0" y="0" />
+         </block>  
+         <block type="overlay" id="home_outfit_icon_agency" src="Proxy/Icons/fs_the_agency.png">         
+           <location x="520" y="110" />
+         </block>  
+         <block type="overlay" id="home_outfit_icon_blackjacks" src="Proxy/Icons/fs_blackjacks.png">         
+           <location x="520" y="110" />
+         </block>  
+         <block type="overlay" id="home_outfit_icon_collegium" src="Proxy/Icons/fs_collegium.png">         
+           <location x="520" y="110" />
+         </block>  
+         <block type="overlay" id="home_outfit_icon_law_dogs" src="Proxy/Icons/fs_law_dogs.png">         
+           <location x="520" y="110" />
+         </block>  
+         <block type="overlay" id="home_outfit_icon_lost_angels" src="Proxy/Icons/fs_lost_angels.png">         
+           <location x="520" y="110" />
+         </block>  
+         <block type="overlay" id="home_outfit_icon_maze_rats" src="Proxy/Icons/fs_maze_rats.png">         
+           <location x="520" y="110" />
+         </block>  
+         <block type="overlay" id="home_outfit_icon_sioux" src="Proxy/Icons/fs_sioux_union.png">         
+           <location x="520" y="110" />
+         </block>  
+         <block type="overlay" id="home_outfit_icon_sweetrock" src="Proxy/Icons/fs_sweetrock.png">         
+           <location x="520" y="110" />
+         </block>  
+         <block type="overlay" id="home_outfit_icon_texas_rangers" src="Proxy/Icons/fs_texas_rangers.png">         
+           <location x="520" y="110" />
+         </block>  
+         <block type="overlay" id="home_outfit_icon_flock" src="Proxy/Icons/fs_the_flock.png">         
+           <location x="520" y="110" />
+         </block>  
+         <block type="overlay" id="home_outfit_icon_whateleys" src="Proxy/Icons/fs_whateleys.png">         
+           <location x="520" y="110" />
+         </block>  
+         <block type="overlay" id="home_outfit_icon_agency_coalition" src="Proxy/Icons/fs_the_agency.png">         
+           <location x="520" y="220" />
          </block>  
          <block type="text" id="starting_rock">
            <location x="538" y="692" />
@@ -271,40 +378,53 @@
                <switch property="Outfit">
                   <case value="The Agency">
                      <link block="outfit_agency" />
+                     <link block="home_outfit_icon_agency" />
                   </case>
                   <case value="Blackjacks">
                      <link block="outfit_blackjacks" />
+                     <link block="home_outfit_icon_blackjacks" />
                   </case>
                   <case value="Collegium">
                      <link block="outfit_collegium" />
+                     <link block="home_outfit_icon_collegium" />
                   </case>
                   <case value="Law Dogs">
                      <link block="outfit_law_dogs" />
+                     <link block="home_outfit_icon_law_dogs" />
                   </case>
                   <case value="Lost Angels">
                      <link block="outfit_lost_angels" />
+                     <link block="home_outfit_icon_lost_angels" />
                   </case>
                   <case value="Maze Rats">
                      <link block="outfit_maze_rats" />
+                     <link block="home_outfit_icon_maze_rats" />
                   </case>
                   <case value="Sioux Union">
                      <link block="outfit_sioux" />
+                     <link block="home_outfit_icon_sioux" />
                   </case>
                   <case value="Sweetrock">
                      <link block="outfit_sweetrock" />
+                     <link block="home_outfit_icon_sweetrock" />
                   </case>
                   <case value="Texas Rangers">
                      <link block="outfit_texas_rangers" />
+                     <link block="home_outfit_icon_texas_rangers" />
                   </case>
                   <case value="Flock">
                      <link block="outfit_flock" />
+                     <link block="home_outfit_icon_flock" />
                   </case>
                   <case value="Whateleys">
                      <link block="outfit_whateleys" />
+                     <link block="home_outfit_icon_whateleys" />
                   </case>
-                  <default>
-                     <link block="outfit_drifter" />
-                  </default>
+                  <case value="Coalition">
+                     <link block="outfit_coalition" />
+                     <link block="home_outfit_icon_texas_rangers" />
+                     <link block="home_outfit_icon_agency_coalition" />
+                  </case>
                </switch>
             </conditional>
          </overlayblocks>
@@ -333,36 +453,47 @@
                <switch property="Outfit">
                   <case value="The Agency">
                      <link block="dude_agency" />
+                     <link block="outfit_icon_agency" />
                   </case>
                   <case value="Blackjacks">
                      <link block="dude_blackjacks" />
+                     <link block="outfit_icon_blackjacks" />
                   </case>
                   <case value="Collegium">
                      <link block="dude_collegium" />
+                     <link block="outfit_icon_collegium" />
                   </case>
                   <case value="Law Dogs">
                      <link block="dude_law_dogs" />
+                     <link block="outfit_icon_law_dogs" />
                   </case>
                   <case value="Lost Angels">
                      <link block="dude_lost_angels" />
+                     <link block="outfit_icon_lost_angels" />
                   </case>
                   <case value="Maze Rats">
                      <link block="dude_maze_rats" />
+                     <link block="outfit_icon_maze_rats" />
                   </case>
                   <case value="Sioux Union">
                      <link block="dude_sioux" />
+                     <link block="outfit_icon_sioux" />
                   </case>
                   <case value="Sweetrock">
                      <link block="dude_sweetrock" />
+                     <link block="outfit_icon_sweetrock" />
                   </case>
                   <case value="Texas Rangers">
                      <link block="dude_texas_rangers" />
+                     <link block="outfit_icon_texas_rangers" />
                   </case>
                   <case value="Flock">
                      <link block="dude_flock" />
+                     <link block="outfit_icon_flock" />
                   </case>
                   <case value="Whateleys">
                      <link block="dude_whateleys" />
+                     <link block="outfit_icon_whateleys" />
                   </case>
                   <default>
                      <link block="dude_drifter" />
@@ -412,17 +543,51 @@
                   </case>
                </switch>
             </conditional>
+            <conditional>
+               <if property="Draw Type" value="Stud">
+                  <link block="icon_bullet_stud" />
+               </if>
+               <else>
+                  <link block="icon_bullet_draw" />
+               </else>               
+            </conditional>
             <link block="spades" />
+            <link block="icon_influence" />
+            <link block="icon_cost" />
+            <link block="icon_production_upkeep" />
          </overlayblocks>
          <textblocks>
+            <conditional>
+               <if property="Production" value="1">
+                  <link block="production">
+                     <property name="Production" format="+{}" />
+                  </link>
+               </if>
+               <!-- <elseif property="Production" value="+*">
+                  <link block="production">
+                     <property name="Production" format="{}" />
+                  </link>
+               </elseif> #For some reason elseif messes up the else later on. Disabling for now --> 
+               <else>
+                  <link block="upkeep">
+                     <property name="Upkeep" />
+                  </link>
+               </else>
+            </conditional>
             <link block="dude_name" separator=" ">
                <property name="Name"  />
+            </link>
+            <link block="dude_text" separator=" ">
+               <property name="Text"  />
             </link>
             <link block="cost" separator=" ">
                <property name="Cost"  />
             </link>
-            <link block="dude_text" separator=" ">
-               <property name="Text"  />
+            <link block="bullet" separator=" ">
+               <property name="Bullets"  />
+            </link>
+            <link block="influence" separator=" ">
+               <property name="Influence"  />
             </link>
          </textblocks>
       </template>   
@@ -689,8 +854,31 @@
                </switch>
             </conditional>
             <link block="hearts" />
+            <conditional>
+               <if property="Bullet Bonus" value="#NULL#">
+                  <link block="dummy" />
+               </if>
+               <!-- <elseif property="Draw Type" value="Stud">
+                  <link block="icon_bullet_stud" />
+               </elseif> #Bug https://github.com/kellyelton/OCTGN/issues/928 -->
+               <else>
+                  <link block="icon_bullet_draw" />
+               </else>               
+            </conditional>
          </overlayblocks>
          <textblocks>
+            <conditional>
+               <if property="Bullet Bonus" value="#NULL#">
+                  <link block="dummy_text" separator=" ">
+                     <property name="Dummy"  />
+                  </link>
+               </if>
+               <else>
+                  <link block="bullet">
+                     <property name="Bullet Bonus" format="{}" />
+                  </link>
+               </else>
+            </conditional>
             <link block="action_name">
                <property name="Name"  />
             </link>

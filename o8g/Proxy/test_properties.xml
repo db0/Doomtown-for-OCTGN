@@ -1,7 +1,7 @@
 <root>
   <propertyset>
     <name>Type</name>
-    <value>Action</value>
+    <value>Dude</value>
   </propertyset>
   <propertyset>
     <name>Rank</name>
@@ -13,10 +13,42 @@
   </propertyset>
   <propertyset>
     <name>Name</name>
-    <value>Friends in High Places</value>
+    <value>The Twitch</value>
   </propertyset>
   <propertyset>
     <name>Text</name>
     <value>Starting with the Winner and going clockwise, one of your opponent's Dudes can start a job to rob the stage in the Town Square. You can form a posse to defend it if you wish. If the job succeeds, pay that player 4 Ghost Rock, or your total Ghost Rock if you have less than 4. If nobody attacks the stage or the job fails, you gain 4 Ghost Rock from the Bank.</value>
+  </propertyset>
+  <propertyset>
+    <name>Cost</name>
+    <value>3</value>
+  </propertyset>
+  <propertyset>
+    <name>Outfit</name>
+    <value>Blackjacks</value>
+  </propertyset>
+  <propertyset>
+    <name>Ghost Rock</name>
+    <value>17</value>
+  </propertyset>
+  <propertyset>
+    <name>Production</name>
+    <value>3</value>
+  </propertyset>
+  <propertyset>
+    <name>Upkeep</name>
+    <value>2</value>
+  </propertyset>
+  <propertyset>
+    <name>Influence</name>
+    <value>2</value>
+  </propertyset>
+  <propertyset>
+    <name>Bullet</name>
+    <value>3</value>
+  </propertyset>
+  <propertyset>
+    <name>Draw Type</name>
+    <value>Stud</value>
   </propertyset>
 </root>
