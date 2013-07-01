@@ -1,10 +1,147 @@
 <?xml version="1.0" encoding="utf-8" ?>
    <templates>
       <blocks>
+   <!-- Default Block-->
          <block type="text" id="default_name">
             <location x="85" y="100" />
-            <text color="#000000" size="25" />
+            <text color="#000000" size="55" />
             <border color="#440044" size="1" />
+         </block>
+   <!-- Card Suit Blocks -->
+         <block type="overlay" id="clubs" src="Proxy/Values/clubs.png">         
+           <location x="16" y="105" />
+         </block>  
+         <block type="overlay" id="spades" src="Proxy/Values/spades.png">         
+           <location x="16" y="105" />
+         </block>  
+         <block type="overlay" id="hearts" src="Proxy/Values/hearts.png">         
+           <location x="16" y="105" />
+         </block>  
+         <block type="overlay" id="diamonds" src="Proxy/Values/diamonds.png">         
+           <location x="16" y="105" />
+         </block>  
+   <!-- Card Rank Blocks -->
+         <block type="overlay" id="b_a" src="Proxy/Values/b_a.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="b_2" src="Proxy/Values/b_2.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="b_3" src="Proxy/Values/b_3.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="b_4" src="Proxy/Values/b_4.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="b_5" src="Proxy/Values/b_5.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="b_6" src="Proxy/Values/b_6.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="b_7" src="Proxy/Values/b_7.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="b_8" src="Proxy/Values/b_8.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="b_9" src="Proxy/Values/b_9.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="b_10" src="Proxy/Values/b_10.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="b_j" src="Proxy/Values/b_j.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="b_q" src="Proxy/Values/b_q.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="b_k" src="Proxy/Values/b_k.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="r_a" src="Proxy/Values/r_a.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="r_2" src="Proxy/Values/r_2.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="r_3" src="Proxy/Values/r_3.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="r_4" src="Proxy/Values/r_4.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="r_5" src="Proxy/Values/r_5.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="r_6" src="Proxy/Values/r_6.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="r_7" src="Proxy/Values/r_7.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="r_8" src="Proxy/Values/r_8.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="r_9" src="Proxy/Values/r_9.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="r_10" src="Proxy/Values/r_10.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="r_j" src="Proxy/Values/r_j.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="r_q" src="Proxy/Values/r_q.png">         
+           <location x="20" y="18" />
+         </block>  
+         <block type="overlay" id="r_k" src="Proxy/Values/r_k.png">         
+           <location x="20" y="18" />
+         </block>  
+   <!-- Common Blocks -->
+         <block type="text" id="rank">
+           <location x="20" y="10" />
+           <text color="#000000" size="85"  font="Proxy/PointedlyMad.ttf" />
+         </block>
+         <block type="text" id="suit">
+           <location x="20" y="100" />
+           <text color="#000000" size="65"  font="Proxy/PointedlyMad.ttf" />
+         </block>
+         <block type="text" id="cost">
+           <location x="50" y="795" />
+           <text color="#000000" size="55" />
+           <border color="#000000" size="2" />
+         </block>
+         <block type="text" id="upkeep">
+           <location x="550" y="785" />
+           <text color="#FFFFFF" size="65" font="Proxy/PointedlyMad.ttf" />
+         </block>
+         <block type="text" id="production">
+           <location x="530" y="785" />
+           <text color="#FFFFFF" size="65" font="Proxy/PointedlyMad.ttf" />
+         </block>
+   <!-- Action Block-->
+         <block type="text" id="action_name">
+           <location x="170" y="30" />
+           <text color="#000000" size="75" font="Proxy/PointedlyMad.ttf" />
+           <wordwrap height="160" width="430" align="center" valign="center" shrinktofit="True"/>
+         </block>
+         <block type="text" id="action_text">
+           <location x="60" y="590" />
+           <text color="#000000" size="31" />
+           <wordwrap height="200" width="545" shrinktofit="True"/>
+         </block>
+   <!-- Deed Block-->
+         <block type="text" id="deed_name">
+           <location x="170" y="80" />
+           <text color="#000000" size="75" font="Proxy/PointedlyMad.ttf" />
+           <wordwrap height="75" width="430" align="center" valign="center" shrinktofit="True"/>
+         </block>
+         <block type="text" id="deed_text">
+           <location x="60" y="590" />
+           <text color="#000000" size="31" />
+           <wordwrap height="200" width="545" shrinktofit="True"/>
          </block>
       </blocks>
 <!-- TEMPLATES -->
@@ -18,4 +155,142 @@
             </link>
          </textblocks>
       </template>
+   <!-- Action Template -->
+      <template src="Proxy/action.jpg">
+         <matches>
+            <match name="Type" value="Action" />
+         </matches>
+         <overlayblocks>
+            <conditional>
+               <switch property="Rank">
+                  <case value="K">
+                     <link block="b_k" />
+                  </case>
+                  <case value="Q">
+                     <link block="b_q" />
+                  </case>
+                  <case value="J">
+                     <link block="b_j" />
+                  </case>
+                  <case value="10">
+                     <link block="b_10" />
+                  </case>
+                  <case value="9">
+                     <link block="b_9" />
+                  </case>
+                  <case value="8">
+                     <link block="b_8" />
+                  </case>
+                  <case value="7">
+                     <link block="b_7" />
+                  </case>
+                  <case value="6">
+                     <link block="b_6" />
+                  </case>
+                  <case value="5">
+                     <link block="b_5" />
+                  </case>
+                  <case value="4">
+                     <link block="b_4" />
+                  </case>
+                  <case value="3">
+                     <link block="b_3" />
+                  </case>
+                  <case value="2">
+                     <link block="b_2" />
+                  </case>
+                  <case value="A">
+                     <link block="b_a" />
+                  </case>
+               </switch>
+            </conditional>
+            <link block="clubs" />
+         </overlayblocks>
+         <textblocks>
+            <link block="action_name" separator=" ">
+               <property name="Name"  />
+            </link>
+            <link block="cost" separator=" ">
+               <property name="Cost"  />
+            </link>
+            <link block="action_text" separator=" ">
+               <property name="Text"  />
+            </link>
+         </textblocks>
+      </template>   
+   <!-- Deed Template -->
+      <template src="Proxy/deed.jpg">
+         <matches>
+            <match name="Type" value="Deed" />
+         </matches>
+         <overlayblocks>
+            <conditional>
+               <switch property="Rank">
+                  <case value="K">
+                     <link block="r_k" />
+                  </case>
+                  <case value="Q">
+                     <link block="r_q" />
+                  </case>
+                  <case value="J">
+                     <link block="r_j" />
+                  </case>
+                  <case value="10">
+                     <link block="r_10" />
+                  </case>
+                  <case value="9">
+                     <link block="r_9" />
+                  </case>
+                  <case value="8">
+                     <link block="r_8" />
+                  </case>
+                  <case value="7">
+                     <link block="r_7" />
+                  </case>
+                  <case value="6">
+                     <link block="r_6" />
+                  </case>
+                  <case value="5">
+                     <link block="r_5" />
+                  </case>
+                  <case value="4">
+                     <link block="r_4" />
+                  </case>
+                  <case value="3">
+                     <link block="r_3" />
+                  </case>
+                  <case value="2">
+                     <link block="r_2" />
+                  </case>
+                  <case value="A">
+                     <link block="r_a" />
+                  </case>
+               </switch>
+            </conditional>
+            <link block="diamonds" />
+         </overlayblocks>
+         <textblocks>
+            <conditional>
+               <if property="Production" value="0">
+                  <link block="upkeep">
+                     <property name="Upkeep"  />
+                  </link>
+               </if>
+               <else>
+                  <link block="production">
+                     <property name="Production" format="+{}" />
+                  </link>
+               </else>
+            </conditional>
+            <link block="deed_name">
+               <property name="Name"  />
+            </link>
+            <link block="cost">
+               <property name="Cost"  />
+            </link>
+            <link block="deed_text">
+               <property name="Text"  />
+            </link>
+         </textblocks>
+      </template>   
    </templates>

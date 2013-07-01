@@ -1,0 +1,22 @@
+<root>
+  <propertyset>
+    <name>Type</name>
+    <value>Action</value>
+  </propertyset>
+  <propertyset>
+    <name>Rank</name>
+    <value>A</value>
+  </propertyset>
+  <propertyset>
+    <name>Suit</name>
+    <value>H</value>
+  </propertyset>
+  <propertyset>
+    <name>Name</name>
+    <value>Friends in High Places</value>
+  </propertyset>
+  <propertyset>
+    <name>Text</name>
+    <value>Starting with the Winner and going clockwise, one of your opponent's Dudes can start a job to rob the stage in the Town Square. You can form a posse to defend it if you wish. If the job succeeds, pay that player 4 Ghost Rock, or your total Ghost Rock if you have less than 4. If nobody attacks the stage or the job fails, you gain 4 Ghost Rock from the Bank.</value>
+  </propertyset>
+</root>
