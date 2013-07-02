@@ -24,9 +24,10 @@
            <text color="#000000" size="65"  font="Proxy/PointedlyMad.ttf" />
          </block>
          <block type="text" id="cost">
-           <location x="50" y="795" />
+           <location x="20" y="795" />
            <text color="#000000" size="55" />
            <border color="#000000" size="2" />
+           <wordwrap height="55" width="100" align="center" />
          </block>
          <block type="text" id="upkeep">
            <location x="550" y="785" />
@@ -128,6 +129,29 @@
          <block type="overlay" id="r_k" src="Proxy/Values/r_k.png">         
            <location x="20" y="18" />
          </block>  
+   <!-- Joker Blocks -->
+         <block type="overlay" id="joker_top_left" src="Proxy/Values/joker_value_left.jpg">         
+           <location x="10" y="10" />
+         </block>  
+         <block type="overlay" id="joker_top_right" src="Proxy/Values/joker_value_right.jpg">         
+           <location x="570" y="10" />
+         </block>  
+         <block type="overlay" id="joker_bot_left" src="Proxy/Values/joker_value_left.jpg">         
+           <location x="10" y="830" />
+         </block>  
+         <block type="overlay" id="joker_bot_right" src="Proxy/Values/joker_value_right.jpg">         
+           <location x="570" y="830" />
+         </block>  
+         <block type="text" id="joker_name">
+           <location x="50" y="70" />
+           <text color="#000000" size="85" font="Proxy/PointedlyMad.ttf" />
+           <wordwrap height="170" width="570" align="center" valign="center" shrinktofit="True"/>
+         </block>
+         <block type="text" id="joker_text">
+           <location x="50" y="300" />
+           <text color="#000000" size="31" />
+           <wordwrap height="500" width="575" shrinktofit="True"/>
+         </block>
    <!-- Icon Blocks -->
          <block type="overlay" id="icon_bullet_stud" src="Proxy/Icons/bullet_stud.png">         
            <location x="30" y="180" />
@@ -338,7 +362,7 @@
          <block type="text" id="action_name">
            <location x="170" y="30" />
            <text color="#000000" size="75" font="Proxy/PointedlyMad.ttf" />
-           <wordwrap height="160" width="430" align="center" valign="center" shrinktofit="True"/>
+           <wordwrap height="140" width="430" align="center" valign="center" shrinktofit="True"/>
          </block>
          <block type="text" id="action_text">
            <location x="60" y="590" />
@@ -804,6 +828,66 @@
             </link>
          </textblocks>
       </template>   
+   <!-- Event Template -->
+      <template src="Proxy/event.jpg">
+         <matches>
+            <match name="Type" value="Event" />
+         </matches>
+         <overlayblocks>
+            <conditional>
+               <switch property="Rank">
+                  <case value="K">
+                     <link block="r_k" />
+                  </case>
+                  <case value="Q">
+                     <link block="r_q" />
+                  </case>
+                  <case value="J">
+                     <link block="r_j" />
+                  </case>
+                  <case value="10">
+                     <link block="r_10" />
+                  </case>
+                  <case value="9">
+                     <link block="r_9" />
+                  </case>
+                  <case value="8">
+                     <link block="r_8" />
+                  </case>
+                  <case value="7">
+                     <link block="r_7" />
+                  </case>
+                  <case value="6">
+                     <link block="r_6" />
+                  </case>
+                  <case value="5">
+                     <link block="r_5" />
+                  </case>
+                  <case value="4">
+                     <link block="r_4" />
+                  </case>
+                  <case value="3">
+                     <link block="r_3" />
+                  </case>
+                  <case value="2">
+                     <link block="r_2" />
+                  </case>
+                  <case value="A">
+                     <link block="r_a" />
+                  </case>
+               </switch>
+            </conditional>
+            <link block="hearts" />
+         </overlayblocks>
+         <textblocks>
+            <link block="deed_name">
+               <property name="Name"  />
+            </link>
+            <link block="deed_text">
+               <property name="Text"  />
+            </link>
+         </textblocks>
+      </template>   
    <!-- Goods Template -->
       <template src="Proxy/goods.jpg">
          <matches>
@@ -953,4 +1037,24 @@
             </link>
          </textblocks>
       </template>   
+   <!-- Action Template -->
+      <template src="Proxy/joker.jpg">
+         <matches>
+            <match name="Type" value="Joker" />
+         </matches>
+         <overlayblocks>
+            <link block="joker_top_left" />
+            <link block="joker_top_right" />
+            <link block="joker_bot_left" />
+            <link block="joker_bot_right" />
+         </overlayblocks>
+         <textblocks>
+            <link block="joker_name" separator=" ">
+               <property name="Name"  />
+            </link>
+            <link block="joker_text" separator=" ">
+               <property name="Text"  />
+            </link>
+         </textblocks>
+      </template>
    </templates>
