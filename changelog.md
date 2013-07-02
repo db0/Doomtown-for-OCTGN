@@ -1,6 +1,10 @@
 Changelog - Doomtown CCG OCTGN Game Definition
 ===============================================
 
+### 3.2.3.x
+
+* Added Proxy image generation. Now game can be played without downloading anyting if one wishes to.
+
 ### 3.2.2.x
 
 * Now using a Lowball Pot card to store lowball antes. It should make it clearer when there's a lowball and what the stakes are.
