@@ -14,7 +14,7 @@
             <location x="1" y="1" />
             <text color="#000000" size="1" />
          </block>
-   <!-- Common Blocks -->
+   <!-- Common Text Blocks -->
          <block type="text" id="rank">
            <location x="20" y="10" />
            <text color="#000000" size="85"  font="Proxy/PointedlyMad.ttf" />
@@ -24,18 +24,28 @@
            <text color="#000000" size="65"  font="Proxy/PointedlyMad.ttf" />
          </block>
          <block type="text" id="cost">
-           <location x="20" y="795" />
-           <text color="#000000" size="55" />
-           <border color="#000000" size="2" />
-           <wordwrap height="55" width="100" align="center" />
+           <location x="25" y="780" />
+           <text color="#000000" size="75" font="Proxy/PointedlyMad.ttf" />
+           <wordwrap height="75" width="100" align="center" />
          </block>
-         <block type="text" id="upkeep">
-           <location x="550" y="785" />
+         <block type="text" id="production_upkeep">
+           <location x="520" y="785" />
            <text color="#FFFFFF" size="65" font="Proxy/PointedlyMad.ttf" />
+           <wordwrap height="65" width="100" align="center" />
          </block>
-         <block type="text" id="production">
-           <location x="530" y="785" />
-           <text color="#FFFFFF" size="65" font="Proxy/PointedlyMad.ttf" />
+         <block type="text" id="bullet">
+           <location x="30" y="230" />
+           <text color="#000000" size="75" font="Proxy/PointedlyMad.ttf" />
+         </block>
+         <block type="text" id="influence">
+           <location x="10" y="352" />
+           <text color="#000000" size="75" font="Proxy/PointedlyMad.ttf" />
+           <wordwrap height="75" width="100" align="center" />
+         </block>
+         <block type="text" id="control">
+           <location x="10" y="352" />
+           <text color="#000000" size="75" font="Proxy/PointedlyMad.ttf" />
+           <wordwrap height="75" width="100" align="center" />
          </block>
    <!-- Card Suit Blocks -->
          <block type="overlay" id="clubs" src="Proxy/Values/clubs.png">         
@@ -243,7 +253,7 @@
            <location x="0" y="0" />
          </block>  
          <block type="text" id="dude_name">
-           <location x="170" y="30" />
+           <location x="170" y="20" />
            <text color="#000000" size="65" font="Proxy/PointedlyMad.ttf" />
            <wordwrap height="140" width="400" align="center" valign="center" shrinktofit="True"/>
          </block>
@@ -251,14 +261,6 @@
            <location x="60" y="590" />
            <text color="#000000" size="31" />
            <wordwrap height="200" width="545" shrinktofit="True"/>
-         </block>
-         <block type="text" id="bullet">
-           <location x="30" y="230" />
-           <text color="#000000" size="75" font="Proxy/PointedlyMad.ttf" />
-         </block>
-         <block type="text" id="influence">
-           <location x="32" y="352" />
-           <text color="#000000" size="75" font="Proxy/PointedlyMad.ttf" />
          </block>
    <!-- Outfit Blocks -->
          <block type="overlay" id="outfit_agency" src="Proxy/Outfits/agency.jpg">         
@@ -360,7 +362,7 @@
          </block>
    <!-- Action Block-->
          <block type="text" id="action_name">
-           <location x="170" y="30" />
+           <location x="170" y="20" />
            <text color="#000000" size="75" font="Proxy/PointedlyMad.ttf" />
            <wordwrap height="140" width="430" align="center" valign="center" shrinktofit="True"/>
          </block>
@@ -379,6 +381,12 @@
            <location x="60" y="590" />
            <text color="#000000" size="31" />
            <wordwrap height="200" width="545" shrinktofit="True"/>
+         </block>
+   <!-- Event Block-->
+         <block type="text" id="event_text">
+           <location x="60" y="560" />
+           <text color="#000000" size="31" />
+           <wordwrap height="310" width="545" shrinktofit="True"/>
          </block>
       </blocks>
 <!-- TEMPLATES -->
@@ -462,7 +470,7 @@
             <link block="outfit_text" separator=" ">
                <property name="Text"  />
             </link>
-            <link block="production">
+            <link block="production_upkeep">
                <property name="Production" format="+{}" />
             </link>
          </textblocks>
@@ -583,17 +591,17 @@
          <textblocks>
             <conditional>
                <if property="Production" value="1">
-                  <link block="production">
+                  <link block="production_upkeep">
                      <property name="Production" format="+{}" />
                   </link>
                </if>
                <!-- <elseif property="Production" value="+*">
-                  <link block="production">
+                  <link block="production_upkeep">
                      <property name="Production" format="{}" />
                   </link>
                </elseif> #For some reason elseif messes up the else later on. Disabling for now --> 
                <else>
-                  <link block="upkeep">
+                  <link block="production_upkeep">
                      <property name="Upkeep" />
                   </link>
                </else>
@@ -727,20 +735,56 @@
                   </case>
                </switch>
             </conditional>
+            <conditional>
+               <if property="Control" value="0">
+                  <link block="dummy" />
+               </if>
+               <else>
+                  <link block="icon_control" />
+               </else>               
+            </conditional>
+            <conditional>
+               <if property="Influence" value="">
+                  <link block="dummy" />
+               </if>
+               <else>
+                  <link block="icon_influence" />
+               </else>               
+            </conditional>
             <link block="diamonds" />
          </overlayblocks>
          <textblocks>
             <conditional>
                <if property="Production" value="0">
-                  <link block="upkeep">
+                  <link block="production_upkeep">
                      <property name="Upkeep"  />
                   </link>
                </if>
                <else>
-                  <link block="production">
+                  <link block="production_upkeep">
                      <property name="Production" format="+{}" />
                   </link>
                </else>
+            </conditional>
+            <conditional>
+               <if property="Control" value="0">
+                  <link block="dummy" />
+               </if>
+               <else>
+                  <link block="control">
+                     <property name="Control"  />
+                  </link>
+               </else>               
+            </conditional>
+            <conditional>
+               <if property="Influence" value="">
+                  <link block="dummy" />
+               </if>
+               <else>
+                  <link block="influence">
+                     <property name="Influence"  />
+                  </link>
+               </else>               
             </conditional>
             <link block="deed_name">
                <property name="Name"  />
@@ -802,20 +846,38 @@
                   </case>
                </switch>
             </conditional>
+            <conditional>
+               <if property="Control" value="0">
+                  <link block="dummy" />
+               </if>
+               <else>
+                  <link block="icon_control" />
+               </else>               
+            </conditional>
             <link block="diamonds" />
          </overlayblocks>
          <textblocks>
             <conditional>
                <if property="Production" value="0">
-                  <link block="upkeep">
+                  <link block="production_upkeep">
                      <property name="Upkeep"  />
                   </link>
                </if>
                <else>
-                  <link block="production">
+                  <link block="production_upkeep">
                      <property name="Production" format="+{}" />
                   </link>
                </else>
+            </conditional>
+            <conditional>
+               <if property="Control" value="0">
+                  <link block="dummy" />
+               </if>
+               <else>
+                  <link block="control">
+                     <property name="Control"  />
+                  </link>
+               </else>               
             </conditional>
             <link block="deed_name">
                <property name="Name"  />
@@ -883,7 +945,7 @@
             <link block="deed_name">
                <property name="Name"  />
             </link>
-            <link block="deed_text">
+            <link block="event_text">
                <property name="Text"  />
             </link>
          </textblocks>
@@ -939,7 +1001,7 @@
             </conditional>
             <link block="hearts" />
             <conditional>
-               <if property="Bullet Bonus" value="#NULL#">
+               <if property="Bullet Bonus" value="">
                   <link block="dummy" />
                </if>
                <!-- <elseif property="Draw Type" value="Stud">
@@ -949,10 +1011,26 @@
                   <link block="icon_bullet_draw" />
                </else>               
             </conditional>
+            <conditional>
+               <if property="Control" value="">
+                  <link block="dummy" />
+               </if>
+               <else>
+                  <link block="icon_control" />
+               </else>               
+            </conditional>
+            <conditional>
+               <if property="Influence" value="">
+                  <link block="dummy" />
+               </if>
+               <else>
+                  <link block="icon_influence" />
+               </else>               
+            </conditional>
          </overlayblocks>
          <textblocks>
             <conditional>
-               <if property="Bullet Bonus" value="#NULL#">
+               <if property="Bullet Bonus" value="">
                   <link block="dummy_text" separator=" ">
                      <property name="Dummy"  />
                   </link>
@@ -962,6 +1040,26 @@
                      <property name="Bullet Bonus" format="{}" />
                   </link>
                </else>
+            </conditional>
+            <conditional>
+               <if property="Control" value="">
+                  <link block="dummy" />
+               </if>
+               <else>
+                  <link block="control">
+                     <property name="Control" format="+{}" />
+                  </link>
+               </else>               
+            </conditional>
+            <conditional>
+               <if property="Influence" value="">
+                  <link block="dummy" />
+               </if>
+               <else>
+                  <link block="influence">
+                     <property name="Influence" format="+{}" />
+                  </link>
+               </else>               
             </conditional>
             <link block="action_name">
                <property name="Name"  />
@@ -1037,7 +1135,7 @@
             </link>
          </textblocks>
       </template>   
-   <!-- Action Template -->
+   <!-- Joker Template -->
       <template src="Proxy/joker.jpg">
          <matches>
             <match name="Type" value="Joker" />

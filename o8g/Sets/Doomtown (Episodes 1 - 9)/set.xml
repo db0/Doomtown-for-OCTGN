@@ -6848,7 +6848,7 @@
       <property name="Bullet Bonus" value="1" />
       <property name="Draw Type" value="" />
       <property name="Influence" value="1" />
-      <property name="Control" value="0" />
+      <property name="Control" value="" />
       <property name="Outfit" value="" />
       <property name="Rarity" value="R" />
       <property name="Ghost Rock" value="" />
