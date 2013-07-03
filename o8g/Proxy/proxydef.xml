@@ -17,34 +17,34 @@
    <!-- Common Text Blocks -->
          <block type="text" id="rank">
            <location x="20" y="10" />
-           <text color="#000000" size="85"  font="Proxy/PointedlyMad.ttf" />
+           <text color="#000000" size="85"  font="Fonts/playbill-doomtown.ttf" />
          </block>
          <block type="text" id="suit">
            <location x="20" y="100" />
-           <text color="#000000" size="65"  font="Proxy/PointedlyMad.ttf" />
+           <text color="#000000" size="65"  font="Fonts/playbill-doomtown.ttf" />
          </block>
          <block type="text" id="cost">
-           <location x="25" y="780" />
-           <text color="#000000" size="75" font="Proxy/PointedlyMad.ttf" />
-           <wordwrap height="75" width="100" align="center" />
+           <location x="25" y="765" />
+           <text color="#000000" size="95" font="Fonts/playbill-doomtown.ttf" />
+           <wordwrap height="95" width="100" align="center" />
          </block>
          <block type="text" id="production_upkeep">
-           <location x="520" y="785" />
-           <text color="#FFFFFF" size="65" font="Proxy/PointedlyMad.ttf" />
-           <wordwrap height="65" width="100" align="center" />
+           <location x="520" y="765" />
+           <text color="#FFFFFF" size="95" font="Fonts/playbill-doomtown.ttf" />
+           <wordwrap height="95" width="100" align="center" />
          </block>
          <block type="text" id="bullet">
-           <location x="30" y="230" />
-           <text color="#000000" size="75" font="Proxy/PointedlyMad.ttf" />
+           <location x="35" y="230" />
+           <text color="#000000" size="75" font="Fonts/playbill-doomtown.ttf" />
          </block>
          <block type="text" id="influence">
            <location x="10" y="352" />
-           <text color="#000000" size="75" font="Proxy/PointedlyMad.ttf" />
+           <text color="#000000" size="75" font="Fonts/playbill-doomtown.ttf" />
            <wordwrap height="75" width="100" align="center" />
          </block>
          <block type="text" id="control">
            <location x="10" y="352" />
-           <text color="#000000" size="75" font="Proxy/PointedlyMad.ttf" />
+           <text color="#000000" size="75" font="Fonts/playbill-doomtown.ttf" />
            <wordwrap height="75" width="100" align="center" />
          </block>
    <!-- Card Suit Blocks -->
@@ -154,8 +154,8 @@
          </block>  
          <block type="text" id="joker_name">
            <location x="50" y="70" />
-           <text color="#000000" size="85" font="Proxy/PointedlyMad.ttf" />
-           <wordwrap height="170" width="570" align="center" valign="center" shrinktofit="True"/>
+           <text color="#000000" size="125" font="Fonts/playbill-doomtown.ttf" />
+           <wordwrap height="125" width="570" align="center" valign="center" shrinktofit="True"/>
          </block>
          <block type="text" id="joker_text">
            <location x="50" y="300" />
@@ -253,14 +253,14 @@
            <location x="0" y="0" />
          </block>  
          <block type="text" id="dude_name">
-           <location x="170" y="20" />
-           <text color="#000000" size="65" font="Proxy/PointedlyMad.ttf" />
-           <wordwrap height="140" width="400" align="center" valign="center" shrinktofit="True"/>
+           <location x="160" y="40" />
+           <text color="#000000" size="125" font="Fonts/playbill-doomtown.ttf" />
+           <wordwrap height="125" width="400" align="center" valign="center" shrinktofit="True"/>
          </block>
          <block type="text" id="dude_text">
-           <location x="60" y="590" />
+           <location x="55" y="560" />
            <text color="#000000" size="31" />
-           <wordwrap height="200" width="545" shrinktofit="True"/>
+           <wordwrap height="220" width="545" shrinktofit="True"/>
          </block>
    <!-- Outfit Blocks -->
          <block type="overlay" id="outfit_agency" src="Proxy/Outfits/agency.jpg">         
@@ -337,12 +337,12 @@
          </block>  
          <block type="text" id="starting_rock">
            <location x="538" y="692" />
-           <text color="#000000" size="65" font="Proxy/PointedlyMad.ttf" />
+           <text color="#000000" size="65" font="Fonts/playbill-doomtown.ttf" />
          </block>
          <block type="text" id="outfit_name">
            <location x="20" y="30" />
-           <text color="#FFFFFF" size="75" font="Proxy/PointedlyMad.ttf" />
-           <wordwrap height="160" width="430" align="center" valign="center" shrinktofit="True"/>
+           <text color="#FFFFFF" size="125" font="Fonts/playbill-doomtown.ttf" />
+           <wordwrap height="125" width="430" align="center" valign="center" shrinktofit="True"/>
          </block>
          <block type="text" id="outfit_text">
            <location x="60" y="575" rotate="356" />
@@ -351,9 +351,9 @@
          </block>
    <!-- Spell Block-->
          <block type="text" id="spell_name">
-           <location x="170" y="10" />
-           <text color="#000000" size="75" font="Proxy/PointedlyMad.ttf" />
-           <wordwrap height="160" width="430" align="center" valign="center" shrinktofit="True"/>
+           <location x="160" y="20" />
+           <text color="#000000" size="125" font="Fonts/playbill-doomtown.ttf" />
+           <wordwrap height="125" width="430" align="center" valign="center" shrinktofit="True"/>
          </block>
          <block type="text" id="action_text">
            <location x="60" y="590" />
@@ -362,9 +362,9 @@
          </block>
    <!-- Action Block-->
          <block type="text" id="action_name">
-           <location x="170" y="20" />
-           <text color="#000000" size="75" font="Proxy/PointedlyMad.ttf" />
-           <wordwrap height="140" width="430" align="center" valign="center" shrinktofit="True"/>
+           <location x="160" y="40" />
+           <text color="#000000" size="125" font="Fonts/playbill-doomtown.ttf" />
+           <wordwrap height="125" width="430" align="center" valign="center" shrinktofit="True"/>
          </block>
          <block type="text" id="action_text">
            <location x="60" y="590" />
@@ -373,9 +373,9 @@
          </block>
    <!-- Deed Block-->
          <block type="text" id="deed_name">
-           <location x="170" y="80" />
-           <text color="#000000" size="75" font="Proxy/PointedlyMad.ttf" />
-           <wordwrap height="75" width="430" align="center" valign="center" shrinktofit="True"/>
+           <location x="160" y="55" />
+           <text color="#000000" size="125" font="Fonts/playbill-doomtown.ttf" />
+           <wordwrap height="125" width="430" align="center" valign="center" shrinktofit="True"/>
          </block>
          <block type="text" id="deed_text">
            <location x="60" y="590" />
