@@ -4,7 +4,7 @@
       name="Doomtown" 
       id="9afa6473-fd81-41b9-955f-8f67c7d3f423" 
       octgnVersion="3.1.0.0" 
-      version="3.2.3.0" 
+      version="3.2.4.0" 
       markersize="16"
       tags="western deadlands poker maneuvering multiplayer"
       description="A western themed card game, marying poker mechanics, town building, and chess-like maneuvering.
@@ -24,7 +24,7 @@
       <script src="Scripts/poker.py" />
 	</scripts> 
    <fonts>
-       <font src="Fonts/Pixel-Western.ttf" size="8" target="context"/>
+       <font src="Fonts/american-typewriter-medium-bt-2.ttf" size="12" target="context"/>
 <!--       <font src="Fonts/Pixel-Western.ttf" size="8" target="chat"/>  -->
    </fonts>   
    <proxygen definitionsrc="Proxy/proxydef.xml">
@@ -61,7 +61,7 @@
 		<cardaction menu="Boot/Unboot" default="False" execute="boot" />
 		<cardaction menu="Inspect Card" default="False" execute="inspectCard" />
 		<groupaction menu="Pay Upkeep / Receive Production." default="False" shortcut="Ctrl+U" execute="upkeep" />
-		<groupaction menu="Move to Next phase." default="False" shortcut="Ctrl+enter" execute="nextPhase" />
+		<groupaction menu="Move to Next phase." default="False" shortcut="Ctrl+Enter" execute="nextPhase" />
 		<groupactions menu="Game...">
 			<groupaction menu="Setup starting cards &amp; hand" default="False" shortcut="Ctrl+Shift+S" execute="setup" />
 			<groupaction menu="Download Sets Card Images." shortcut="Ctrl+G" default="False" execute="download_o8c" />

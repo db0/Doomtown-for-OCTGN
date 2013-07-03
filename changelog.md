@@ -1,6 +1,11 @@
 Changelog - Doomtown CCG OCTGN Game Definition
 ===============================================
 
+### 3.2.4.x
+
+* Changed the Proxy Card fonts
+* Changed the Context Menu font to something more legible but still thematic
+
 ### 3.2.3.x
 
 * Added Proxy image generation. Now game can be played without downloading anyting if one wishes to.
