@@ -4,7 +4,7 @@
       name="Doomtown" 
       id="9afa6473-fd81-41b9-955f-8f67c7d3f423" 
       octgnVersion="3.1.0.0" 
-      version="3.2.4.0" 
+      version="3.2.5.0" 
       markersize="16"
       tags="western deadlands poker maneuvering multiplayer"
       description="A western themed card game, marying poker mechanics, town building, and chess-like maneuvering.
@@ -134,6 +134,7 @@
 			<groupaction menu="Random Discard" default="False" shortcut="Ctrl+Alt+D" execute="randomDiscard" />
 		</hand>
 		<group name="Draw Hand" visibility="me" ordered="False" width="90" height="126" icon="Groups/drawhand.png" collapsed="False">
+			<cardaction menu="Discard card (target cards to refill)" default="True" shortcut="Del" execute="drawDiscard" />
 			<groupaction menu="Reveal Lowball Hand" default="True" execute="revealLowballHand" />
 			<groupaction menu="Reveal Shootout Hand" default="False" execute="revealShootoutHand" />
 			<groupaction menu="Discard hand" default="False" execute="discardDrawHand" />

@@ -1,6 +1,12 @@
 Changelog - Doomtown CCG OCTGN Game Definition
 ===============================================
 
+### 3.2.5.x
+
+* You can now double-click a card while in your draw hand to discard it.
+* You can now target any number of cards while in your draw hand and double-click one of them, to discard them and redraw the same amount. 
+* Now only the controller of a called-out dude can use the "refuse callout" shortcut.
+
 ### 3.2.4.x
 
 * Changed the Proxy Card fonts

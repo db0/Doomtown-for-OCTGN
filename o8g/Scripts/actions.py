@@ -696,6 +696,7 @@ def refuseCallout(ignored = None, x = 0, y = 0): # Boots the dude and moves him 
    if getGlobalVariable('Called Out') == 'None': whisper(":::ERROR::: There seems to be no callout in progress")
    else:
       chickenDude = Card(num(getGlobalVariable('Called Out')))
+      if chickenDude.controller != me: return # Only the dude's controller can press ESC to chicken out.
       if chickenDude.orientation == Rot90 and not confirm(":::WARNING::: Normally booted dudes cannot refuse callouts. Bypass restriction and refuse anyway?"): 
          return # If the dude is booted, they cannot refuse without a card effect
       else:
@@ -883,6 +884,18 @@ def handDiscard(card, x = 0, y = 0): # Discard a card from your hand.
    mute()
    card.moveTo(me.piles['Discard Pile'])
    notify("{} has discarded {}.".format(me, card))  
+
+def drawDiscard(card, x = 0, y = 0): # Discard a card from your hand.
+   mute()
+   if card.targetedBy:
+      group = card.group
+      drawDiscards = [replC for replC in group if replC.targetedBy]
+      for c in drawDiscards: c.moveTo(me.piles['Discard Pile'])
+      drawhandMany(me.Deck,len(drawDiscards),'silent')
+      notify("{} has redrawn {} cards from their draw hand.".format(me,len(drawDiscards)))
+   else:
+      card.moveTo(me.piles['Discard Pile'])
+      notify("{} has discarded {}.".format(me, card))  
 
 def randomDiscard(group): # Discard a card from your hand randomly.
    mute()
