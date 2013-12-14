@@ -691,7 +691,7 @@ def acceptCallout(ignored = None, x = 0, y = 0): # Same as the defending posse b
       setGlobalVariable('Shootout','True') 
 
 def refuseCallout(ignored = None, x = 0, y = 0): # Boots the dude and moves him to your home or informs you if they cannot refuse.
-   chooseSide()
+   #chooseSide()
    mute ()
    if getGlobalVariable('Called Out') == 'None': whisper(":::ERROR::: There seems to be no callout in progress")
    else:
@@ -710,7 +710,7 @@ def refuseCallout(ignored = None, x = 0, y = 0): # Boots the dude and moves him 
 
 def runAway(card, x = 0, y = 0): # Same as above pretty much but also clears the shootout highlights.
    if card.Type == "Dude" : 
-      chooseSide()
+      #chooseSide()
       mute ()
       notify("{} is running away from the shootout.".format(card))
       card.orientation = Rot90
@@ -718,6 +718,9 @@ def runAway(card, x = 0, y = 0): # Same as above pretty much but also clears the
       elif playeraxis == Yaxis: card.moveToTable(0,homeDistance(card) + (playerside * cheight(card,-4)))
       orgAttachments(card)
       card.highlight = None
+
+def leavePosse(card, x = 0, y = 0): # Same as above pretty much but also clears the shootout highlights.
+   card.highlight = None
       
 def posseReady (group, x = 0, y = 0):
    notify("{}'s Posse is Ready to throw down!".format(me))     
@@ -726,16 +729,17 @@ def posseReady (group, x = 0, y = 0):
 # Hand and Deck actions
 #---------------------------------------------------------------------------
       
-def playcard(card): 
+def playcard(card,retainPos = False): 
 # This is the function to play cards from your hand. It's one of the core functions
 # It will automatically pay the cost of cards if you can, or inform you if you cannot.
 # If the card being played has influence or Control points, those will automatically be added to the player's total.
 # Dudes and deeds will be placed at default locations to facilitate quicker play.
    mute()
-   chooseSide()
+   #chooseSide()
    chkcards = [] # Create an empty list to fill later with cards to check
    uniquecards = (tablecard for tablecard in table # Lets gather all the cards from the table that may prevent us from playing our card
                   if tablecard.name == card.name # First the card need to be the same as ours
+                  and tablecard != card # In case we tried to play the card manually so it's already on the table while we're checking.
                   and (tablecard.Type == 'Dude'  # But only dude or deeds...
                         or tablecard.Type == 'Deed' 
                         or (re.search('Unique.', tablecard.Text) # ...or cards with an explicit "Unique" in the text that are Goods, Improvements or Spells.
@@ -773,7 +777,7 @@ def playcard(card):
       elif ((re.search('Non-Unique', chkcard.Text) and chkcard.owner != me) or
             re.search('There is no limit', chkcard.Text)): continue 
             # We can still play our own non-unique cards that other players have in play.
-      elif chkcard.owner == me: 
+      elif chkcard.owner == me:
             notify ("{} wanted to bring {} into play they but already have a copy of it in play".format(me,card))     
             return
       else: 
@@ -785,21 +789,21 @@ def playcard(card):
    if card.Type == "Dude":
       chkHighNoon()
       if payCost(card.Cost, loud) == 'ABORT' : return # Check if the player can pay the cost. If not, abort.
-      placeCard(card,'HireDude')
+      if not retainPos: placeCard(card,'HireDude')
       notify("{} has hired {}.".format(me, card)) # Inform of the new hire      
    elif card.Type == "Deed" :
       chkHighNoon()
       if payCost(card.Cost, loud) == 'ABORT' : return # Check if the player can pay the cost. If not, abort.
-      placeCard(card,'BuyDeed')
+      if not retainPos: placeCard(card,'BuyDeed')
       notify("{} has acquired the deed to {}.".format(me, card))
    elif card.Type == "Goods" or card.Type == "Spell" or card.Type == "Improvement": # If we're bringing in any goods, just remind the player to pull for gadgets.
       chkHighNoon()
       if card.Type == "Improvement": hostCard = findHost('Improvement')
       else: hostCard = findHost('Goods')
-      if hostCard.orientation != Rot0 and not confirm("You can only purchase goods with unbooted dudes. Bypass restriction?"): return      
       if not hostCard:
          if card.Type == "Improvement": whisper("You need to target the deed which is going to be improved")
          else: whisper("You need to target the dude which is going to purchase the goods")
+         if retainPos: card.moveTo(me.hand)
          return
       else:
          if hostCard.orientation != Rot0 and card.Type != "Improvement" and not confirm("You can only attach goods to unbooted dudes. Bypass restriction?"): return      
@@ -816,7 +820,7 @@ def playcard(card):
          else : notify("{} has purchased {}.".format(hostCard, card))
    else: 
       if payCost(card.Cost, loud) == 'ABORT' : return # Check if the player can pay the cost. If not, abort.
-      card.moveToTable(0,0) # For anything else, just say they play it.
+      if not retainPos: card.moveToTable(0,0) # For anything else, just say they play it.
       notify("{} plays {} from their hand.".format(me, card))
    cardMemoryRemember(card) # Remember the card's memory.
    if num(card.Control) + card.markers[ControlPlusMarker] - card.markers[ControlMinusMarker] > 0:
@@ -956,7 +960,7 @@ def revealHand(group = me.piles['Draw Hand'], type = 'lowball', event = None):
 # It also highlights those cards, so that they are not confused with the cards in play
 # The cards are moved to the table relevant to the player's side and they are placed next to each other so that their suit&ranks are read easily
 # Finally their suit and rank are announced
-   chooseSide() # Just in case no side was chosen.
+   #chooseSide() # Just in case no side was chosen.
    mute()
    i = 0 
    rank = ['','','','',''] # We create some empty lists for the suits and ranks.

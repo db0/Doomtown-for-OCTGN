@@ -420,8 +420,7 @@ def TrialError(group, x=0, y=0): # Debugging
       whisper("This function is only for development purposes")
       return
    notify("### Setting Table Side")
-   if not playerside:  # If we've already run this command once, don't recreate the cards.
-      chooseSide()
+   if not playerside: chooseSide() # If we've already run this command once, don't recreate the cards.
 
 def extraASDebug(Autoscript = None):
    if Autoscript and debugVerbosity >= 3: return ". Autoscript:{}".format(Autoscript)

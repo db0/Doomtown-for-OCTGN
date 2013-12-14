@@ -4,7 +4,7 @@
       name="Doomtown" 
       id="9afa6473-fd81-41b9-955f-8f67c7d3f423" 
       octgnVersion="3.1.0.0" 
-      version="3.2.5.0" 
+      version="3.2.5.5" 
       markersize="16"
       tags="western deadlands poker maneuvering multiplayer"
       description="A western themed card game, marying poker mechanics, town building, and chess-like maneuvering.
@@ -15,14 +15,21 @@
       setsurl="http://octgn.gamersjudgement.com/wordpress/doomtown/sets/"
       gameurl="http://octgn.gamersjudgement.com/wordpress/doomtown"
       authors="Db0"
-      iconurl="https://raw.github.com/db0/Doomtown-for-OCTGN/master/doomtown_logo.jpg">
+      iconurl="https://raw.github.com/db0/Doomtown-for-OCTGN/master/doomtown_logo.jpg"
+      usetwosidedtable="False">
+      
 	<scripts>
       <script src="Scripts/constants.py" />
       <script src="Scripts/actions.py" />
       <script src="Scripts/generic.py" />
       <script src="Scripts/meta.py" />
       <script src="Scripts/poker.py" />
+      <script src="Scripts/events.py" />
 	</scripts> 
+   <events>
+       <event name="OnTableLoad" action="chkTwoSided" />
+       <event name="OnMoveCard" action="checkMovedCard" />
+   </events>
    <fonts>
        <font src="Fonts/american-typewriter-medium-bt-2.ttf" size="12" target="context"/>
 <!--       <font src="Fonts/Pixel-Western.ttf" size="8" target="chat"/>  -->
@@ -83,6 +90,7 @@
          <cardaction menu="Refuse Call out." default="False" shortcut="Esc" execute="refuseCallout" />
          <cardaction menu="Join Defending Posse." default="False" shortcut="Ctrl+Shift+D" execute="joinDefence" />
          <cardaction menu="Run Away from the Shootout." default="False" execute="runAway" />
+         <cardaction menu="Remove from Posse." default="False" execute="leavePosse" />
       </cardactions>
       <cardaction menu="Announce move without booting." default="False" shortcut="Ctrl+M" execute="move" />
       <cardaction menu="Announce move by booting." default="False" shortcut="Ctrl+B" execute="moveBoot" />

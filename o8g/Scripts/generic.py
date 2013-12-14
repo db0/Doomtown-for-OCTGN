@@ -382,34 +382,6 @@ def multiChoice(title, options): # This displays a choice where the player can s
 # General functions
 #---------------------------------------------------------------------------
    
-def chooseSide(): # Called from many functions to check if the player has chosen a side for this game.
-   mute()
-   global playerside, playeraxis
-   if playerside == None:  # Has the player selected a side yet? If not, then...
-      if len(players) < 3:
-         playeraxis = Xaxis
-         if confirm("Will you play on the right side?"): # Ask which side they want
-            playerside = 1 # This is used to swap between the two halves of the X axis of the play field. Positive is on the right.
-         else:
-            playerside = -1 # Negative is on the left.
-      else:
-         askside = askInteger("On which side do you want to setup?: 1 = Right, 2 = Left, 3 = Bottom, 4 = Top, 0 = None (All your cards will be put in the middle of the table and you'll have to arrange them yourself", 1) # Ask which axis they want,
-         if askside == 1:
-            playeraxis = Xaxis
-            playerside = 1
-         elif askside == 2:
-            playeraxis = Xaxis
-            playerside = -1
-         elif askside == 3:
-            playeraxis = Yaxis
-            playerside = 1
-         elif askside == 4:
-            playeraxis = Yaxis
-            playerside = -1
-         else:
-            playeraxis = None  
-            playerside = 0
-         
 def num (s): 
 # This function reads the value of a card and returns an integer. For some reason integer values of cards are not processed correctly
 # see bug 373 https://octgn.16bugs.com/projects/3602/bugs/188805
