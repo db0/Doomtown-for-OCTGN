@@ -6296,7 +6296,7 @@
    <card id="5e53b08d-e6d1-49e8-a308-d63fcfd8c079" name="Death's Head Joker">
       <property name="Rank" value="W" />
       <property name="Suit" value="" />
-      <property name="Type" value="DJoker" />
+      <property name="Type" value="Joker" />
       <property name="Cost" value="0" />
       <property name="Upkeep" value="" />
       <property name="Production" value="" />

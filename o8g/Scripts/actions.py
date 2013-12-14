@@ -215,10 +215,11 @@ def discard(card, x = 0, y = 0): # Discard a card.
       cardMemoryStore(card) # And store it's memory.
       notify("{} has discarded {}.".format(me, card))
    clearAttachLinks(card,'Discard')
-   if card.highlight == EventColor and re.search('Ace this card', card.Text): # If the card being discarded was an event in a lowball hand
-                                                                              # And that event had instructions to be aced
-      card.moveTo(cardowner.piles['Boot Hill'])                               # Then assume player error and ace it         
-      notify("{} was the active event and has been aced as per card instructions.".format(card)) # And inform the players.
+   if (card.highlight == EventColor or card.Type == 'Joker') and re.search('Ace this card', card.Text): # If the card being discarded was a joker or an event in a lowball hand
+                                                                                                        # And that event had instructions to be aced
+      card.moveTo(cardowner.piles['Boot Hill'])                                                         # Then assume player error and ace it         
+      if card.Type == 'Joker': notify("{} has been aced as per card instructions.".format(card)) # And inform the players.
+      else: notify("{} was the active event and has been aced as per card instructions.".format(card))
    else: card.moveTo(cardowner.piles['Discard Pile']) # Cards aced need to be sent to their owner's discard pile
    debugNotify("<<< discard()") #Debug
 
@@ -1008,6 +1009,9 @@ def revealHand(group = me.piles['Draw Hand'], type = 'lowball', event = None):
 def revealShootoutHand(group): 
 # Simply call the procedure above and then compares hands to see who won. 
 # The evaluation works only for 2 players but there can never be more than 2 players shooting it out anyway.
+   if len(group) > 5: 
+      whisper("Please reduce your draw hand to 5 cards before revealing it")
+      return
    revealHand(group, shootout)
    for player in players:
       if player == me or player.HandRank == 0: continue
@@ -1024,6 +1028,9 @@ def revealShootoutHand(group):
 def revealLowballHand(group = me.piles['Draw Hand'], type = 'normal'): 
    debugNotify(">>> revealLowballHand()")
    mute()
+   if len(group) > 5: 
+      whisper("Please reduce your draw hand to 5 cards before revealing it")
+      return
    # Checking for events before passing on to the reveal function
    evCount = 0
    foundEvents = ['','','','',''] # We need to declare the list because it will not work if it doesn't exist.
@@ -1049,6 +1056,10 @@ def revealLowballHand(group = me.piles['Draw Hand'], type = 'normal'):
          setWinner(winner)
    debugNotify("<<< revealLowballHand()")
 
+def revealHandAsk(group):
+   if confirm("Are you revealing a shootout hand?"): revealShootoutHand(group)
+   else: revealLowballHand(group)
+   
 def playLowball(group = me.Deck):
 # This function does the following. 
 # * It takes one Ghost Rock from the player and adds it to the shared Lowball pot.
@@ -1081,8 +1092,14 @@ def winLowball(group = table, x = 0,y = 0, winner = me): # A function which sets
    debugNotify(">>> winLowball()")
    potCard = getPotCard()
    setWinner(winner) # Set the winner's marker
-   winner.GhostRock += potCard.markers[mdict['Ante']] # Give them all the money from the lowball pot
+   #winner.GhostRock += potCard.markers[mdict['Ante']] # Give them all the money from the lowball pot
+   winner.GhostRock += len(getPlayers()) # We just give them one GR per player, to avoid OCTGN lag issues
    notify("{} is the lowball winner has received {} Ghost Rock from the pot".format(winner, potCard.markers[mdict['Ante']])) # Notify all other players
-   potCard.moveTo(shared.piles['Removed from Play']) # Remove the lowball card from the table
+   #potCard.moveTo(shared.piles['Removed from Play']) # Remove the lowball card from the table
+   delCard(potCard) # Remove the lowball card from the table
+   for card in table: # once we have a winner, we clear all the draw hands from the table.
+      if card.highlight == DrawHandColor: 
+         discard(card)
+         card.highlight = None
    debugNotify("<<< winLowball()")
       

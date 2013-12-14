@@ -1,6 +1,20 @@
 Changelog - Doomtown CCG OCTGN Game Definition
 ===============================================
 
+### 3.2.6.x
+
+* Side placement now more automated and less mistake-prone
+* Manually moving cards out of table should now clear attachments.
+* Manually moving cards into table from hand will try to play them normally.
+* Added Option to remove someone from posse (for cases of mistakes or take-baskies)
+* When manually moving a card around the table, its attachments will also be moved automatically with it.
+* Jokers will be auto-aced when discarded.
+* Game will now default to single-sided table.
+* Default action on the draw pile will now ask what kind of hand reveal it is
+* Game will not try to reveal a hand if it has more than 5 cards in it.
+* Lowball hands will autoclear after winner is decided
+
+
 ### 3.2.5.x
 
 * You can now double-click a card while in your draw hand to discard it.

@@ -1026,7 +1026,7 @@
    <card id="a32d8ff8-0482-4327-bdcd-cd21e8f81ec4" name="Fool's Joker">
       <property name="Rank" value="W" />
       <property name="Suit" value="" />
-      <property name="Type" value="FJoker" />
+      <property name="Type" value="Joker" />
       <property name="Cost" value="0" />
       <property name="Upkeep" value="" />
       <property name="Production" value="" />

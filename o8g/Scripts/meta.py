@@ -389,6 +389,17 @@ def makeChoiceListfromCardList(cardList,includeText = False):
       targetChoices.append(choiceTXT)
    debugNotify("<<< makeChoiceListfromCardList()", 3)
    return targetChoices
+
+#------------------------------------------------------------------------------
+# Remote Calls
+#------------------------------------------------------------------------------
+      
+def delCard(card):
+   mute()
+   if card.controller == me:
+      card.delete()
+   else: remoteCall(card.controller,"delCard",[card])
+      
    
 #------------------------------------------------------------------------------
 # Debugging
