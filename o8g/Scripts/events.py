@@ -35,7 +35,7 @@ def chooseSide(): # Called from many functions to check if the player has chosen
          playerside = 0
          notify(":> {}' arrive late to the party.".format(me))
 
-def checkMovedCard(player,card,fromGroup,toGroup,oldIndex,index,oldX,oldY,x,y,isScriptMove):
+def checkMovedCard(player,card,fromGroup,toGroup,oldIndex,index,oldX,oldY,x,y,isScriptMove,highlight = None,markers = None):
    mute()
    debugNotify("isScriptMove = {}".format(isScriptMove))
    if isScriptMove: return # If the card move happened via a script, then all automations should have happened already.
