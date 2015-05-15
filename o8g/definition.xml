@@ -4,7 +4,7 @@
       name="Doomtown" 
       id="9afa6473-fd81-41b9-955f-8f67c7d3f423" 
       octgnVersion="3.1.0.0" 
-      version="3.2.6.1" 
+      version="3.2.6.2" 
       markersize="16"
       tags="western deadlands poker maneuvering multiplayer"
       description="A western themed card game, marying poker mechanics, town building, and chess-like maneuvering.
@@ -16,6 +16,7 @@
       gameurl="http://octgn.gamersjudgement.com/wordpress/doomtown"
       authors="Db0"
       iconurl="https://raw.github.com/db0/Doomtown-for-OCTGN/master/doomtown_logo.jpg"
+      scriptVersion="3.1.0.1"
       usetwosidedtable="False">
       
 	<scripts>
